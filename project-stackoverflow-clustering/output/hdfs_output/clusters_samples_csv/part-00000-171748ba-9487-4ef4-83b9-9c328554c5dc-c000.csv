@@ -1,0 +1,5 @@
+cluster_id,cluster_size,doc_id,title,score,representative_id,representative_title,avg_similarity,tags_text
+28753859,2,28753859,Correlation and analytic function,0,28753859,Correlation and analytic function,0.85,sql|oracle-database|oracle11g
+28753859,2,28768945,Correlation function over analytic function,0,28753859,Correlation and analytic function,0.85,sql|oracle-database|oracle11g
+67307641,2,67307641,join with lookup and groupby,0,67307641,join with lookup and groupby,0.8666666666666667,sql|oracle-database
+67307641,2,67322152,join with lookup and group by,0,67307641,join with lookup and groupby,0.8666666666666667,sql|oracle-database

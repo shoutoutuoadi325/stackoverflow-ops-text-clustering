@@ -1,0 +1,10 @@
+metric,value
+questions,152758
+answers,203393
+question_comments,331642
+answer_comments,220296
+avg_answers_per_question,1.331
+max_answers_per_question,34
+unanswered_questions,29937
+top_question_id,470542
+top_question_title,How do I limit the number of rows returned by an Oracle query after ordering?

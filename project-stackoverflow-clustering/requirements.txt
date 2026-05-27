@@ -1,0 +1,4 @@
+# Runtime on the Hadoop/Spark cluster normally provides pyspark through Spark.
+# Install these only for local development or if submitting with a standalone Python environment.
+pyspark==3.5.1
+ijson>=3.2.3

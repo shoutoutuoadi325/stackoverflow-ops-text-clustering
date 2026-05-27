@@ -1,0 +1,35 @@
+spawn ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/Users/zhiqizhang/development/BigData/project-stackoverflow-clustering/docs/verification/known_hosts_cluster root@10.176.62.239 source /etc/profile 2>/dev/null || true; export JAVA_HOME=/opt/bigdata/jdk; export HADOOP_HOME=/opt/bigdata/hadoop; export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH; echo --- YARN_APPS ---; yarn application -list -appStates ALL | tail -20; echo --- WORKER1_NM_LOG ---; ssh -n worker1 'tail -160 /opt/bigdata/hadoop/logs/yarn-root-nodemanager-worker1.log'; echo --- WORKER2_NM_LOG ---; ssh -n worker2 'tail -120 /opt/bigdata/hadoop/logs/yarn-root-nodemanager-worker2.log'; echo --- RM_LOG ---; tail -160 /opt/bigdata/hadoop/logs/yarn-root-resourcemanager-master.log
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+--- YARN_APPS ---
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+2026-05-27 10:06:37,306 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at master/10.176.62.239:8032
+Total number of applications (application-types: [], states: [NEW, NEW_SAVING, SUBMITTED, ACCEPTED, RUNNING, FINISHED, FAILED, KILLED] and tags: []):17
+                Application-Id	    Application-Name	    Application-Type	      User	     Queue	             State	       Final-State	       Progress	                       Tracking-URL
+application_1779864261706_0007	stackoverflow-topic-clustering	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0008	stackoverflow-topic-clustering	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0009	stackoverflow-lsh-clustering	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0010	stackoverflow-lsh-clustering	               SPARK	      root	   default	            KILLED	            KILLED	           100%	http://master:8088/cluster/app/application_1779864261706_0010
+application_1779864261706_0003	   stackoverflow-eda	               SPARK	      root	   default	            KILLED	            KILLED	           100%	http://master:8088/cluster/app/application_1779864261706_0003
+application_1779864261706_0004	stackoverflow-preprocess	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0005	   stackoverflow-eda	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0006	stackoverflow-feature-engineering	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0001	            Spark Pi	               SPARK	      root	   default	            KILLED	            KILLED	           100%	http://master:8088/cluster/app/application_1779864261706_0001
+application_1779864261706_0002	            Spark Pi	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0015	stackoverflow-query-demo	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0016	stackoverflow-query-demo	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0017	            Spark Pi	               SPARK	      root	   default	            KILLED	            KILLED	           100%	http://master:8088/cluster/app/application_1779864261706_0017
+application_1779864261706_0011	stackoverflow-lsh-clustering	               SPARK	      root	   default	            KILLED	            KILLED	           100%	http://master:8088/cluster/app/application_1779864261706_0011
+application_1779864261706_0012	stackoverflow-lsh-clustering	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0013	stackoverflow-connected-components	               SPARK	      root	   default	            KILLED	            KILLED	           100%	http://master:8088/cluster/app/application_1779864261706_0013
+application_1779864261706_0014	stackoverflow-connected-components	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+--- WORKER1_NM_LOG ---
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+--- WORKER2_NM_LOG ---
+tail: cannot open '/opt/bigdata/hadoop/logs/yarn-root-nodemanager-worker1.log' for reading: No such file or directory
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+--- RM_LOG ---
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+tail: cannot open '/opt/bigdata/hadoop/logs/yarn-root-nodemanager-worker2.log' for reading: No such file or directory
+tail: cannot open '/opt/bigdata/hadoop/logs/yarn-root-resourcemanager-master.log' for reading: No such file or directory

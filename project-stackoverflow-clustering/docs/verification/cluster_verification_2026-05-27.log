@@ -1,0 +1,166 @@
+spawn ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/Users/zhiqizhang/development/BigData/project-stackoverflow-clustering/docs/verification/known_hosts_cluster root@10.176.62.239 echo c291cmNlIC9ldGMvcHJvZmlsZSAyPi9kZXYvbnVsbCB8fCB0cnVlCmV4cG9ydCBKQVZBX0hPTUU9L29wdC9iaWdkYXRhL2pkawpleHBvcnQgSEFET09QX0hPTUU9L29wdC9iaWdkYXRhL2hhZG9vcApleHBvcnQgSEFET09QX0NPTkZfRElSPSRIQURPT1BfSE9NRS9ldGMvaGFkb29wCmV4cG9ydCBTUEFSS19IT01FPS9vcHQvYmlnZGF0YS9zcGFyawpleHBvcnQgUEFUSD0kSkFWQV9IT01FL2JpbjokSEFET09QX0hPTUUvYmluOiRIQURPT1BfSE9NRS9zYmluOiRTUEFSS19IT01FL2JpbjokU1BBUktfSE9NRS9zYmluOiRQQVRICgplY2hvID09PSBDTFVTVEVSX1ZFUklGSUNBVElPTl8yMDI2LTA1LTI3ID09PQplY2hvIC0tLSBIT1NUIC0tLQpob3N0bmFtZQpkYXRlCmVjaG8gLS0tIEpBVkEgLS0tCmphdmEgLXZlcnNpb24gMj4mMQplY2hvIC0tLSBKUFNfTUFTVEVSIC0tLQpqcHMKZWNobyAtLS0gSlBTX1dPUktFUlMgLS0tCmZvciBoIGluIHdvcmtlcjEgd29ya2VyMjsgZG8KICBlY2hvIC0tLSAkaCAtLS0KICBzc2ggLW4gLW8gU3RyaWN0SG9zdEtleUNoZWNraW5nPW5vICRoICdzb3VyY2UgL2V0Yy9wcm9maWxlIDI+L2Rldi9udWxsIHx8IHRydWU7IGV4cG9ydCBKQVZBX0hPTUU9L29wdC9iaWdkYXRhL2pkazsgZXhwb3J0IFBBVEg9JEpBVkFfSE9NRS9iaW46JFBBVEg7IGhvc3RuYW1lOyBqcHMnCmRvbmUKZWNobyAtLS0gSERGU19SRVBPUlQgLS0tCmhkZnMgZGZzYWRtaW4gLXJlcG9ydAplY2hvIC0tLSBZQVJOX05PREVTIC0tLQp5YXJuIG5vZGUgLWxpc3QKZWNobyAtLS0gU1BBUktfUEkgLS0tCnNwYXJrLXN1Ym1pdCAtLW1hc3RlciB5YXJuIC0tZGVwbG95LW1vZGUgY2xpZW50IC0tY2xhc3Mgb3JnLmFwYWNoZS5zcGFyay5leGFtcGxlcy5TcGFya1BpIC9vcHQvYmlnZGF0YS9zcGFyay9leGFtcGxlcy9qYXJzL3NwYXJrLWV4YW1wbGVzXzIuMTItMy41LjEuamFyIDEwCmVjaG8gLS0tIEhERlNfT1VUUFVUX0RJUlMgLS0tCmhkZnMgZGZzIC1scyAtUiAvdXNlci9iaWdkYXRhL3N0YWNrb3ZlcmZsb3cvb3V0cHV0IHwgaGVhZCAtMTIwCmVjaG8gLS0tIERFTU9fVE9QX0NMVVNURVJTIC0tLQpjZCAvb3B0L2JpZ2RhdGEvcHJvamVjdC1zdGFja292ZXJmbG93LWNsdXN0ZXJpbmcgJiYgYmFzaCBzY3JpcHRzLzA3X3F1ZXJ5X2RlbW8uc2ggLS10b3AtY2x1c3RlcnMgLS1saW1pdCAxMAplY2hvIC0tLSBERU1PX0tFWVdPUkRfQU5BTFlUSUMgLS0tCmJhc2ggc2NyaXB0cy8wN19xdWVyeV9kZW1vLnNoIC0ta2V5d29yZCAiYW5hbHl0aWMgZnVuY3Rpb24iIC0tbGltaXQgMTAKZWNobyAtLS0gREVNT19LRVlXT1JEX0dST1VQX0JZIC0tLQpiYXNoIHNjcmlwdHMvMDdfcXVlcnlfZGVtby5zaCAtLWtleXdvcmQgImdyb3VwIGJ5IiAtLWxpbWl0IDEwCmVjaG8gLS0tIERFTU9fUVVFU1RJT05fMjg3NTM4NTkgLS0tCmJhc2ggc2NyaXB0cy8wN19xdWVyeV9kZW1vLnNoIC0tcXVlc3Rpb24taWQgMjg3NTM4NTkgLS1saW1pdCAxMAplY2hvID09PSBWRVJJRklDQVRJT05fRE9ORSA9PT0K | base64 -d | bash
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+=== CLUSTER_VERIFICATION_2026-05-27 ===
+--- HOST ---
+master
+Wed May 27 10:03:10 EDT 2026
+--- JAVA ---
+openjdk version "1.8.0_412"
+OpenJDK Runtime Environment (Temurin)(build 1.8.0_412-b08)
+OpenJDK 64-Bit Server VM (Temurin)(build 25.412-b08, mixed mode)
+--- JPS_MASTER ---
+28884 Jps
+16261 NameNode
+16524 SecondaryNameNode
+16830 ResourceManager
+--- JPS_WORKERS ---
+--- worker1 ---
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+worker1
+15747 NodeManager
+16314 Jps
+15695 DataNode
+--- worker2 ---
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+worker2
+19283 Jps
+13608 DataNode
+13756 NodeManager
+--- HDFS_REPORT ---
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+Configured Capacity: 107321753600 (99.95 GB)
+Present Capacity: 96413302784 (89.79 GB)
+DFS Remaining: 93857120256 (87.41 GB)
+DFS Used: 2556182528 (2.38 GB)
+DFS Used%: 2.65%
+Replicated Blocks:
+	Under replicated blocks: 0
+	Blocks with corrupt replicas: 0
+	Missing blocks: 0
+	Missing blocks (with replication factor 1): 0
+	Low redundancy blocks with highest priority to recover: 0
+	Pending deletion blocks: 0
+Erasure Coded Block Groups: 
+	Low redundancy block groups: 0
+	Block groups with corrupt internal blocks: 0
+	Missing block groups: 0
+	Low redundancy blocks with highest priority to recover: 0
+	Pending deletion blocks: 0
+
+-------------------------------------------------
+Live datanodes (2):
+
+Name: 10.176.62.240:9866 (worker1)
+Hostname: worker1
+Decommission Status : Normal
+Configured Capacity: 53660876800 (49.98 GB)
+DFS Used: 803315712 (766.10 MB)
+Non DFS Used: 5273526272 (4.91 GB)
+DFS Remaining: 47584034816 (44.32 GB)
+DFS Used%: 1.50%
+DFS Remaining%: 88.68%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 0
+Last contact: Wed May 27 10:03:13 EDT 2026
+Last Block Report: Wed May 27 07:17:19 EDT 2026
+Num of Blocks: 41
+
+
+Name: 10.176.62.241:9866 (worker2)
+Hostname: worker2
+Decommission Status : Normal
+Configured Capacity: 53660876800 (49.98 GB)
+DFS Used: 1752866816 (1.63 GB)
+Non DFS Used: 5634924544 (5.25 GB)
+DFS Remaining: 46273085440 (43.10 GB)
+DFS Used%: 3.27%
+DFS Remaining%: 86.23%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 0
+Last contact: Wed May 27 10:03:13 EDT 2026
+Last Block Report: Wed May 27 06:10:49 EDT 2026
+Num of Blocks: 118
+
+
+--- YARN_NODES ---
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+2026-05-27 10:03:16,735 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at master/10.176.62.239:8032
+Total Nodes:2
+         Node-Id	     Node-State	Node-Http-Address	Number-of-Running-Containers
+   worker2:33924	        RUNNING	     worker2:8042	                           0
+   worker1:46924	        RUNNING	     worker1:8042	                           0
+--- SPARK_PI ---
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+26/05/27 10:03:20 INFO SparkContext: Running Spark version 3.5.1
+26/05/27 10:03:20 INFO SparkContext: OS info Linux, 3.10.0-327.el7.x86_64, amd64
+26/05/27 10:03:20 INFO SparkContext: Java version 1.8.0_412
+26/05/27 10:03:20 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/05/27 10:03:20 INFO ResourceUtils: ==============================================================
+26/05/27 10:03:20 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/05/27 10:03:20 INFO ResourceUtils: ==============================================================
+26/05/27 10:03:20 INFO SparkContext: Submitted application: Spark Pi
+26/05/27 10:03:20 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/05/27 10:03:20 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+26/05/27 10:03:20 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/05/27 10:03:20 INFO SecurityManager: Changing view acls to: root
+26/05/27 10:03:20 INFO SecurityManager: Changing modify acls to: root
+26/05/27 10:03:20 INFO SecurityManager: Changing view acls groups to: 
+26/05/27 10:03:20 INFO SecurityManager: Changing modify acls groups to: 
+26/05/27 10:03:20 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+26/05/27 10:03:20 INFO Utils: Successfully started service 'sparkDriver' on port 51662.
+26/05/27 10:03:20 INFO SparkEnv: Registering MapOutputTracker
+26/05/27 10:03:21 INFO SparkEnv: Registering BlockManagerMaster
+26/05/27 10:03:21 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/05/27 10:03:21 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/05/27 10:03:21 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/05/27 10:03:21 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-5863af86-1e47-496f-a178-04179a133aeb
+26/05/27 10:03:21 INFO MemoryStore: MemoryStore started with capacity 366.3 MiB
+26/05/27 10:03:21 INFO SparkEnv: Registering OutputCommitCoordinator
+26/05/27 10:03:21 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/05/27 10:03:21 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/05/27 10:03:21 INFO SparkContext: Added JAR file:/opt/bigdata/spark-3.5.1-bin-hadoop3/examples/jars/spark-examples_2.12-3.5.1.jar at spark://master:51662/jars/spark-examples_2.12-3.5.1.jar with timestamp 1779890600175
+26/05/27 10:03:21 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at master/10.176.62.239:8032
+26/05/27 10:03:22 INFO Configuration: resource-types.xml not found
+26/05/27 10:03:22 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+26/05/27 10:03:22 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (8192 MB per container)
+26/05/27 10:03:22 INFO Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+26/05/27 10:03:22 INFO Client: Setting up container launch context for our AM
+26/05/27 10:03:22 INFO Client: Setting up the launch environment for our AM container
+26/05/27 10:03:22 INFO Client: Preparing resources for our AM container
+26/05/27 10:03:23 INFO Client: Uploading resource file:/tmp/spark-fe3ef43c-9152-4cb6-84e5-4c47825b2298/__spark_conf__2616245142657781824.zip -> hdfs://master:9000/user/root/.sparkStaging/application_1779864261706_0017/__spark_conf__.zip
+26/05/27 10:03:23 INFO SecurityManager: Changing view acls to: root
+26/05/27 10:03:23 INFO SecurityManager: Changing modify acls to: root
+26/05/27 10:03:23 INFO SecurityManager: Changing view acls groups to: 
+26/05/27 10:03:23 INFO SecurityManager: Changing modify acls groups to: 
+26/05/27 10:03:23 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+26/05/27 10:03:23 INFO Client: Submitting application application_1779864261706_0017 to ResourceManager
+26/05/27 10:03:23 INFO YarnClientImpl: Submitted application application_1779864261706_0017
+26/05/27 10:03:24 INFO Client: Application report for application_1779864261706_0017 (state: ACCEPTED)
+26/05/27 10:03:24 INFO Client: 
+	 client token: N/A
+	 diagnostics: [Wed May 27 10:03:24 -0400 2026] Scheduler has assigned a container for AM, waiting for AM container to be launched
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1779890603542
+	 final status: UNDEFINED
+	 tracking URL: http://master:8088/proxy/application_1779864261706_0017/
+	 user: root
+26/05/27 10:03:54 INFO Client: Application report for application_1779864261706_0017 (state: ACCEPTED)
+26/05/27 10:04:24 INFO Client: Application report for application_1779864261706_0017 (state: ACCEPTED)
+26/05/27 10:04:54 INFO Client: Application report for application_1779864261706_0017 (state: ACCEPTED)
+26/05/27 10:05:24 INFO Client: Application report for application_1779864261706_0017 (state: ACCEPTED)
+26/05/27 10:05:54 INFO Client: Application report for application_1779864261706_0017 (state: ACCEPTED)

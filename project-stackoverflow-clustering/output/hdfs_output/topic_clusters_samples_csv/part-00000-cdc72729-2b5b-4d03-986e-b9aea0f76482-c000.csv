@@ -1,0 +1,1001 @@
+cluster_id,doc_id,title,score,cluster_top_terms,tags_text
+0,16568,How to select the nth row in a SQL database table?,497,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|database|oracle-database|postgresql
+0,3014940,"Is there a combination of \"LIKE\" and \"IN\" in SQL?",463,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|t-sql|plsql
+0,1580450,How do I list all the columns in a table?,337,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|mysql|sql-server|oracle-database
+0,3451534,How do I do top 1 in Oracle?,295,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|sql-limit
+0,11043712,Non-Repeatable Read vs Phantom Read?,292,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|transactions|isolation-level|transaction-isolation
+0,73751,What is the dual table in Oracle?,267,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|dual-table
+0,11183572,What's the difference between RANK() and DENSE_RANK() functions in oracle?,236,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|window-functions
+0,2498035,Oracle SELECT TOP 10 records,214,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|top-n
+0,19654494,"Can we have multiple \"WITH AS\" in single sql - Oracle SQL",170,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2250196,SELECT INTO using Oracle,162,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-00905
+0,14767209,subquery in FROM must have an alias,155,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|postgresql|subquery
+0,10650851,"Is there any difference between \"!=\" and \"<>\" in Oracle Sql?",149,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,15091849,How to use Oracle ORDER BY and ROWNUM correctly?,147,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-order-by|rownum
+0,8739203,Oracle query to fetch column names,143,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,400255,How to put more than 1000 values into an Oracle IN clause,134,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|in-clause
+0,2671518,How do you create a temporary table in an Oracle database?,129,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|temp-tables
+0,241622,Paging with Oracle,129,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|stored-procedures
+0,189213,SQL selecting rows by most recent date with two unique columns,116,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,3999491,"How do I select all the columns from a table, plus additional columns like ROWNUM?",112,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select
+0,9868409,How to get records randomly from the Oracle database?,109,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|select|random
+0,27034585,How to Select Top 100 rows in Oracle?,105,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,16960432,What is PostgreSQL equivalent of SYSDATE from Oracle?,94,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|postgresql
+0,28371342,"What is the equivalent of the Oracle \"Dual\" table in MS SqlServer?",84,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|t-sql|dual-table
+0,18109276,Select multiple columns into multiple variables,83,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|select-into
+0,2875257,How to handle a single quote in Oracle SQL,82,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|escaping
+0,4522431,Find duplicate entries in a column,79,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|subquery
+0,10064532,The order of a SQL Select statement without Order By clause,76,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql-server|oracle-database|select|sql-order-by
+0,356675,Using an Alias in a WHERE clause,73,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|alias|decode|ora-00904
+0,8451195,Is the 'as' keyword required in Oracle to define an alias?,73,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|alias|required
+0,1031844,Oracle DB: How can I write query ignoring case?,72,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,30078464,Difference between WITH clause and subquery?,71,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|subquery|common-table-expression
+0,2847226,SQL to generate a list of numbers from 1 to 100,70,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,10353969,How can I select from list of values in Oracle,68,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|oracle11g
+0,4722220,SQL IN Clause 1000 item limit,67,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,14830875,Find out the history of SQL queries,66,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sql-update|database-administration
+0,13339589,Custom Order in Oracle SQL,65,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-order-by
+0,1881853,Select without a FROM clause in Oracle,64,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,15614751,If statement in select (ORACLE),63,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|if-statement|oracle10g
+0,7553901,Declaring a variable and setting its value from a SELECT query in Oracle,62,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,3826929,SQL Query to find missing rows between two related tables,60,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,256700,What is a View in Oracle?,60,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|view
+0,28406397,DATEDIFF function in Oracle,60,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|datediff
+0,3434437,What's the most efficient way to check if a record exists in Oracle?,60,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,21140868,Proper way of checking if row exists in table in PL/SQL block,58,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|plsql
+0,2298550,Oracle: '= ANY()' vs. 'IN ()',57,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|syntax
+0,5380559,Update statement using with clause,57,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5727882,"Check if two \"select\"s are equivalent",56,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select
+0,871578,How to compare strings in sql ignoring case?,56,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,7355095,How to use Oracle's LISTAGG function with a unique filter?,55,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|group-by|oracle11g|aggregate-functions
+0,594,cx_Oracle: How do I iterate over a result set?,55,"table, query, sql, select, data, like, get, one, column, id, rows, value",python|sql|database|oracle-database|cx-oracle
+0,588430,What is the best way to escape non-format characters in Oracle's to_char?,55,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|to-char
+0,4442323,How to find out when a particular table was created in Oracle?,53,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|database-metadata
+0,3521124,How to calculate the maximum of two numbers in Oracle SQL select?,50,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|max
+0,14791684,ORACLE IIF Statement,50,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|conditional-operator|iif
+0,10092032,Extracting the total number of seconds from an interval data-type,49,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,10704808,Get counts of all tables in a schema,49,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,13027708,SQL multiple columns in IN clause,48,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,13217600,IF EXISTS condition not working with PLSQL,45,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|if-statement|plsql
+0,3045034,"What's the correct name for an \"association table\" (a many-to-many relationship)",44,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|mysql|sql-server|oracle-database|rdbms
+0,9150370,select the TOP N rows from a table,44,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|sql-server|oracle-database
+0,1574565,How can I select records ONLY from yesterday?,42,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,25486543,PLS-00428: an INTO clause is expected in this SELECT statement,41,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle11g
+0,18264584,`show create table` equivalent in oracle sql,41,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,3193692,CASE vs. DECODE,41,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,11892113,Creating new table with SELECT INTO in SQL,40,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|create-table
+0,5429393,Oracle create table using with clause,40,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|common-table-expression
+0,670461,Does Oracle have an equivalent of SQL Server's table variables?,39,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,17732302,Error ORA-00932 when using a select with union and CLOB fields,38,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|plsql
+0,316812,Top 5 time-consuming SQL queries in Oracle,38,"table, query, sql, select, data, like, get, one, column, id, rows, value",performance|oracle-database
+0,9140626,"Database - (rows or records, columns or fields)?",38,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|naming-conventions|record
+0,890035,Oracle query to get Data from table inserted in last 10 mins,38,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|datetime
+0,18830624,Error (ORA-00923: FROM keyword not found where expected),36,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2253040,Benefits Of Using SQL Ordinal Position Notation?,35,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|ordinals
+0,2319284,SQL recursive query on self referencing table (Oracle),35,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|plsql|hierarchical-data
+0,9366021,Checking whether an item does not exist in another table,35,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|exists|anti-join
+0,347160,Should I delete or disable a row in a relational database?,35,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|oracle-database|relational
+0,9502273,"In SQL Server, how can I lock a single row in a way similar to Oracle's \"SELECT FOR UPDATE WAIT\"?",35,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql-server|database|oracle-database|concurrency|locking
+0,22850382,Build a list of defined values into CTE,34,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|common-table-expression
+0,23560996,Return results of a sql query as JSON in oracle 12c,34,"table, query, sql, select, data, like, get, one, column, id, rows, value",json|oracle-database|oracle12c
+0,1762712,'NOT LIKE' in an SQL query,33,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-00936
+0,15262351,Decode equivalent in postgres,33,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|postgresql
+0,7480243,SQL (ORACLE): ORDER BY and LIMIT,33,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-order-by|offset|sql-limit
+0,19022175,ExecuteBatch method return array of value -2 in java,31,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|jdbc
+0,25387951,Curious issue with Oracle UNION and ORDER BY,31,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|sql-order-by|union-all
+0,25311854,Using SELECT inside COALESCE,31,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle-sqldeveloper
+0,16567129,How to get table comments via SQL in Oracle?,31,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,188118,How do I format my oracle queries so the columns don't wrap?,30,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sqlplus
+0,8292199,Query several NEXTVAL from sequence in one statement,30,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,24898681,What is the equivalent PostgreSQL syntax to Oracle's CONNECT BY ... START WITH?,29,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|postgresql|recursive-query|connect-by
+0,2048244,Oracle subquery does not see the variable from the outer block 2 levels up,29,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-00904
+0,27965130,"How to SELECT Column, * FROM TABLE in Oracle?",29,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,18104884,Conditional WHERE clause with CASE statement in Oracle,29,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|where-clause
+0,14722883,What is the maximum number of columns allowed in a table?,28,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|datatable
+0,2315295,"Why is selecting specified columns, and all, wrong in Oracle SQL?",28,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|table-alias|ora-00936
+0,28802134,SQL not recognizing column alias in where clause,28,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|column-alias
+0,3504012,SQL: How to find duplicates based on two fields?,27,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|unique|unique-constraint|ora-00918
+0,14139931,Keep order from 'IN' clause,27,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,39129585,"Query the two cities in STATION with the shortest and longest CITY names,",27,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2446053,What are the BIN$... tables in Oracle's ALL_TAB_COLUMNS table?,27,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,13845655,Removing Locks in Oracle 10,26,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sqlplus
+0,305568,Oracle error : ORA-00905: Missing keyword,26,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-00905
+0,16529701,Select First Row of Every Group in sql,26,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,206222,Oracle - Best SELECT statement for getting the difference in minutes between two DateTime columns?,26,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|datediff
+0,174595,"In an Oracle database, what is the difference between ROWNUM and ROW_NUMBER?",26,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|row-number|rownum
+0,12156399,How to resolve ORA 00936 Missing Expression Error?,26,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g|ora-00936
+0,4137776,Select the minimum of two dates,25,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,56807876,ODCIAggregateMerge without parallel_enabled,24,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|aggregate
+0,1731889,Cycle detection with recursive subquery factoring,24,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|db2|hierarchical-query
+0,4098800,Oracle sql return true if exists question,24,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|if-statement|exists
+0,9007051,rs.last() gives Invalid operation for forward only resultset : last,24,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|jdbc|resultset
+0,11900470,Oracle: subtract millisecond from a datetime,24,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|function|date
+0,26461868,Exists / not exists: 'select 1' vs 'select field',24,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|exists
+0,7238983,Delete all records except the most recent one?,24,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-delete
+0,53553523,TypeORM subqueries,24,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|typeorm|typeorm-datamapper
+0,56895,Proving SQL query equivalency,23,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,9315070,Trying to understand over() and partition by,23,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12742826,How do I know the id before saving an object in jpa,23,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|jpa|jpa-2.0
+0,3957909,Getting seconds between two Oracle Timestamps,22,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|timestamp
+0,6198320,"How to use \"Partition By\" or \"Max\"?",22,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|max
+0,17358109,How to retrieve all recursive children of parent row in Oracle SQL?,22,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|recursion|rdbms
+0,52081473,Aggregate Overlapping Segments to Measure Effective Length,22,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|oracle12c|asset-management
+0,10912337,How to show comments of a column with desc operation,22,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle-sqldeveloper
+0,6514906,"IN vs OR of Oracle, which faster?",22,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|performance|oracle-database
+0,9595876,what is the maximum value of MAXVALUE in sequence in oracle?,22,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|sequence
+0,11013504,How do I check if a sequence exists or not in Oracle 11g?,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|sequence
+0,3940522,Why is no_data_found ORA-01403 an exception in Oracle?,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|exception|plsql|ora-01403
+0,7633086,Why is there a SELECT 1 from table?,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,20487657,SQL Server : RowVersion equivalent in Oracle,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|rowversion
+0,38775056,Creating a CTE in Oracle,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|insert|common-table-expression
+0,50846643,How does pagination of results in databases work?,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|database|oracle-database|pagination
+0,21145028,How to use the 'as' keyword to alias a table in Oracle?,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|table-alias
+0,4385346,Using SQL query to determine if a table exists,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5847228,Oracle select for update behaviour,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|locking|blocking
+0,12169842,Oracle- create a temporary resultset for use in a query,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12364999,Oracle get records updated in last one hour,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|date-arithmetic
+0,9521556,Displaying RowID in Select * (all) Statement,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|toad|rowid
+0,937398,How to get Oracle create table statement in SQL*Plus,21,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sqlplus
+0,18737369,SQL Error: ORA-00913: too many values,20,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,3921982,SELECT DISTINCT CLOB_COLUMN FROM TABLE;,20,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql|ora-00932
+0,40610396,Strange random behavior in where clause,20,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,4375189,Changing a FK delete rule in Oracle without dropping and recreating it?,20,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|foreign-keys
+0,26059855,Why is truncate a DDL statement?,20,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ddl
+0,14243131,Concatenate results from a SQL query in Oracle,20,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|concatenation
+0,12873667,ALTER TABLE syntax - missing DIRECTORY keyword,20,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,8900631,Does Oracle use short-circuit evaluation?,20,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5903632,Can a subquery be used in an Oracle ALTER statement?,20,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|plsql
+0,1074843,Is there an Oracle equivalent to SQL Server's OUTPUT INSERTED.*?,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|oracle10g
+0,13897024,Sql Order by on multiple column,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-order-by
+0,15445019,EXCEPT keyword in Oracle,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|sql-except
+0,28653276,Select into a temporary table in Oracle,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql|sqlplus
+0,5063214,Convert interval to minutes,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,450581,How to average time intervals?,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|timestamp|ora-00932
+0,8050854,How to find maximum avg,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,3338415,What does PARTITION BY 1 mean?,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|count|analytics|database-partitioning
+0,2186848,How to find locked rows in Oracle,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|locking
+0,2431054,How does contains() in PL-SQL work?,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|contains
+0,17839015,Finding the longest streak of wins,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11gr2
+0,22681705,How to use Timestamp_to_scn and Scn_to_timestamp in Oracle?,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|datetime|timestamp|oracle-sqldeveloper
+0,3884678,Use a calculated field in the where clause,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|ora-00904
+0,23572605,Oracle SQL: Understanding the behavior of SYS_GUID() when present in an inline view?,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,41635374,"Select every columns, but rename one of them",19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,13539334,ORACLE: Updating multiple columns at once,19,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,11311951,Should SELECT ... FOR UPDATE always contain ORDER BY?,18,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|locking|deadlock
+0,19208264,ORA-22905 - when querying a table type with a select statement,18,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,9767920,"Java Oracle exception - \"maximum number of expressions in a list is 1000\"",18,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate|ora-01795
+0,14127707,Is there a generic workaround to express a derived column list in Oracle (and MySQL)?,18,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|oracle-database
+0,5119190,Oracle SQL order by in subquery problems!,18,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,6673806,"Oracle -- WITH CLAUSE => MERGE? (Syntax error, )",18,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|merge|with-statement|ora-00928|subquery-factoring
+0,39446348,How to select columns with an even ID number?,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,6189275,How do I generate random sample data in my Oracle database?,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|sql|oracle-database|dataset
+0,7569918,How can I use a collection within an Oracle SQL statement,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|collections|plsql
+0,26968999,Oracle - drop multiple table in a single query,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|ddl
+0,4269205,"Why doesn't Oracle raise \"ORA-00918: column ambiguously defined\" for this query?",17,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|oracle11g|ora-00918
+0,2306744,Oracle SQL - How to Retrieve highest 5 values of a column,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|top-n
+0,435109,What can cause an Oracle ROWID to change?,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|rowid
+0,4509167,Select Nth Row From A Table In Oracle,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,15396217,If statement within Where clause,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql|plsqldeveloper
+0,6094039,Oracle: Updating a table column using ROWNUM in conjunction with ORDER BY clause,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-update|rownum
+0,11629966,How To Handle Table Column Named With Reserved Sql Keyword?,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,51148996,Oracle sequence nextval and currval confusing,17,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,13740732,difference between <> and !=,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database
+0,15569844,Oracle: create temporary table by a SELECT statement,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,10092407,Optimal way to DELETE specified rows from Oracle,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,644975,Deleting a LOT of data in Oracle,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,19430145,What is the impact of enabling/disabling ROW_MOVEMENT in Oracle 10g?,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g
+0,9996797,Oracle SQL -- find the values NOT in a table,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,4950394,Representing IPv4/IPv6 addresses in Oracle,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|ipv6|ipv4
+0,39525004,Why does Oracle allow having several subqueries with the same alias_name in a WITH clause?,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|common-table-expression
+0,4729838,Iterate over a column in PL/SQL,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|loops|plsql
+0,65866812,Explanation of KEEP in Oracle FIRST/LAST,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,11987067,Pivoting of data using two columns,16,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,13499797,Joining tables when data may or may not exist,15,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|oracle-database|join
+0,31721343,Design Pattern for Custom Fields in Relational Database,15,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql-server|asp.net-mvc|oracle-database|database-design
+0,11132375,Connect by in Oracle SQL,15,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hierarchical-query
+0,38578004,"In Oracle SQL, can I query a partition of a table instead of an entire table to make it run faster?",15,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|syntax|partitioning
+0,12896007,Oracle IN vs Exists difference?,15,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,27968877,How to avoid two different threads read the same rows from DB (Hibernate and Oracle 10g),15,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate|transactions|locking
+0,4954076,Differences between MySQL and Oracle DB,15,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|oracle-database|comparison|performance
+0,35689157,Compare Strings ignoring accents in SQL (ORACLE),15,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,14430424,commit after select,15,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|commit
+0,29116396,Workaround for ORA-00997: illegal use of LONG datatype,15,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sqldatatypes|sqllong
+0,27099414,"How to add offset in a \"select\" query in Oracle 11g?",15,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|pagination|rownum
+0,2809418,Custom order in Oracle PL/SQL,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-order-by
+0,439138,Running total by grouped records in table,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|grouping|sum|cumulative-sum
+0,8404194,How to make a varchar2 field shorter in Oracle?,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,9175749,ORA-00907 Missing right parenthesis issue - select with order by inside insert query,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-00907
+0,28858892,concurrent statistics gathering on Oracle 11g partiitioned table,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|etl|data-warehouse|table-statistics
+0,63738889,EntityManager.createNativeQuery returning list of objects instead of list of BigDecimal when using Pagination,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate|pagination|entitymanager
+0,5224907,Joining tables with LIKE (SQL),14,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-01722
+0,9582538,how to retrieve records which occurred more than twice in oracle?,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sqlplus
+0,7644791,Oracle hierarchical query on non-hierarchical data,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|data-structures|plsql
+0,13947004,Behavior of SELECT query using executeUpdate,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|jdbc
+0,733979,Selecting all rows until first occurrence of given value,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,14547501,How to prettify the output coming from the SELECT query in command prompt?,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sqlplus
+0,403924,is there a PRODUCT function like there is a SUM function in Oracle SQL?,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,38218030,"What is the difference when comparing with parentheses: WHERE (a, b)=(1,2)",14,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|sql-server|oracle-database
+0,4468071,How can I make cx-oracle bind the results of a query to a dictionary rather than a tuple?,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",python|sql|database|oracle-database|cx-oracle
+0,6353427,Using MAX() in VARCHAR Field,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",string|oracle-database|sorting
+0,38715625,How to fallback to a different value in 'WHERE' clause sql?,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|database|oracle-database|postgresql
+0,10747355,Oracle 11g: Unpivot multiple columns and include column name,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|unpivot
+0,13513936,Oracle Sequence value are not ordered,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g|oracle11g
+0,1137751,Is there integer ranges for Where Clause?,14,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2200063,"When designing databases, what is the preferred way to store multiple true / false values?",13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql-server|oracle-database|database-design|query-optimization
+0,23334495,Recovering deleted rows from oracle table,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,30844110,Order by case insensitive in oracle,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,8456639,Get list of table names in different schema of an Oracle database,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12243488,Oracle SQL Analytic query - recursive spreadsheet-like running total,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|recursive-query|analytic-functions|cumulative-sum
+0,26137332,Select where number equals Infinity,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2027807,Update materialized view when urderlying tables change,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g|materialized-views
+0,4268139,How does one do a SQL select over multiple partitions?,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|database-partitioning
+0,40230632,Case Statement on Multiple conditions in Oracle,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|case
+0,1740838,Inserting new columns in the middle of a table?,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,6603171,Oracle DELETE statement with subquery factoring,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g|ora-00928|subquery-factoring
+0,3187789,sql nested case statements,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|case
+0,1837793,Displaying the constraints in a table,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|constraints|sqlplus
+0,24298868,Sequence cache and performance,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|database-performance
+0,27015408,Select distinct returns duplicates,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,11738342,How to insert 1 million random row into table database Oracle,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,13448860,How to view all the Metadata of columns of a table in oracle database?,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|oracle11g|metadata
+0,16669197,Doctor scheduling database design,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql-server|database|oracle-database|database-design
+0,40462110,spring-data-jpa: ORA-01795: maximum number of expressions in a list is 1000,13,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate|spring-data-jpa
+0,4940530,oracle: can you assign an alias to the from clause?,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|table-alias
+0,7327849,unexpected query success,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g
+0,55037468,Oracle equivalent of information_schema.tables,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|data-dictionary
+0,9450381,Is ora_hash deterministic?,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|ora-hash
+0,1593038,Opposite of INTERSECT in Oracle,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,19942767,Oracle: How to reference an alias with a space from a subquery in a comparison operation,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|subquery|alias
+0,33552237,Materialized view and table with the same name,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|materialized-views
+0,7612822,Suggestions for Querying Database for Names,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|full-text-search|soundex|oracle-text
+0,285477,Best way to select the row with the most recent timestamp that matches a criterion,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,15767034,"\"ORA-00903: invalid table name\" error while updating a record",12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,4324410,How to sort by numbers first with Oracle SQL query?,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",php|sql|oracle-database|sql-order-by|oci8
+0,4682821,"Oracle: Get a query to always return exactly one row, even when there's no data to be found",12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-01403
+0,3092041,Understanding the differences between Table and Transaction API's,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|design-patterns|api|plsql
+0,540136,Is it always better to use normalized tables?,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql-server|database-normalization|oracle-database
+0,23543318,ORA_ROWSCN - old/restored blocks don't have a real SCN assigned?,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|datapump
+0,8428328,oracle : how to ensure that a function in the where clause will be called only after all the remaining where clauses have filtered the result?,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|function|optimization|filter
+0,8922638,Alter table after keyword in Oracle,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|ddl|alter-table
+0,16274362,Last_value window function doesn't work properly,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|window-functions
+0,7451761,How to get the employees with their managers,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sqlplus
+0,35932771,How do I alter my existing table to create a range partition in Oracle,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|create-table|alter-table|partition
+0,24657919,Hibernate returns list of nulls although executed SQL returns values,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|sql|oracle-database|hibernate
+0,2715736,PL/SQL bulk collect into associative array with sparse key,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql|associative-array
+0,12660444,How to delete a column from a view,12,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,50123407,Simple recursive query in Oracle,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|recursive-query
+0,42326469,"What is the point using \"AS\" keyword in SQL when aliasing can be done without it?",11,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|sql-server|oracle-database
+0,34418779,Using `SELECT` to call a function,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,4659803,Recursion In Oracle,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|recursion
+0,4483222,How to get second largest or third largest entry from a table,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|max
+0,4740489,Query to find an average weighted price,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,20497613,ORA-01408: such column list already indexed,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle-sqldeveloper
+0,706503,Why does Oracle think I'm missing a right parenthesis?,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-00907
+0,13395131,Is it possible to use sql%rowcount for SELECT?,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|stored-procedures|plsql|oracle10g|oracle11g
+0,1604707,SQL LIKE Performance with only the wildcard (%) as a value,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|derby|sql-like
+0,21919468,Oracle SQL adding multi-line table comment or column comment,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|multiline|comments
+0,21496073,How to filter sql developer to only show my tables?,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle-sqldeveloper
+0,5396827,Inventory Average Cost Calculation in SQL,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g
+0,11469634,How to write a table literal in Oracle?,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,1783308,Is it possible to partially refresh a materialized view in Oracle?,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|data-warehouse|partitioning|materialized-views
+0,11612268,Datatype of ROWID in Oracle/SQL,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|rowid
+0,54741182,What does the jpa @SequenceGenerator.allocationSize mean?,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|jpa|h2
+0,3196611,What does +0 mean after an ORDER BY in Oracle,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sorting|oracle9i
+0,3142665,how to convert csv to table in oracle,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",string|oracle-database|csv|plsql|tokenize
+0,18977634,How to select the value of a variable in Oracle?,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|select-into
+0,39567266,Write Skew anomaly in Oracle and PostgreSQL does not rollback transaction,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|postgresql|transactions|serializable|acid
+0,38665230,SQL query : how to check existence of multiple rows with one query,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,53916500,Hibernate Join two unrelated table when both has Composite Primary Key,11,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|sql|oracle-database|hibernate|jpa
+0,605925,How to call a function with Rowtype parameter from a select statement in Oracle,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|stored-procedures
+0,10494205,Let Oracle transform OR-connected predicates into UNION ALL operations,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|optimization|union|union-all
+0,27253333,How to calculate ratio using sql query?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql-server|oracle-database
+0,51764903,How to use alias in @Formula,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",spring|oracle-database|spring-boot|hibernate|jpa
+0,85675,How do I compare two CLOB values in Oracle,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,1699955,"SQL to have one specific record at the top, all others below",10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,10431305,How to reorder items in a table,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,7190714,Why does Oracle's varchar sort order not match the behavior of varchar comparison?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sorting|compare
+0,35327135,Retrieving identity of most recent insert in Oracle DB 12c,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",python|oracle-database|oracle12c
+0,2191780,Dynamic table partitioning in Oracle,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|dynamic|database-partitioning
+0,39224471,"Oracle - Order by specific values first, then the rest",10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-order-by
+0,1207803,How can I create a table as a select from another database in Oracle?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5383381,How to find last 10 oracle queries by username?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,6293193,Why Oracle 10g doesn't complain about column ambiguity?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|ambiguity
+0,21019584,List of Oracle views using specific table name,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|view|find|names
+0,5851284,Total cost of a query through Oracle's explain plan,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|oracle11g
+0,20068015,oracle rollup function with multiple columns,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|rollup
+0,31136211,How to handle leap seconds in Oracle,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,9104153,What is the correct way to deal with this Oracle ORA-01403: no data found Exception?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|exception|stored-procedures
+0,19002792,Why oracle IN clause has limit of 1000 only for static data?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|oracle10g
+0,27322874,Oracle NOT BETWEEN for string comparison does not give same result as <= and >=,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|comparison-operators
+0,29014283,SQL Datatype to use when inserting money,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle-sqldeveloper
+0,1506950,atomic compare and swap in a database,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|database|oracle-database
+0,34184675,Find matching interval in SQL - Oracle,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|date
+0,4010311,How to check if all fields are unique in Oracle?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|unique
+0,6490027,Get last DDL time for Oracle table in different Schema,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,7577480,SQL ORACLE ORA-00969: missing ON keyword?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,492563,Oracle: Combine multiple results in a subquery into a single comma-separated value,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|subquery|string-aggregation
+0,17720674,Oracle + JPA - querying with INTERVAL,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|select|jpa
+0,1863112,How to resolve Oracle error ORA-01790?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|oracle11g|ora-01790
+0,7148682,How do I a convert a number to an INTERVAL of minutes?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|date-arithmetic
+0,13972198,Oracle SQL: select from table with nested table,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|nested-table
+0,48905490,Select all records in which at least n-1 of n criteria has been matched,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle12c
+0,1494749,Is it OK to nest database views?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|view
+0,4326868,Equivalent to PostgreSQL array() / array_to_string() functions in Oracle 9i,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",arrays|oracle-database|postgresql
+0,19761714,Using the MIN function in the having clause,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|min|having
+0,8820789,Oracle equivalent of PostgreSQL INSERT...RETURNING *;,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|postgresql|insert|compatibility
+0,19299058,Oracle automatic partitioning by day,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|oracle-sqldeveloper|partitioning
+0,23079345,Oracle SQL query for subtracting time from timestamp,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|time|timestamp|intervals
+0,15038919,How to combine two tables into own this the same columns?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,16562162,How to use Select Exists in Oracle?,10,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,16185277,Oracle collection in where clause,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|collections
+0,2127198,What makes Oracle more scalable?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|scalability|rdbms
+0,6153778,Understanding Oracle aliasing - why isn't an alias not recognized in a query unless wrapped in a second query?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|alias
+0,13503408,IF NOT EXISTS In Function PLSQL,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,1522345,SQL query challenge,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|analytics
+0,27901751,View based on SELECT with 'WITH' clause,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-view
+0,38567073,"SELECT *, ROW_NUMBER() OVER in Oracle",9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|row-number
+0,3907161,Why does Oracle return specific sequence if 'orderby' values are identical?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sql-order-by
+0,3101363,oracle raw datatype in where clause,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,36335406,"SQL: How would you split a 100,000 records from a Oracle table into 5 chunks?",9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|max|min
+0,15896644,sql select with does not contain,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,41604201,"Can I nest \"WITH\" clause in Oracle SQL?",9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,26278938,SQL: WITH clause with parameters?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|arguments|common-table-expression
+0,56797777,Are lookup tables a good database practice in 2019?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|database|oracle-database
+0,10881990,Rank function in MySQL with Order By clause,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|oracle-database|window-functions|rank
+0,1863606,Joining tables based on the maximum value,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|mysql|sql-server|oracle-database|join
+0,22009554,"ORA-01843: not a valid month : TO_DATE('12-JUN-02','DD-MON-YY')",9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,34593247,Query with broken sub-select should result in error but returns rows,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|subquery|correlated-subquery
+0,6885924,What is a good size (# of rows) to partition a table to really benefit?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|partitioning|database-partitioning
+0,15854749,PL/SQL FOR LOOP IMPLICIT CURSOR,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|for-loop|plsql|database-cursor
+0,5473038,Oracle Analytic functions - How to reuse a PARTITION BY clause?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|analytic-functions
+0,14964649,Loop through all the records of datablock in Oracle forms,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",forms|oracle-database
+0,26101767,Find not unique rows in Oracle SQL,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|having-clause
+0,28208530,Algorithm or SQL : to find where conditions for a set of columns which ensures result set has value in a particular column always > 0,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|sql|oracle-database|algorithm|plsql
+0,31243365,how to get second highest salary department wise without using analytical functions?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|greatest-n-per-group
+0,1673802,Multiple max values in a query,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|greatest-n-per-group
+0,4193370,Equivalent of MySQL's \G in Oracle's SQL*Plus,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sqlplus
+0,9634981,Is it not possible to check list items in Case Statement's condition?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|case
+0,10254769,Duplicating records to fill gap between dates,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle-analytics
+0,14748157,UPDATING Table Column with new Entry,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle-apex
+0,22897374,Delete limited n rows from oracle sql table,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|delete-row
+0,23238421,Materialized View vs View,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|materialized-views
+0,43271014,With clause not working with union,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,5247698,SQL Nested Subquery Referencing Grandparents Column,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,13659957,how to find partition of record oracle,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|plsql|oracle11g|database-partitioning
+0,55691827,"In Oracle, what does [select * from table()] mean?",9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,18083212,How to repeat Select statements in a loop in Oracle?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|loops|plsql
+0,33858107,aggregate function in recursive SQL,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|recursion
+0,1099845,Oracle CASE with OR,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,16011976,hash value for sql statement,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-execution-plan
+0,450637,How to get column info from oracle table you don't own (without using describe)?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,6571575,What's the created Date-time for Table row in Oracle?,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|timestamp
+0,23634840,Oracle doesn't sort properly when using the same column twice,9,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|sorting|date
+0,16489719,How to get all values in hierarchy linked to some value using Oracle CONNECT BY,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql|connect-by
+0,12333928,SQL -- Dividing two results,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle-sqldeveloper
+0,38090387,Scenario to allow update based on booking-SQL,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle11g
+0,5805277,Oracle partitioning solution for DELETE performance problem,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g
+0,20139423,Positive value to negative and negative to positive in oracle,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,31435162,Oracle aggregation function to allocate amount,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|aggregate-functions|data-warehouse
+0,8449227,Is there a way in Oracle to make a column not case sensitive?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|entity-framework|oracle11g|case-insensitive
+0,13335687,Defining the sort order of children in a hierarchy query,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-order-by|hierarchy
+0,7444234,Concatenating collections in PLSQL,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|user-defined-types
+0,19102645,Conditional select based on column value,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|oracle10g
+0,3415798,Database design normalization help needed (5nf),8,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|oracle-database|erd
+0,8881769,Contradictory Oracle query result,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,8931975,Oracle Rolling or Running totals by month,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,21339796,Oracle - How to read from VARRAY,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|varray
+0,42394200,Oracle Tree Structure Hierarchy Data Display in Single Row Different Column,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hierarchical-data
+0,7393974,Oracle MIN as analytic function - odd behavior with ORDER BY?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|oracle10g|analytic-functions
+0,15395645,Oracle Contains is not working,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,23262254,Is the following query possible with SQL Pivot?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|pivot|oracle-apex
+0,19797675,Slow performance for deeply nested subquery factoring (CTE),8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|benchmarking
+0,39181036,What's the Grain in the context of DW,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|data-warehouse|dimensional-modeling
+0,3649036,How to handle optional parameters in SQL query?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,4956120,Oracle dynamic DESC and ASC in order by,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,8188091,Select second most minimum value in Oracle,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|greatest-n-per-group
+0,19371822,Declare a variable in Oracle SQL to use in a query,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|variables|select|declare
+0,1245125,Sequence within SQL Select,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5482152,Altering more than one column in a table in oracle,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ddl|alter-table
+0,11453215,Oracle: Bulk Collect performance,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|bulk
+0,8875355,"How does EXISTS work in Oracle, and how does it differ from IN?",8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5236636,Is there an alternative to the MULTISET operator that avoids sub-queries?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|collections
+0,4065507,Evaluating the mean absolute deviation of a set of numbers in Oracle,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|aggregate
+0,15031897,SQL Server equivalent to Oracle CONNECT BY and LEVEL pseudocolumn,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database
+0,28946163,ALL operator VS Any on an empty query,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,6776366,pl/sql function called how many times?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle9i
+0,8718458,view all data for duplicate rows in oracle,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|select|duplicates
+0,30265330,Oracle performance: query executing multiple identical function calls,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|performance|function
+0,5630264,min function in PL/SQL,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,17591707,Using Alias In When Portion of a Case Statement in Oracle SQL,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|case|alias
+0,33810159,How to copy selective data from one database to another (ORACLE),8,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database
+0,38012666,Architecture of a write-intensive feature,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",ruby|oracle-database|ruby-on-rails-3|caching|memcached
+0,3619549,Comparing dates in Oracle using the decode function,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|date|decode|date-arithmetic
+0,3558561,Oracle SQL - select within a select (on the same table!),8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|join
+0,16565331,How to improve a SCN-based query performance?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g
+0,14036592,Delete statement - Sub Query should throw error,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|subquery|delete-row
+0,21835964,Oracle Sequential actions,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,40487324,select rows and generate a new column based on condition SQL,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select
+0,47987328,hibernate hql - return updated rows id list after execute update query,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate|hql
+0,41504329,What is the difference between NOT condition and NOT() in Oracle and MS SQL Server,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database
+0,1410048,How to select first 'N' records from a database containing million records?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sorting|sql-order-by
+0,3138619,How do I get an Oracle SCHEMA as DDL scripts with DBMS_METADATA (and SCHEMA_EXPORT),8,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|database-schema
+0,4744019,How to give the output of the first query(which has two values) as the input to the second?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|subquery
+0,7690980,Cannot lookup row in database by UUID RAW(32),8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|oracle11g
+0,48754214,Kafka SMT ValueToKey - How use multiple values as key?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|jdbc|apache-kafka|apache-kafka-connect|confluent-platform
+0,6711175,Is there a reason not to use views in Oracle?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|view
+0,11548267,NOT IN operator issue Oracle,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,8374959,How to populate calendar table in Oracle?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,19408622,Oracle Connect By Prior for Recursive Query Syntax,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|recursive-query
+0,1533240,Oracle Analytic function for min value in grouping,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|greatest-n-per-group
+0,22459260,invalid identifier error in oracle due to column alias,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,34708058,Oracle sql order by with case statement,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle-sqldeveloper
+0,2276305,Fast way to determine if an field exist in a ORACLE table,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|exists
+0,4378554,Oracle multicolumn partitioning vs using a subpartition,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|partitioning|multiple-columns
+0,7994408,Use Alias in Select Query,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database
+0,6401222,CONNECT BY or hierarchical queries in RDBMS other than Oracle,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|simulation|recursive-query|connect-by
+0,800347,SQL AVG(COUNT(*))?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|aggregate-functions
+0,4258529,"Using BETWEEN or <=, >= for Oracle timestamps",8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g
+0,25064900,How to declare a constant in an SQL query?,8,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11gr2
+0,6658696,Oracle SQL how to find out which table has the following two columns?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,6196141,oracle: decode and subquery select result,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|subquery|decode
+0,38913246,"An \"entity\" specific sequence",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,7650782,Oracle find average of two timestamps,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,6098621,"Why does SQL cost explode with simple \"or\"?",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|performance|oracle-database|sqlperformance
+0,32787044,oracle sql query to combine field percentages,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,4058356,"What's the best way to take a \"snapshot\" of an Oracle database that is constantly being updated?",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|snapshot
+0,6426932,Implementing optimistic concurrency on a legacy database,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|optimistic-concurrency
+0,4796621,Oracle SQL: Detecting breaks in continual spans,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,10938145,Query columns names from a table from another user,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|data-dictionary
+0,8829975,SQL: Removing Duplicate records - Albeit different kind,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|duplicate-data|duplicates
+0,10572987,Storing multiple values for a single field in a database,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|database-design
+0,15022392,if-elseif-else 'condition' in oracle SQL,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,31765919,(self) join by time intervals,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|performance|query-optimization|self-join
+0,14621244,Performance issue when using ORDER BY dbms_random.value for Oracle database,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|performance|database-cursor
+0,40913209,"Oracle SQL: using LAG function with user-defined-type returns \"inconsistent datatypes\"",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|function|user-defined-types
+0,13303982,Replace multiple tags in a row in select statement from another table,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12360160,Getting counts/totals at each level of a hierarchical query using CONNECT BY,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12364808,Oracle: how to drop a subpartition of a specific partition,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|partitioning|database-partitioning
+0,18242374,"How to write \"Order By\" clause before \"Where\" clause",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,29672429,"Why remainder(35,10) is -5 when remainder(25,10) is 5 in oracle?",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|rounding
+0,6812393,Common Table Expression in Sub-Query,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|postgresql|db2|sybase|common-table-expression
+0,8295021,"How to identify high-load SQL in Oracle, using oracle views?",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,40266354,Find values that do not exist in a table,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,49213497,"\"ORA-22812: cannot reference nested table column's storage table\" when trying to access system table",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle12c|xmltype|nested-table
+0,2380733,UNION on two select gives 'SQL Error: ORA-00907: missing right parenthesis',7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|union|ora-00907
+0,11960512,Over use of Oracle With clause?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|common-table-expression
+0,9206962,"Oracle SQL - Using joins to find values in one table, and not another",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,3583459,Cascade Delete Query,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,19298424,Oracle pivot with subquery,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",xml|oracle-database|plsql|oracle11g|pivot
+0,22417876,Oracle DB Order Tree Siblings By Sibling Linked List,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|tree|hierarchy
+0,1943284,SQL argument limit in Oracle,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hibernate
+0,4239972,Using Oracle SQL to generate nested XML,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g
+0,8250676,Is there any way to make Hibernate use literal values rather than bind variables?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|hibernate|database-partitioning
+0,14528853,How to output result of SELECT statement which is executed using native dynamic SQL?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,27834218,identifying a period with particular characteristic using sql,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|time-series
+0,40460823,Oracle: VLOOKUP Equivalent,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|vlookup
+0,981762,Techniques for removing old data on Oracle databases,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|partitioning|purge
+0,13855954,How to parse adjacent list in Oracle 10g?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|hierarchy|common-table-expression
+0,12276459,ORACLE SQL get difference of two values retrieved from 2 select statements,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|oracle10g
+0,26537006,"Materialized view \"invalidates\" when adding constraint",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|materialized-views
+0,24249323,Using case inside where clause,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,243510,Oracle PL/SQL Query Order By issue with Distinct,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,14597695,conditional order by clause in sql,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,26464590,Oracle: Connect By Loop in user data,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|hierarchy|hierarchical-data
+0,488108,Paging with Oracle and sql server and generic paging method,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database
+0,700658,returning multiple columns using Case in Select Satement in Oracle,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,2140377,SQL: Search a list of columns with a given value (within a row),7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,772434,Performance overhead of adding a BLOB field to a table,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql-server|performance|oracle-database|blob
+0,3882322,Creating index/pk in a huge table is taking too long. I am using Oracle. How do I know if it is going well?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|indexing|primary-key|composite-primary-key
+0,8673827,How do i select data across two tables using SQL where a field from each table matches?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,8200462,How to display a default value when no match found in a query?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|coalesce
+0,14484517,How to convert a temporary table to permanent table in Oracle and vice versa,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|temp-tables
+0,41439436,Setting expiration time when caching view,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|caching|oracle12c
+0,59947296,"What is the difference in select with alias, and without- oracle 11g",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|alias|user-defined-types
+0,39797986,What exactly does Returning .... INTO .... do in Oracle SQL?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sql-returning
+0,46018449,User-Role-Permission based database design,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|database-design
+0,6584966,"Optimize the speed on performing \"select\" query in a big loop",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|jdbc
+0,1234634,"Oracle primary keys: NUMBER vs NUMBER(7,0)",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|primary-key
+0,5104485,Delete all duplicate records from Oracle table except oldest,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12663484,PLSQL Procudure (Oracle) Comparing a variable in where clause,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|database|oracle-database|sqlplus
+0,22357232,Dynamically selecting partitions,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g
+0,43193980,Rounding Oracle SYSDATE to the nearest hour,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,10529478,"How to generate \"empty\" aggregate results in SQL",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|group-by|aggregate-functions
+0,18118803,Oracle DB daily partitioning,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|database-partitioning
+0,17613436,Removing duplicate subtrees from CONNECT-BY query in oracle,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,16978047,Dynamic Oracle Pivot_In_Clause,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|pivot
+0,23112798,why this sql used union all returned no data,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|union
+0,37434686,Oracle SQL sum up values till another value is reached,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,3883674,How will you keep a specific country on top in a drop down list?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",c#|.net|oracle-database
+0,50750042,ROWNUM as a pseudo column equivalent in T-SQL?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|t-sql|plsql
+0,5740813,Sub-select in oracle,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,150177,transaction isolation problem or wrong approach?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|transactions|database
+0,7326885,LIMIT / OFFSET in Oracle 11G,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|oracle-database|oracle11g|offset
+0,6201992,Optimal way to create a histogram/frequency distribution in Oracle?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|histogram|frequency-distribution
+0,33824571,Fastest way to compute for hash of a whole table,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|database-performance|oracle12c
+0,40396047,Dense Rank with order by,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|row-number|rownum|dense-rank
+0,47816543,how can i find which attribute value only contain one type of value?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2293092,Fastest way to identify differences between two tables?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|performance|oracle-database|plsql
+0,1673521,oracle where in limitation to 1000 / hibernate,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|hibernate|where-clause
+0,67616061,How to forbid using the same table alias twice in a query?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle19c
+0,1069373,"In Oracle, is starting the SQL Query's WHERE clause with 1=1 useful?",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5757268,"how to fetch, delete, commit from cursor",7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,5924118,SQL and unique n-column combinations,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|combinations
+0,12984216,Oracle 11g Sys Query,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g
+0,17689563,Using tuples in ORACLE IN clause and a condition for one element in the tuple,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|orm|ibatis|mybatis
+0,39266673,Oracle 12c: Multiple functions in a SELECT statement's WITH clause,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle12c
+0,41242840,Oracle - grouping values along interval,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|group-by|lead
+0,9807875,SQL: Feeding SELECT output to LIKE,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|regex|database|oracle-database
+0,7521559,Oracle - Why is SELECT * FROM Foo; so slow?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|network-programming|oracle11g
+0,25396881,Sql function - NANVL - different behaviour,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,24106775,Describe table SQL Oracle,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,1233910,Is there a nesting limit for correlated subqueries in some versions of Oracle?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,7736114,How can I get the column names of a table referred by a dblink?,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|dblink
+0,6616207,Oracle timestamp difference greater than X hours/days/months,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|timestamp
+0,44878896,query with multiple-result subquery not working with jdbc,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|jdbc
+0,87877,Building a Table Dependency Graph With A Recursive Query,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|recursion|recursive-query
+0,4582861,List all the months using oracle sql,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12570616,Searching and displaying results by relevance in Oracle,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,26021050,JPA/Hibernate select query returning duplicate records,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|sql|oracle-database|hibernate|jpa
+0,41868909,calculate running balance in oracle query,7,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|analytic-functions
+0,10554405,Convert Unixtime to Datetime SQL (Oracle),6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|unix-timestamp
+0,67050241,Oracle SQL ternary operator or function?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|if-statement|conditional-operator|oracle19c
+0,3195677,Why does a query with a sub-select cost less than query with a constant in Oracle,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|toad
+0,4853883,Oracle query rewrite with virtual columns in the source table,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|materialized-views
+0,28753594,Sql (on Oracle) aging report by days,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|oracle-analytics
+0,45564047,How scn map to timestamp using sys.smon_scn_time in Oracle?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|timestamp
+0,3918174,Grouping by Fiscal Year (Oracle),6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,8350891,Interesting Oracle analytic query challenge,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|analytic-functions|oracle11gr2
+0,9464942,SQL (Oracle) Select without an actual table containing static data,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|dual-table
+0,16146728,Nested cos() calculation in Oracle 10,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g|recursive-query
+0,19309959,Oracle PLSQL truncate datetimes to 15 min blocks,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|datetime|plsql|truncate
+0,23156727,Oracle: Order by Union returning ORA-00933: SQL command not properly ended,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sql-order-by|union|ora-00933
+0,26036660,Sequence starts with 1 after reaching MAXVALUE even STARTWITH 100 specified,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sequence|cycle
+0,7758198,"Hibernate + Oracle IN clause limitation, how to solve it?",6,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate
+0,4277330,"Grouping rows considering \"difference\" between rows",6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,23071771,How to create a slow SQL query?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|database-performance
+0,31410030,Can not use ORDER BY when creating materialized view with SDO geometry in Oracle 11g,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sorting|oracle11g|oracle-spatial
+0,1279765,Inheritance in Database Design,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|database-design|inheritance
+0,5803570,SQL SELECT to find cyclic references in father-ID-organized tree?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|cyclic-reference
+0,35968229,Selecting records with the same name give duplicate results,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,16707229,Converting NOT IN to NOT EXISTS,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,45478150,What are the best ways to implement a dynamic matrix report using APEX?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|report|oracle-apex
+0,49510867,"Why doesn't Oracle throw an \"ambiguous column reference\" here?",6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,1143096,How to delete faster?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|performance|oracle-database|plsql
+0,3939386,"Select top N with \"for update skip locked\" in Oracle",6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|locking|top-n
+0,9005798,Check status sql query or percentage,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle-sqldeveloper
+0,22640556,Using Oracle SQL as a matching engine,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|mathematical-optimization|iteration
+0,35242956,Columns displayed in incorrect order when select * from table in sql developer,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|oracle-sqldeveloper|sqlplus
+0,5199333,Materialized View Refresh On Commit,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|materialized-views
+0,9308296,Tricky GROUP BY issue on ORACLE,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,34508597,How to get partition column name from partition table in oracle server,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|partition
+0,56354606,EXISTS not working with subquery in WITH clause,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle12c
+0,1475850,How to know if MATERIALIZED VIEW update is running?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2369142,pseudo columns & DUAL table - what do they actually mean?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|dual-table
+0,1710617,oci_bind_by_name RETURNING INTO truncates value,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",php|sql|database|oracle-database
+0,6033146,refactoring large cursor queries by splitting into multiple cursors,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql|refactoring
+0,20654276,How to do Minus HQL,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|hql
+0,9647693,How to calculate average of a column and then include it in a select query in oracle?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12692430,"\"with... as\" in SQL Navigator",6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,35539139,"oracle ,sql code ,column not allowed here",6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g
+0,269093,How do I remember which way round PRIOR should go in CONNECT BY queries,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,1033780,Oracle Analytic Question,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|analytics|minimum-size
+0,1020348,Oracle: Select From Record Datatype,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,11764064,Oracle SQL assign consecutive numbers to a subset based on column values,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|aggregate-functions
+0,12723776,Partially denormalising unicorn observations,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|gaps-and-islands
+0,21499796,Product() aggregate function,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|statistics
+0,20258172,int value with positive only entry,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,29536366,"Oracle SQL: If I use a function both as a field and in order by, is it evaluated again?",6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|performance|plsql|oracle11g
+0,56163025,Oracle: using Automatic List Partitioning with Range Subpartitioning,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle12c|database-partitioning
+0,1269158,Oracle SQL for continuous grouping,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|grouping
+0,2617228,Oracle Database Enforce CHECK on multiple tables,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,6834744,Correlating varchar values,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|statistics
+0,18230725,How can I work around Excel crashing with certain SELECT statements?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|vba|oracle-database|excel|ado
+0,64137899,flatten list of ranges to single result range set,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|range|intervals
+0,2134025,Oracle & Pagination,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",asp.net|silverlight|oracle-database|ado.net
+0,17344158,How to use temporal validity in Oracle 12c?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|oracle12c
+0,32434173,converting the data with regexp in oracle sql,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|regex|oracle-database|regexp-replace
+0,36189566,How to assign a value to SQL*Plus variable with select statement in PL/SQL?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sqlplus
+0,36747495,Listing All Tables and Columns from my Database (ORACLE),6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,51542878,Calculating percentiles in SQL,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|percentile|quartile
+0,8090234,Case in Oracle WHERE clause,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,6334581,Can you give one direction for all columns in an order by?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|sql-order-by
+0,11582859,Oracle Analytic Rolling Percentile,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|analytic-functions
+0,8523009,"Select all Rows with \"Now minus 30 minutes\" in Oracle SQL (11g)",6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|timestamp|oracle11g
+0,17163580,novalidate with error ora-02299,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|unique-constraint
+0,24192247,ORDER BY upper(...) with a UNION giving me problems,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-order-by|oracle-sqldeveloper|union-all
+0,33843742,How to get the difference between two rows in a table and place in a new column through SQL,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ms-access|plsql
+0,39925502,SQL Pivot Operation in SQLAlchemy,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",python|oracle-database|sqlalchemy
+0,52092002,Running Total - Date difference,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|cumulative-sum
+0,67642490,Initial extent size when converting to partitioned table,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|partitioning|partition|database-partitioning|oracle19c
+0,10098830,Oracle 11g CREATE VIEW using CONNECT BY and multiple tables,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|view|oracle11g|hierarchical-data
+0,38395505,Sort result from xmlagg(xmlelement(...),6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|string|oracle-database|sorting|oracle11g
+0,45816263,Returning Records from last 6 Months with SELECT,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,2740389,Why do these seemingly similar queries have such drastically different run times?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|performance|oracle-database
+0,769069,Finding the lowest value in a table greater than a certain value,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,663187,"Why would \"Where 1 <> 1\" in a query return all rows?",6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|view
+0,6488245,Comparing nulls in Oracle SQL,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|null
+0,7193000,Update n random rows in SQL,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,8348013,Can a table variable be used in a select statement where clause?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|collections|oracle11g
+0,25545224,SQL to_char Currency Formatting,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|currency|to-char
+0,52363704,JPA and 1000 ID use in Oracle IN Operator,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate|jpa|oracle11g
+0,3393487,Model clause in Oracle,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|model|oracle10g
+0,6548433,How to change Sequence LAST_NUMBER in Oracle,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,14933828,Drop partitions older than 2 months,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|database-partitioning
+0,55825697,How can i append dataframe from pandas to the oracle table?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",python|sql|oracle-database|pandas|dataframe
+0,1986064,Best way to generate unique and consecutive numbers in Oracle,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,379556,Time slicing in Oracle/SQL,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|optimization|reporting|graphing
+0,7386061,How to compare data in table (before and after an operation)?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|diff|compare
+0,6910255,Oracle Create Table AS and table comments and column comments,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,25684794,Oracle SQL get the first and last records from an ordered dataset,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,30098289,Date/Time Difference in Oracle for same field in different rows,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|datetime|date-arithmetic
+0,43515401,Impala/Hive to get list of tables along with its size,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hadoop|hive|impala
+0,939693,What is the best online SQL tutorial for learning to write complex reporting queries?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|reporting
+0,610056,Is it possible to refer to column names via bind variables in Oracle?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|data-binding|jdbc|sql-order-by
+0,6707826,One large table partitioned and then subpartitioned or several smaller partitioned tables?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|database-design|oracle11g|database-partitioning
+0,23104815,Oracle SQL : Intersect tuple literals,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,23174081,Valued inserted in table in oracle not saved?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sql-insert
+0,29066015,Getting error when using prepareStatement with interval in query,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|prepared-statement|intervals
+0,29750563,Convert keep dense_rank from Oracle query into postgres,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|postgresql|dense-rank
+0,7698280,How do you ORDER BY in a query using MINUS?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sql-order-by
+0,12295322,Glorp and Oracle: limiting query result,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|limit|smalltalk
+0,17129427,select records for range comparison,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sorting|range|dense-rank
+0,31434721,Can Oracle's user-defined aggregation function be defined for use with two columns?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,40313159,Oracle SQL Like not working for hyphenated words,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|search|keyword|sql-like
+0,42609917,LISTAGG alternative in Oracle 10g,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g
+0,6634098,How to split up a massive data query into multiple queries,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select
+0,22606161,Difference Between Timestamps in Milliseconds in Oracle,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle11g|oracle10g
+0,29903397,"Is there a non-ugly way to use a multi-column, multi-row table literal in an Oracle 11g query?",6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|literals
+0,49436161,MAX() OVER PARTITION BY in Oracle SQL,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|max|window-functions|partition-by
+0,49144508,Write an insert statement with select clause returning id in oracle,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,62942597,Using JSON_ARRAYAGG in a Sub-Select with ORDER BY gives error,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle19c
+0,2501683,Reuse select query in a procedure in Oracle,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,6221038,Remove ORDER BY clause from PARTITION BY clause?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|oracle11g|analytic-functions
+0,11910903,Suggested method of handling non-overlapping ranges (e.g. scheduling),6,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|concurrency|constraints
+0,14537871,If condition inside case,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|oracle-database|oracle11g
+0,12959153,Excluding results that appear in another column of a CONNECT BY query,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hierarchical-data
+0,21935340,ORA-30926: unable to get a stable set of rows in the source tables when Merging tables,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|merge
+0,20114833,How can I collectively select 100 rows from 3 different tables?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,37014740,Oracle : which SQL command to get all details about a table?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|schema
+0,52676767,Abbreviation of Strings that Remains Unique,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|r|oracle-database|distinct-values
+0,57656127,How to Find top 10 expensive sql -Oracle,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|oracle11g
+0,3584028,how to calc ranges in oracle,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|range
+0,1804370,Are these tables too big for SQL Server or Oracle,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql-server|performance|oracle-database|sap-iq
+0,2533150,How can i get rid of 'ORA-01489: result of string concatenation is too long' in this query?,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|optimization
+0,14866645,Difference of NOT IN and NOT EQUALS different behaviour in SQL query,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,28736490,Retrieving data from 6pm previous day till 6pm present day,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,29097124,delete records older than 24 hours in oracle SQL,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|date|datetime|sql-delete
+0,31559802,(Oracle): Columns in partially dropped state,6,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g|ddl|alter-table
+0,13655400,"Hierarchical Query Needs to Pull Children, Parents and Siblings",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hierarchy|connect-by
+0,778355,"When did oracle start supporting \"top\": select top ? p2_.PRODUCT_ID from PRODUCT?",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,9126337,How to find out the temp space that will be required by a sql query on a database?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|sql-execution-plan
+0,13373996,Count the number of 7AM or 7PM occurrences between two datetimes,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle11g
+0,23215846,Storing conditional logic for compliance in a database,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|database-design|data-structures|ads
+0,28574752,Database schema design for large number of columns,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|database-design
+0,31028381,How to insert 4 million records from Oracle to Elasticsearch table faster using C#?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",c#|.net|oracle-database|elasticsearch|nest
+0,34300926,SQL: Select strings which have equal words,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,33828311,Oracle SQL query with CASE WHEN EXISTS subquery optimization,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|subquery|query-optimization|select-case
+0,40061356,getColumnName() return aliasname Oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|jdbc
+0,41049748,MINUS vs NOT in where clause,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,67364595,Can two transactions modify the same row at the same time in Oracle?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|query-optimization|database-administration|sqlperformance|oracle19c
+0,3025652,how to implement multivalued attribute in oracle?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,2943429,How to find top three highest salary in emp table in oracle?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g
+0,5314321,Oracle nested correlated subquery problem,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5142696,Execute For Each Table in PLSQL,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql|foreach
+0,32284793,In SQL I want to display the names of all those cities which end with an vowel,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,1160459,"SQL: Limit on CASE (number of WHEN, THEN conditions)",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|mysql|oracle-database
+0,542419,"UPDATE using two tables, Concatenation",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-update
+0,9990321,Oracle: transpose table,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,9828609,Oracle - Zombie Table,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|database-administration
+0,9485124,High performance approach to greatest-n-per-group SQL query,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|performance|oracle-database|greatest-n-per-group|oltp
+0,13104271,List partition for remaining items,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|oracle-database
+0,14297354,"SQL SELECT: I need a \"IN ALL\" Clause",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select
+0,12494495,Select either one of the row with condition,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|oracle10g
+0,27106274,JPA/Hibernate: on delete set null,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hibernate|jpa|mapping
+0,34469258,ORACLE JDBC Batch execution doesn't return actual count of affected rows,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|jdbc|batch-processing
+0,5324996,comma-separated list as a result of select statement in Oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|subquery|string-aggregation
+0,4966905,Get top 10 products for every category,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|mysql|oracle-database|rank
+0,6338767,"In Oracle, Is it safe to drop tables containing a large amount of data?",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database
+0,8566308,Oracle SQL creating a function - confusing compile errors,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|function
+0,13221912,Oracle and Pagination,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|hibernate|oracle10g|pagination|top-n
+0,27320746,oracle text definescore with accum and Query rewriting,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle-text
+0,28055975,How to Dense Rank Sets of data,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|rank|dense-rank
+0,32666090,Oracle Recursive Subquery Factoring convert,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|recursion
+0,42810067,"Query on DB is fast, but fetching by JPARepository is slow",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|sql|spring|oracle-database|spring-data-jpa
+0,50596060,Show last access time of a table in Oracle DB,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|timestamp
+0,781224,Why would an Oracle synonym return a different number of rows to the underlying table?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|synonym
+0,1008709,Oracle and SQLServer function evaluation in queries,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|rdbms
+0,1538341,SELECT SUM as field,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,7170359,What are Oracle hidden fields?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|hidden-field
+0,5886457,SQL - retain ordering based on the query params,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,10520881,java.sql.SQLException: ORA-00936: missing expression,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|ora-00936
+0,9025823,Nested Select in From Clause,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,31283483,SQL Oracle Counting Clusters,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,53241008,ORA-31013 when reading a JSON_VALUE from a JSON_TABLE,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|json|oracle-database
+0,1374941,What does Codd's 'non-subversion rule' mean?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|rdbms
+0,3682360,SQL Server / Oracle : Private temporary tables,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-server-2008
+0,9216832,Querying Oracle TIMESTAMP WITH TIMEZONE,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|timezone|oracle11g
+0,15012329,Oracle SQL - is there a standard HAVING EVERY workaround?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sqlplus|having-clause
+0,15971225,"Don't repeat yourself: same SQL query, but two different tables",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|union-all
+0,17304330,Oracle Case When Like,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|case-when
+0,19451245,Oracle: Determine Partition Size,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g
+0,39114459,Merge date ranges,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,45899044,SQLAlchemy With Clause (CTE) with Insert is not compiling correctly for Oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",python|oracle-database|sqlalchemy|oracle12c
+0,6095928,Fast way to query latest record?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|performance|oracle-database
+0,10356923,How to get a single value back from query vs resultset,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|jsp|resultset
+0,18017154,How to populate data into a nested table in Oracle when the nested table is within a record type,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,22489505,CREATE VIEW Using multiple tables,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-view
+0,25213718,Excluding pairs of values occurring non-exclusively,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,27641293,Will row_number() always break ties in the same way?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,38529364,Should I partition/subpartition my table?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|oracle11g
+0,40353725,SQL Oracle query to compare male vs. female salaries for each job at a company,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,4970477,ORACLE/SQL: wm_concat & order by,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|wm-concat
+0,8663727,SQL query to get ids NOT in a table,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,9321391,XMLtable with Oracle 11g,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|xml|oracle-database|xpath|oracle11g
+0,16400603,Usage of AND vs WHERE clause in SQL,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,19234091,SQL Pattern for matching via a translation table,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|match|fuzzy-search|abbreviation
+0,31585746,"Oracle SQL - If Exists, Drop Table & Create",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,33772866,How to create table from SELECT statement in oracle 11g,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g
+0,75488675,How to list all the functions in an Oracle DB and order them by their modification date,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,1909483,Hibernate and padding on CHAR primary key column in Oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate|jpa
+0,6049861,Difference in two row values of the same table,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g
+0,7810108,Sequence and case in a select in oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|select|sequence
+0,8225541,Recursive Insert using connect by clause,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,11559612,How to get the final parent id column in oracle connect by sql,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|connect-by
+0,11185705,MyBatis RowBounds vs Oracle pagination query using rownum and nested subquery,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|jdbc|ibatis|mybatis
+0,22558797,Performance considerations for temporary data in Oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,258134,"relational terminology: foreign key source, destination?",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|terminology
+0,8556357,Oracle SQL - Maximum from two select statements,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|max|where-clause
+0,49404479,'START WITH' equivalent expression in MS-SQL,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql-server|oracle-database|t-sql|connect-by
+0,56046021,Pivot table with counts - Oracle SQL,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,3473239,SQL query to get group by and distinct values at the same time,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|aggregate-functions
+0,2871576,Performance: Subquery or Joining,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,102881,How can I get Datetime to display in military time in oracle?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,11624568,Find the entire tree from the root giving any node,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,8719819,LOW_VALUE and HIGH_VALUE in USER_TAB_COLUMNS,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",performance|oracle-database|indexing|query-optimization|oracle11g
+0,11023246,How to check that results from two ordered SQL queries match?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12328849,Query to display output horizontally,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|pivot
+0,43417680,How to get the 2 greatest values between multiple columns?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle12c
+0,47526482,ORACLE (11.2.0.1.0) - Recursive CTE with a date expression,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|common-table-expression
+0,69811237,"How to get the longest \"overlapping\" words",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2495233,Delete from empty table taking forver,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|performance|oracle-database|plsql
+0,11564459,Using rowid in a delete statement,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sql-delete
+0,9682646,Caused by: java.sql.SQLException: ORA-01795: maximum number of expressions in a list is 1000?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate|ora-01795
+0,20803554,Oracle Assignment vs Select Into,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|performance|oracle-database
+0,25686615,How do I add a moving window to rank() using Oracle SQL,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,27073539,When refreshing the result of a view?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|view|materialized-views
+0,27124109,Creating a view that consist column with static info,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|view|oracle-sqldeveloper
+0,31461370,Bucketing in R or SQL,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|r|oracle-database|bucket-sort
+0,57637069,"Oracle SQL, round greater than 'half' only",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,1127904,Find duplicate/repeated rows in hierarchical sql,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hierarchical-data
+0,4717435,Selecting all descendant rows from an Oracle table representing a tree structure,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|hierarchical-data|recursive-query
+0,6685899,"Oracle SQL: How to SELECT N records for each \"group\" / \"cluster\"",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,15595850,how to get the root ancestors in a hierarchy query using oracle-10g?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|tree|oracle10g|root
+0,21434383,Sub-Queries in Netezza,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|netezza
+0,49410167,What OracleCommand.BindByName = True means exactly?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",vb.net|oracle-database
+0,66508812,force Oracle to process recursive CTE on remote db site (perhaps using DRIVING_SITE hint),5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|recursive-query|database-link
+0,3599740,How to add an autoincrement field for an existing table and populate it with serial numbers for rows?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2848401,Selecting all tables with no records,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2546072,Display query results like \G in MySQL when using Oracle / sqlplus?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sqlplus
+0,5586644,"Is there a \"Code Coverage\" equivalent for SQL databases?",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|code-coverage
+0,7662798,Query Oracle constrain after search_condition's value,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|constraints
+0,4616607,Projections.countDistinct with Hibernate produces unexpected result,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate|criteria
+0,11412708,What is the fastest way of finding the employees user has access to?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,14519218,Manhattan distance with n dimensions in oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|query-optimization
+0,18744771,Selecting static values to union into another query,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,17968933,Replace a column values from 'male' to 'female' and 'female' to 'male',5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle10g
+0,24364924,"ORA-00918: \"Column ambiguously defined\"",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|sql|oracle-database|hibernate|jpa
+0,26918748,Toad output data grid only shows 500 Rows at a time,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|toad
+0,30305161,Is it possible to perform a select into table of object type?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,31913345,How to use outside column in subquery,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|subquery
+0,34604244,Getting values as rows with its corresponding values using oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|multiple-columns|rows
+0,37777231,Why i can't delete rows from this view that has aggregate function in select clause (ORACLE)?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|view|aggregate-functions
+0,40021020,SQL Challenge/Puzzle: How to merge nested ranges?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|hive|teradata
+0,41443756,Oracle automatic partitioning - name pattern for partitions,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|partitioning
+0,3151576,How can I create a simple Select for a self referential table?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|select|hierarchical-data
+0,6819869,ORA-00907: missing right parenthesis,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-00907
+0,6098102,Pros/cons using cursor approach vs. begin-end-exception approach for single-row queries in PL/SQL,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,6805944,How to distinguish if a database object (in Oracle) is a table or view,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,7734046,Get ID Of Item With Highest Price,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,7798727,About create table as select (CTAS),5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g
+0,11761557,SQL calculate item frequency using multiple / dependent columns?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,11498199,How to do WHERE-CLAUSE in hierarchical query in Oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hierarchical-data|hierarchical-query
+0,8353165,"\"ORA-00913: too many values\" error when I run SQL query",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|ora-00913
+0,32094893,Using sequence.nextval in subquery,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2471995,Table with a lot of attributes,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|database|oracle-database|database-design|postgresql
+0,5047394,Fast way to get results in hibernate?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|hibernate
+0,5636507,SELECTing top N rows without ROWNUM?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|rownum
+0,11363669,Oracle timeline report from overlapping intervals,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|intervals
+0,9537826,Why is my table size nearly 10 times bigger than expected from the avg_row_len?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,18913818,How to combine consecutive number ranges,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,26727698,can not update user_sdo_geom_metadata when creating spatial database in oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|oracle-spatial
+0,24620760,oracle inline function called multiple times,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,27387848,Migrating Oracle geometry rows from geodetic to cartesian,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|spatial
+0,40260980,Combine two select queries in one,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,43530490,Is it possible to limit how long an Oracle SQL query runs for and return the results it gathered in the time limit?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,45786841,Why does Oracle pseudo column CONNECT_BY_ISLEAF seems broken?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|graph|oracle12c|hierarchical-query
+0,51050491,Oracle get id of inserted row with identity always,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle12c|dml
+0,55478359,JPA/Hibernate seems to convert a query with an in clause into multiple queries with = clauses,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|performance|jpa
+0,2033756,"Decimal number, to_char, and Oracle",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2694429,"How do I get every nth row in a table, or how do I break up a subset of a table into sets or rows of equal size?",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,14966797,Is it a slow query? Can it be improved?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|query-optimization|subquery|correlated-subquery
+0,30666622,Apache Dbutils changing column name in update Sql,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|apache|apache-commons-dbutils
+0,52153601,"Newbie question: Problem with results, sql, join, where, \"<\" operator",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|subquery|where-clause
+0,60484318,Oracle nested table constraints,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,66462841,Control break type SQL against Oracle db,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,15131400,Is it a good practice to use different table for different (but similar) business program?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",php|database|oracle-database|database-design
+0,17364870,Oracle SQL: selecting from all_tab_columns does not find existing column,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle-sqldeveloper
+0,35527784,Find max(value) and min(value) from one column and pull records from various other fields on same row,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,50510569,Passing a list of values to Oracle using Python,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",python|oracle-database
+0,51633423,Window Function with a condition,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|window-functions
+0,1795039,Use Of Correlated Subquery,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,3100877,Lookup table for oracle decodes?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|decode
+0,4142408,How to multiply values using SQL,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,6563613,Is there an Oracle's equivalent of MySQL's show table command?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,29970087,Finding gaps in dates,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|date-arithmetic
+0,30782438,Oracle CBO when using types,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g
+0,33295335,IF Statement and not in select,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|informix
+0,36808295,How to remove duplicate columns from join in SQL,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|join
+0,44941304,Converting MSSQL 'FOR XML PATH' To Oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|code-conversion|for-xml-path
+0,55436763,Alternative for a cursor,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql
+0,3131112,SQL to delete the oldest records in a table,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,3019853,ORACLE SQL ROWNUM execution order,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2392901,Help me to write an sql-statement to do something like this,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|hibernate
+0,6483586,Find the top 5 MAX() values from an SQL table and then performi an AVG() on that table without them,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5061864,Understanding this SQL Query,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-delete
+0,6064970,Oracle CTE Merge,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|merge|ora-00928
+0,16024737,"Sampling from Oracle, Need exact number of results (Sample Clause)",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sample|random
+0,15106247,"oracle query slow with REGEXP_SUBSTR(AGGREGATOR,'[^;]+',1,LEVEL)",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,15243399,Select all table names from Oracle DB,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",c#|sql|oracle-database
+0,26439791,"Oracle CONNECT BY recursive child to parent query, include ultimate parent that self references",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|recursion|common-table-expression
+0,38779462,Materialized view fast refresh with HAVING clause?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,9002752,Is there a way to query the changes made by a materialized view fast refresh in Oracle?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|replication|materialized-views
+0,10440306,Syntax error: missing expression (ORA-00936),5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|database-design|foreign-keys|ora-00936
+0,9477627,How to use If condition inside a Case statement?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|if-statement|case
+0,15058269,OR shorthand in Oracle SQL?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12478919,Oracle: An elegant way to take the first n record (top-k query),5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,13548988,SQL query to resolve transitive dependencies in database,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,19141017,SQL Fiddle Output Error,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql|sqlfiddle
+0,27175030,get key and value of associative arrays,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|collections|plsql
+0,31058678,JdbcPagingItemReader in Spring batch is not giving correct results,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",spring|oracle-database|spring-batch
+0,41555475,How to use IN as exactly match using SQL?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,46811511,How do I get a list of all the last modified tables in an Oracle database?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|timestamp|last-modified|sql-timestamp
+0,57787579,"Oracle SQL \"column ambiguously defined\" with `FETCH FIRST n ROWS ONLY`",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,8232486,"(Yet another) \"Missing Right Parenthesis\"",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|ora-00907
+0,15438861,Oracle start Sequence from 1,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|oracle10g
+0,29922262,Understanding explain plan through xmltype,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|xpath|xmltype|sql-execution-plan
+0,29935017,How to get almost matching string from Oracle table?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|string-matching|utl-match
+0,56635399,"How to remove a strange table named \"BIN$c+eOnMB3RbKSEfg/rsxtAQ==$0\" from oracle database?",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,8367729,Using Max() on SUM() Aggregate function in Oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|sum|max
+0,15811720,Why is the output different in SQL Server and same in Oracle?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|t-sql|plsql
+0,25019805,reduced buffer cache hits for a query causes random performance issues,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|performance|oracle-database|oracle11g
+0,42722312,How to add column in a view using ALTER VIEW in sql Oracle 12c,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,51729896,Select where number range does not overlap,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|select|range|oracle12c|between
+0,5522320,What is the best way to enforce a 'subset' relationship with integrity constraints,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql-server|oracle-database|database-design|postgresql
+0,6354320,"Difference in SQL Between operator and \">=\" & \"<=\" operator",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|oracle-database
+0,4206623,how to time an oracle select query,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,6139449,SQL - using a value in a nested select,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|nested
+0,8253612,Filling gaps in query return value,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,9773631,Oracle parents key not found,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,19733018,Oracle SQL - Understanding how the Dual table works its magic,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|insert
+0,16735793,Strange behavior on Oracle CAST to NVARCHAR2,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g
+0,18891244,SQL IN operator for multiple columns from different tables,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,45734930,Deleting multiple rows in oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,3133908,select * math operations,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql-server|oracle-database
+0,1444891,oracle 9i get highest member of tree with given child,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle9i|connect-by
+0,2072029,How to compare values for last and second last entry in table?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|syntax
+0,1979163,Renaming partitions in ORACLE,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|indexing|database-partitioning
+0,4407846,"In Oracle (pre-11.2): When using cast(collect(...)), how do I order the result?",5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-00907
+0,4935389,Select multiple counts from one database table in one sql command,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|select|count
+0,4164416,Tricky view for Oracle,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|view|union
+0,15942437,T-SQL equivalent to oracle sql where clause with multiple columns,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|sql-server|oracle-database|t-sql|row-value-expression
+0,12293426,Oracle GUIDTORAW and RAWTOGUID function endianness,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",.net|oracle-database|guid|converters
+0,13451035,Exclude Records based on values from a different column,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,26397442,The differences between sys.col$ and sys.coltype$,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sqldatatypes
+0,32519226,Will RESULT_CACHE keyword return updated data from function in Oracle?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|function
+0,37541254,Why derived table is updatable in Oracle?,5,"table, query, sql, select, data, like, get, one, column, id, rows, value",mysql|sql|oracle-database
+0,19796888,Is there a way to rank results using Hibernate's Criteria API?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|hibernate|jpa|hql|criteria
+0,9000355,How to detach a partition from a table and attach it to another in oracle?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle11g|partitioning
+0,32102595,Can't find table in oracle,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle-sqldeveloper
+0,9046633,Oracle analytic function - using FIRST_VALUE to remove unwanted rows,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|oracle-analytics
+0,31736686,ORA-00936: missing expression error when inserting values,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|sqlplus
+0,15294784,JPA native query returns no records,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|hibernate|jpa|nativequery
+0,34651461,How Can We Delete A Table Row Automatically After a Specific Time in PL SQL,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,20877060,"oracle database contains with \"in%\"",4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,33253826,How to get the first element from a linked list in Oracle?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,27309730,How to rollback my DB changes after a commit?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",database|oracle-database|flashback
+0,48514526,Search from database from multiple tables using mvc and oracle,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",asp.net|asp.net-mvc|oracle-database|search
+0,31310950,concat result of sql query using field seperator,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,51762502,generating same positive and negative number in Oracle sequence,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|sequence
+0,36527000,java.sql.SQLSyntaxErrorException: ORA-00903: invalid table name,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|sql|oracle-database|jdbc|syntax-error
+0,2551207,Using CONNECT BY to get all parents and one child in Hierarchy through SQL query in Oracle,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hierarchy
+0,45762324,how to find difference between no_of_value and no_of_distinct columns values?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,2491063,How to find the employee with the second highest salary?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|top-n
+0,48047284,Connect by prior for a data series,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|hierarchical-query
+0,2961444,Is there a decent technique for SSIS Derived Column date formatting?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql-server|oracle-database|ssis
+0,59244741,Oracle 11 SQL : Split 1 row into x rows and insert a new column,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|unpivot
+0,2414206,How to set conditional logic in SQL query in order to shuffle the precedence?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-order-by
+0,3032982,oracle collection not enough values,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql|collections|sql-types
+0,8023886,SQL query for finding tables containing a column in my schema,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5024979,Oracle SQL - Help using Case in a Select Statement,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-00904
+0,5393440,What is the proper way to get the last entry for each foreign key of a history table?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,8426935,SQL where restrictions,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sqlplus
+0,4501515,How to limit the number of records returned by an ORACLE query?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|limit
+0,16300815,Calculating the average time between orders for each customer,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,8861332,ResultSet.next very slow only when query contains FIRST_ROWS or ROWNUM restriction,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|jdbc|eclipselink
+0,20981913,SQL Oracle rownum on multiple where clauses?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|rownum
+0,17363531,Complex hierarchical query in SQL,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hierarchical
+0,34396818,Oracle SQL: Is ORDER BY non unique field deterministic?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g
+0,20087551,"An SQL query with a WHERE greater than a count, when another field is already in GROUP BY",4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|join|count|subquery
+0,40986550,oracle select * from variable table name,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|tablename
+0,25133537,Force Oracle database not to materialize CTE,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|view|materialized-views
+0,48279641,Oracle SQL - Round - Half,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|rounding
+0,31786085,"Is there a clean solution to achieve inclusive start, exclusive end in QueryDSL / Oracle SQL?",4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|querydsl
+0,54663798,Is there a way to count and loop with plain SQL?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database
+0,38957117,Oracle APEX | How to change select list value and Submit it dynamically,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql|oracle-apex
+0,55067993,"Consistency for simultaneous UPDATES in Oracle, when the WHERE clause depends on the old value",4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|relational-database|concurrentmodification|transaction-isolation
+0,42051317,Is there a way to execute an SQL merge atomically?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|concurrency|mvcc
+0,3928476,Oracle 10g Connect By Prior - Performance Issues,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle10g|hierarchical-query
+0,46271793,Oracle slow query,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,5805476,Oracle: is ROWID a NUMBER or a VARCHAR?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,56159235,Query Optimization to reduce multiple joins statements,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|optimization|query-optimization
+0,14023292,how to get rowNum like column in sqlite IPHONE,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",iphone|objective-c|sql|oracle-database|sqlite
+0,60298863,Replace multiple OR operators with a single IN or ANY operator,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|any
+0,14012427,Needed a dummy month to be displayed - Oracle SQL,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,64005621,How to get all columns' names for all the tables in Oracle?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|database-schema
+0,25254279,Dynamic SQL or WITH Clause,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle11g
+0,2976236,Oracle EXISTS query is not working as expected - DB Link bug?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|exists|database-link
+0,39206337,ORACLE SQL compare two or more rows in same table,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,1837280,ORACLE- CASE requires an INTO?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|case|pls-00428
+0,47033231,Oracle SQL Query working in 12C but not in 11g,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle11g|oracle12c
+0,1591243,Oracle - difference or changes between two rows from two tables,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|plsql|oracle10g
+0,1293008,Constants in Oracle SQL query,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|constants
+0,4098870,"My Oracle view uses a table that doesn't exist, but I can still query it",4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|view
+0,5885466,Is there a limit to how much work I can do in a single Oracle transaction?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|transactions
+0,8594282,Create table from select in Oracle,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|oracle9i
+0,8262690,Select earliest hired employee from employee table,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ora-00937
+0,8680416,Oracle SQL Reuse sub query inside VIEW,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|view|inner-query
+0,16031050,Append sysdate to a table name in Oracle,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|sysdate
+0,14634521,force subquery resolution first,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|oraclereports
+0,22327992,SQL-Statement to use predefined values list as an SQL-table,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|list
+0,13218873,General database design - can I reference field names in other tables,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|database|oracle-database|database-design|audit
+0,25997931,Refreshing an existing materialized View,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|materialized-views
+0,14987534,Calculating a conditional cumulative sum in Oracle,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,40998890,oracle : Case : I/Elsef Query,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,16106754,Select all indexes of a type in Oracle,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|indexing|oracle10g
+0,51327350,A distributed transaction is waiting for lock,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sql-update
+0,18650835,oracle 10g get all selected columns and datatype from a single select statement,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,49602,How to limit result set size for arbitrary query in Ingres?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|ingres
+0,27961473,Totals over rolling timeframe,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|time-series
+0,7825167,How to loop through columns with PL/SQL,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|plsql
+0,29230585,Can you run Oracle's AVG() function on values in the same row?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|average
+0,18098981,Oracle SQL Create PDF from Data,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,33826624,Can I partition an already existing table in oracle?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|database-partitioning|partition
+0,33918347,Updating row in ResultSet generates error: 'Value conflicts occurs',4,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|oracle-database|jdbc
+0,33293083,Can't set the ON COMMIT refresh attribute when creating a materialized view containing partial primary key in Oracle,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|primary-key|materialized-views
+0,35081899,ORA-01733 (Virtual column not allowed here) after database update,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",java|sql|oracle-database|jdbc
+0,41465546,Json query vs SQL query using JSON in Oracle 12c (Performance),4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|json|oracle-database|performance|oracle12c
+0,50608280,Complete datetime list despite missing values for analysis,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,995229,Oracle extractValue failing when query returns many rows,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,56280099,Using SYSDATE() without DUAL table,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|sysdate
+0,182544,SQL to find duplicate entries (within a group),4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|join
+0,60722240,Rewrite query to use Analytic Functions,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|analytics
+0,2922167,"Mixing together Connect by, inner join and sum with Oracle",4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|connect-by
+0,5722458,SQL - Suppressing duplicate columns (not rows) for a query,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,6355945,How to query items with identical set of values,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g
+0,8346209,Recursive relations - list people with a supervisor and those without a supervisor,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,7815283,How to merge/split multiple spans of dates into one timeline (Oracle 11g)?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|date
+0,3634983,Do the time of the COMMIT and ROLLBACK affect performance?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database
+0,5387903,Select the latest records per person,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|greatest-n-per-group
+0,3629296,Oracle - Convert value from rows into ranges,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|range
+0,7033034,Oracle - Deleting child rows,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|oracle10g|oracle11g
+0,4514935,"Table \"Diff\" in Oracle",4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,9935974,"In SQL, How can I generate every possible unique combination of 5!56?",4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|informix|factorial|apl
+0,15421313,SQL (Oracle) -How to Get Ratio from two Count Statements?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|count
+0,10009219,"ORACLE Constraint to allow Null Value, IF",4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|oracle10g|oracle11g
+0,13831093,How to consolidate effective_dt and expiration_dt time slices for consecutive records where certain columns remain constant?,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,12390415,SQL oracle next value,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,16817747,Oracle database read lock,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|locking
+0,13230133,Selecting all uppercased-value rows of a table in SQL Navigator,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database
+0,26728011,Oracle how to delete from a table except few partitions data,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",oracle-database|partition
+0,27456683,Oracle rand() function,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|random
+0,29096598,Most efficient way to deal with ORA-01795:maximum number of expressions in a list is 1000 in hibernate,4,"table, query, sql, select, data, like, get, one, column, id, rows, value",sql|oracle-database|hibernate

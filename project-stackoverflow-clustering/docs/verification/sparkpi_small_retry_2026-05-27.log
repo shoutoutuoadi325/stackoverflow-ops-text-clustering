@@ -1,0 +1,179 @@
+spawn ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/Users/zhiqizhang/development/BigData/project-stackoverflow-clustering/docs/verification/known_hosts_cluster root@10.176.62.239 source /etc/profile 2>/dev/null || true; export JAVA_HOME=/opt/bigdata/jdk; export HADOOP_HOME=/opt/bigdata/hadoop; export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop; export SPARK_HOME=/opt/bigdata/spark; export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH; echo --- SPARK_PI_SMALL_RETRY ---; timeout 240 spark-submit --master yarn --deploy-mode client --driver-memory 512m --executor-memory 512m --executor-cores 1 --num-executors 1 --conf spark.dynamicAllocation.enabled=false --class org.apache.spark.examples.SparkPi /opt/bigdata/spark/examples/jars/spark-examples_2.12-3.5.1.jar 10; rc=$?; echo SPARK_PI_SMALL_EXIT=$rc; yarn application -list -appStates ALL | tail -6; exit 0
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+--- SPARK_PI_SMALL_RETRY ---
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+26/05/27 10:13:41 INFO SparkContext: Running Spark version 3.5.1
+26/05/27 10:13:41 INFO SparkContext: OS info Linux, 3.10.0-327.el7.x86_64, amd64
+26/05/27 10:13:41 INFO SparkContext: Java version 1.8.0_412
+26/05/27 10:13:41 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/05/27 10:13:41 INFO ResourceUtils: ==============================================================
+26/05/27 10:13:41 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/05/27 10:13:41 INFO ResourceUtils: ==============================================================
+26/05/27 10:13:41 INFO SparkContext: Submitted application: Spark Pi
+26/05/27 10:13:41 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/05/27 10:13:41 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+26/05/27 10:13:41 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/05/27 10:13:41 INFO SecurityManager: Changing view acls to: root
+26/05/27 10:13:41 INFO SecurityManager: Changing modify acls to: root
+26/05/27 10:13:41 INFO SecurityManager: Changing view acls groups to: 
+26/05/27 10:13:41 INFO SecurityManager: Changing modify acls groups to: 
+26/05/27 10:13:41 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+26/05/27 10:13:42 INFO Utils: Successfully started service 'sparkDriver' on port 38938.
+26/05/27 10:13:42 INFO SparkEnv: Registering MapOutputTracker
+26/05/27 10:13:42 INFO SparkEnv: Registering BlockManagerMaster
+26/05/27 10:13:42 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/05/27 10:13:42 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/05/27 10:13:42 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/05/27 10:13:42 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-0d66bafc-226d-4141-b414-9a1f848ad58e
+26/05/27 10:13:42 INFO MemoryStore: MemoryStore started with capacity 93.3 MiB
+26/05/27 10:13:42 INFO SparkEnv: Registering OutputCommitCoordinator
+26/05/27 10:13:42 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/05/27 10:13:42 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/05/27 10:13:43 INFO SparkContext: Added JAR file:/opt/bigdata/spark-3.5.1-bin-hadoop3/examples/jars/spark-examples_2.12-3.5.1.jar at spark://master:38938/jars/spark-examples_2.12-3.5.1.jar with timestamp 1779891221498
+26/05/27 10:13:43 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at master/10.176.62.239:8032
+26/05/27 10:13:44 INFO Configuration: resource-types.xml not found
+26/05/27 10:13:44 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+26/05/27 10:13:44 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (8192 MB per container)
+26/05/27 10:13:44 INFO Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+26/05/27 10:13:44 INFO Client: Setting up container launch context for our AM
+26/05/27 10:13:44 INFO Client: Setting up the launch environment for our AM container
+26/05/27 10:13:44 INFO Client: Preparing resources for our AM container
+26/05/27 10:13:44 INFO Client: Uploading resource file:/tmp/spark-392026d8-8036-44df-a906-9423437dd26e/__spark_conf__4961147938334195018.zip -> hdfs://master:9000/user/root/.sparkStaging/application_1779864261706_0019/__spark_conf__.zip
+26/05/27 10:13:48 INFO SecurityManager: Changing view acls to: root
+26/05/27 10:13:48 INFO SecurityManager: Changing modify acls to: root
+26/05/27 10:13:48 INFO SecurityManager: Changing view acls groups to: 
+26/05/27 10:13:48 INFO SecurityManager: Changing modify acls groups to: 
+26/05/27 10:13:48 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+26/05/27 10:13:48 INFO Client: Submitting application application_1779864261706_0019 to ResourceManager
+26/05/27 10:13:48 INFO YarnClientImpl: Submitted application application_1779864261706_0019
+26/05/27 10:13:49 INFO Client: Application report for application_1779864261706_0019 (state: ACCEPTED)
+26/05/27 10:13:49 INFO Client: 
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1779891228277
+	 final status: UNDEFINED
+	 tracking URL: http://master:8088/proxy/application_1779864261706_0019/
+	 user: root
+26/05/27 10:14:03 INFO Client: Application report for application_1779864261706_0019 (state: RUNNING)
+26/05/27 10:14:03 INFO Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: 10.176.62.240
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1779891228277
+	 final status: UNDEFINED
+	 tracking URL: http://master:8088/proxy/application_1779864261706_0019/
+	 user: root
+26/05/27 10:14:03 INFO YarnClientSchedulerBackend: Application application_1779864261706_0019 has started running.
+26/05/27 10:14:03 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 54868.
+26/05/27 10:14:03 INFO NettyBlockTransferService: Server created on master:54868
+26/05/27 10:14:03 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/05/27 10:14:03 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, master, 54868, None)
+26/05/27 10:14:03 INFO BlockManagerMasterEndpoint: Registering block manager master:54868 with 93.3 MiB RAM, BlockManagerId(driver, master, 54868, None)
+26/05/27 10:14:03 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, master, 54868, None)
+26/05/27 10:14:03 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, master, 54868, None)
+26/05/27 10:14:03 INFO YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> master, PROXY_URI_BASES -> http://master:8088/proxy/application_1779864261706_0019), /proxy/application_1779864261706_0019
+26/05/27 10:14:03 INFO SingleEventLogFileWriter: Logging events to hdfs:/spark-history/application_1779864261706_0019.inprogress
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /jobs: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /jobs/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /jobs/job: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /jobs/job/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /stages: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /stages/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /stages/stage: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /stages/stage/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /stages/pool: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /stages/pool/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /storage: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /storage/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /storage/rdd: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /storage/rdd/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /environment: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /environment/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /executors: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /executors/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /executors/threadDump: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /executors/threadDump/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /static: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /api: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /jobs/job/kill: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /stages/stage/kill: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:04 INFO ServerInfo: Adding filter to /metrics/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/05/27 10:14:11 INFO YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(spark-client://YarnAM)
+26/05/27 10:14:13 INFO YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after waiting maxRegisteredResourcesWaitingTime: 30000000000(ns)
+26/05/27 10:14:13 INFO SparkContext: Starting job: reduce at SparkPi.scala:38
+26/05/27 10:14:13 INFO DAGScheduler: Got job 0 (reduce at SparkPi.scala:38) with 10 output partitions
+26/05/27 10:14:13 INFO DAGScheduler: Final stage: ResultStage 0 (reduce at SparkPi.scala:38)
+26/05/27 10:14:13 INFO DAGScheduler: Parents of final stage: List()
+26/05/27 10:14:13 INFO DAGScheduler: Missing parents: List()
+26/05/27 10:14:13 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[1] at map at SparkPi.scala:34), which has no missing parents
+26/05/27 10:14:13 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 4.0 KiB, free 93.3 MiB)
+26/05/27 10:14:14 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 2.3 KiB, free 93.3 MiB)
+26/05/27 10:14:14 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on master:54868 (size: 2.3 KiB, free: 93.3 MiB)
+26/05/27 10:14:14 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
+26/05/27 10:14:14 INFO DAGScheduler: Submitting 10 missing tasks from ResultStage 0 (MapPartitionsRDD[1] at map at SparkPi.scala:34) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+26/05/27 10:14:14 INFO YarnScheduler: Adding task set 0.0 with 10 tasks resource profile 0
+26/05/27 10:14:29 WARN YarnScheduler: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+26/05/27 10:14:44 WARN YarnScheduler: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+26/05/27 10:14:59 WARN YarnScheduler: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+26/05/27 10:15:14 WARN YarnScheduler: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+26/05/27 10:15:25 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.176.62.241:42487) with ID 1,  ResourceProfileId 0
+26/05/27 10:15:25 INFO BlockManagerMasterEndpoint: Registering block manager worker2:40252 with 93.3 MiB RAM, BlockManagerId(1, worker2, 40252, None)
+26/05/27 10:15:25 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (worker2, executor 1, partition 0, PROCESS_LOCAL, 7699 bytes) 
+26/05/27 10:15:26 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on worker2:40252 (size: 2.3 KiB, free: 93.3 MiB)
+26/05/27 10:15:27 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (worker2, executor 1, partition 1, PROCESS_LOCAL, 7699 bytes) 
+26/05/27 10:15:27 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1437 ms on worker2 (executor 1) (1/10)
+26/05/27 10:15:27 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (worker2, executor 1, partition 2, PROCESS_LOCAL, 7699 bytes) 
+26/05/27 10:15:27 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 34 ms on worker2 (executor 1) (2/10)
+26/05/27 10:15:27 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (worker2, executor 1, partition 3, PROCESS_LOCAL, 7699 bytes) 
+26/05/27 10:15:27 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 29 ms on worker2 (executor 1) (3/10)
+26/05/27 10:15:27 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (worker2, executor 1, partition 4, PROCESS_LOCAL, 7699 bytes) 
+26/05/27 10:15:27 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 28 ms on worker2 (executor 1) (4/10)
+26/05/27 10:15:27 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (worker2, executor 1, partition 5, PROCESS_LOCAL, 7699 bytes) 
+26/05/27 10:15:27 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 25 ms on worker2 (executor 1) (5/10)
+26/05/27 10:15:27 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (worker2, executor 1, partition 6, PROCESS_LOCAL, 7699 bytes) 
+26/05/27 10:15:27 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 26 ms on worker2 (executor 1) (6/10)
+26/05/27 10:15:27 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (worker2, executor 1, partition 7, PROCESS_LOCAL, 7699 bytes) 
+26/05/27 10:15:27 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 23 ms on worker2 (executor 1) (7/10)
+26/05/27 10:15:27 INFO TaskSetManager: Starting task 8.0 in stage 0.0 (TID 8) (worker2, executor 1, partition 8, PROCESS_LOCAL, 7699 bytes) 
+26/05/27 10:15:27 INFO TaskSetManager: Finished task 7.0 in stage 0.0 (TID 7) in 26 ms on worker2 (executor 1) (8/10)
+26/05/27 10:15:27 INFO TaskSetManager: Starting task 9.0 in stage 0.0 (TID 9) (worker2, executor 1, partition 9, PROCESS_LOCAL, 7699 bytes) 
+26/05/27 10:15:27 INFO TaskSetManager: Finished task 8.0 in stage 0.0 (TID 8) in 22 ms on worker2 (executor 1) (9/10)
+26/05/27 10:15:27 INFO TaskSetManager: Finished task 9.0 in stage 0.0 (TID 9) in 25 ms on worker2 (executor 1) (10/10)
+26/05/27 10:15:27 INFO YarnScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+26/05/27 10:15:27 INFO DAGScheduler: ResultStage 0 (reduce at SparkPi.scala:38) finished in 73.638 s
+26/05/27 10:15:27 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+26/05/27 10:15:27 INFO YarnScheduler: Killing all running tasks in stage 0: Stage finished
+26/05/27 10:15:27 INFO DAGScheduler: Job 0 finished: reduce at SparkPi.scala:38, took 73.720406 s
+Pi is roughly 3.142279142279142
+26/05/27 10:15:27 INFO SparkContext: SparkContext is stopping with exitCode 0.
+26/05/27 10:15:27 INFO SparkUI: Stopped Spark web UI at http://master:4040
+26/05/27 10:15:27 INFO YarnClientSchedulerBackend: Interrupting monitor thread
+26/05/27 10:15:27 INFO YarnClientSchedulerBackend: Shutting down all executors
+26/05/27 10:15:27 INFO YarnSchedulerBackend$YarnDriverEndpoint: Asking each executor to shut down
+26/05/27 10:15:27 INFO YarnClientSchedulerBackend: YARN client scheduler backend Stopped
+26/05/27 10:15:28 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/05/27 10:15:28 INFO MemoryStore: MemoryStore cleared
+26/05/27 10:15:28 INFO BlockManager: BlockManager stopped
+26/05/27 10:15:28 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/05/27 10:15:28 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/05/27 10:15:28 INFO SparkContext: Successfully stopped SparkContext
+26/05/27 10:15:28 INFO ShutdownHookManager: Shutdown hook called
+26/05/27 10:15:28 INFO ShutdownHookManager: Deleting directory /tmp/spark-450921b3-16bb-45a0-a178-9f61103f2ba8
+26/05/27 10:15:28 INFO ShutdownHookManager: Deleting directory /tmp/spark-392026d8-8036-44df-a906-9423437dd26e
+SPARK_PI_SMALL_EXIT=0
+bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+2026-05-27 10:15:29,142 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at master/10.176.62.239:8032
+application_1779864261706_0017	            Spark Pi	               SPARK	      root	   default	            KILLED	            KILLED	           100%	http://master:8088/cluster/app/application_1779864261706_0017
+application_1779864261706_0018	            Spark Pi	               SPARK	      root	   default	            KILLED	            KILLED	           100%	http://master:8088/cluster/app/application_1779864261706_0018
+application_1779864261706_0011	stackoverflow-lsh-clustering	               SPARK	      root	   default	            KILLED	            KILLED	           100%	http://master:8088/cluster/app/application_1779864261706_0011
+application_1779864261706_0012	stackoverflow-lsh-clustering	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
+application_1779864261706_0013	stackoverflow-connected-components	               SPARK	      root	   default	            KILLED	            KILLED	           100%	http://master:8088/cluster/app/application_1779864261706_0013
+application_1779864261706_0014	stackoverflow-connected-components	               SPARK	      root	   default	          FINISHED	         SUCCEEDED	           100%	                                N/A
