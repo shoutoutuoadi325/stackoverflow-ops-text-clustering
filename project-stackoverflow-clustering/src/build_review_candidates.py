@@ -16,22 +16,40 @@ def read_rows(path: Path) -> list[dict[str, str]]:
     files = sorted(path.glob("part-*.csv")) if path.is_dir() else ([path] if path.exists() else [])
     for file_path in files:
         with file_path.open("r", encoding="utf-8", newline="") as handle:
-            rows.extend(dict(row) for row in csv.DictReader(handle))
+            rows.extend(dict(row) for row in csv.DictReader(handle, escapechar="\\"))
     return rows
 
 
 def infer_params(path: Path) -> tuple[str, str]:
-    name = path.parent.name if path.name.startswith("part-") else path.name
+    name = "_".join(path.parts)
     threshold = ""
     hash_tables = ""
     for part in name.replace("-", "_").split("_"):
         if part.startswith("sim") and part.removeprefix("sim")[:1].isdigit():
             threshold = part.removeprefix("sim")
-            if threshold and threshold.startswith("0") is False:
+            if threshold.startswith("0") and len(threshold) > 1:
+                threshold = f"0.{threshold[1:]}"
+            elif threshold and threshold.startswith("0") is False:
                 threshold = f"0.{threshold}"
         if part.startswith("ht") and part.removeprefix("ht").isdigit():
             hash_tables = part.removeprefix("ht")
+    if not threshold and "yarn_historical_baseline" in name:
+        threshold = "0.75"
+    if not hash_tables and "yarn_historical_baseline" in name:
+        hash_tables = "4"
     return threshold, hash_tables
+
+
+def read_existing_labels(path: Path) -> dict[tuple[str, str, str, str], dict[str, str]]:
+    labels: dict[tuple[str, str, str, str], dict[str, str]] = {}
+    if not path.exists():
+        return labels
+    with path.open("r", encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle, escapechar="\\"):
+            key = (row.get("src", ""), row.get("dst", ""), row.get("threshold", ""), row.get("hash_tables", ""))
+            if row.get("label", "") or row.get("notes", ""):
+                labels[key] = {"label": row.get("label", ""), "notes": row.get("notes", "")}
+    return labels
 
 
 def main() -> None:
@@ -45,13 +63,14 @@ def main() -> None:
 
     sources = []
     if args.baseline.exists():
-        sources.append(("0.85", "1", args.baseline))
+        sources.append(("0.85", "4", args.baseline))
     if args.local_samples.exists():
         sources.append(("local", "", args.local_samples))
     if args.input_root.exists():
         sources.extend(("", "", path) for path in sorted(args.input_root.glob("**/similar_pairs_samples_csv")))
 
     seen: set[tuple[str, str, str, str]] = set()
+    existing_labels = read_existing_labels(args.output)
     out_rows: list[dict[str, str]] = []
     for default_threshold, default_hash_tables, source in sources:
         threshold, hash_tables = infer_params(source)
@@ -63,6 +82,7 @@ def main() -> None:
             if key in seen:
                 continue
             seen.add(key)
+            preserved = existing_labels.get(key, {})
             out_rows.append(
                 {
                     "src": row.get("src", ""),
@@ -72,14 +92,14 @@ def main() -> None:
                     "similarity": row.get("similarity", ""),
                     "threshold": threshold,
                     "hash_tables": hash_tables,
-                    "label": "",
-                    "notes": "",
+                    "label": preserved.get("label", ""),
+                    "notes": preserved.get("notes", ""),
                 }
             )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=FIELDNAMES)
+        writer = csv.DictWriter(handle, fieldnames=FIELDNAMES, lineterminator="\n")
         writer.writeheader()
         writer.writerows(out_rows)
     print(f"Wrote {args.output} with {len(out_rows)} rows.")

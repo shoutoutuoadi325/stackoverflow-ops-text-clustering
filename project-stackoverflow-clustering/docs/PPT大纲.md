@@ -62,10 +62,12 @@ JSON -> JSONL -> HDFS -> Spark 清洗 -> 特征工程
 
 ## 9. 去重算法
 
-- MinHashLSH 生成候选 hash bucket。
-- 对同 bucket 候选计算 token Jaccard distance / similarity。
-- jaccard_distance <= 0.15 且 similarity >= 0.85 保留为高置信相似边。
-- 0.65 作为推荐候选阈值，最终实验采用 0.85 以保证稳定性和 precision。
+- MinHashLSH 使用 Spark ML `approxSimilarityJoin` 生成距离阈值内候选。
+- 对候选问题计算 token Jaccard distance / similarity 做二次校验。
+- 默认平衡配置：jaccard_distance <= 0.25 且 similarity >= 0.75。
+- 答辩展示配置：0.65/ht2/bucket200，可展示 16 对相似问题和 16 个重复簇。
+- 严格高置信配置：0.85，用于说明 precision/recall 取舍。
+- 全量 approxSimilarityJoin 压力测试：0.75/ht4/approx 在当前资源下出现长尾，约 29 分钟后主动停止，作为工程权衡说明。
 - 使用连通分量把相似边合并成重复问题簇。
 
 ## 10. 聚类结果展示
@@ -96,8 +98,9 @@ bash scripts/07_query_demo.sh --question-id 28753859 --limit 10
 
 - Spark executor：1 个 executor、4 cores、6g memory。
 - shuffle partitions：96。
-- MinHash tables：1。
-- similarity threshold：0.85。
+- MinHash tables：4。
+- similarity threshold：0.75。
+- LSH join strategy：代码支持 Spark ML approxSimilarityJoin；全量答辩展示使用 bucket join 复现实验结果。
 - LSH 保留每个问题 Top 10 相似问题，避免 pair 过多。
 - 中间结果全部写入 HDFS Parquet，便于断点重跑。
 

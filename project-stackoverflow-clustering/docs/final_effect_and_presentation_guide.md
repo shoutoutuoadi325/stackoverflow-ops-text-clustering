@@ -6,7 +6,7 @@
 
 当前系统不能严格宣称为“全局最优模型”，原因是：
 
-1. 真实 precision、recall、F1 必须依赖人工审核标签。目前 `evaluation/review_candidates.csv` 已生成 74 条人工审核候选，但 `label` 尚未填写，因此系统不能负责任地声称某组参数取得了最优 F1。
+1. 真实 precision、recall、F1 必须依赖人工审核标签。目前 `evaluation/review_candidates.csv` 已生成 82 条人工审核候选，但 `label` 尚未填写，因此系统不能负责任地声称某组参数取得了最优 F1。
 2. YARN 集群真实运行一组 MinHashLSH 参数耗时约 27 到 43 分钟。完整网格为 5 个相似度阈值、3 个 hash table 数、3 个 bucket size，共 45 组，全部跑完预计需要很长时间，当前没有强行伪造完整网格。
 3. 课程项目更重要的是数据真实、流程完整、结果可复核、演示稳定，而不是只追求候选数量最大。候选数量过大可能引入大量误匹配，反而降低去重质量。
 
@@ -93,6 +93,7 @@ output/evaluation/parameter_sweep_summary.csv
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
 | yarn_sim065_ht2_bucket200 | Spark MinHashLSH | 0.65 | 2 | 200 | 2,227,681 | 16 | 16 | 0.7489 | 1,665s |
 | yarn_sim085_ht4_bucket300 | Spark MinHashLSH | 0.85 | 4 | 300 | 6,858,115 | 3 | 3 | 0.8684 | 2,603s |
+| yarn_sim075_ht4_approx300 | Spark ML approxSimilarityJoin | 0.75 | 4 | 300 | 未完成 | 未完成 | 未完成 | 未完成 | 约 29 分钟后主动停止 |
 | yarn_historical_baseline | Spark MinHashLSH | 0.75 | 4 | 300 | 未导出 | 2 | 2 | 0.8583 | 未记录 |
 | spark_local_sim075_ht4_b300 | Spark local MinHashLSH | 0.75 | 4 | 300 | 未导出 | 10 | 9 | 0.8121 | 未记录 |
 | spark_local_sim085_ht4_b300 | Spark local MinHashLSH | 0.85 | 4 | 300 | 未导出 | 3 | 3 | 0.8682 | 未记录 |
@@ -101,15 +102,16 @@ output/evaluation/parameter_sweep_summary.csv
 推荐展示参数：
 
 ```text
-local_title_tag_sim065
+yarn_sim065_ht2_bucket200
 ```
 
 推荐原因：
 
 1. 没有人工标签时，不能声称 Spark 参数取得最优 F1。
-2. `local_title_tag_sim065` 来自真实原始 JSON，覆盖问题最多，平均相似度高，适合作为 Demo 展示的高召回候选。
-3. Spark/YARN 结果用于证明课程要求中的 Hadoop、HDFS、Spark on YARN、LSH 分布式处理链路真实可用。
-4. 答辩时应明确区分“工程链路验证”和“最终展示候选集”：前者用 YARN 结果证明，后者用高召回 title/tag 结果增强 Demo 可看性。
+2. `yarn_sim065_ht2_bucket200` 来自真实 Spark on YARN 全量计算，发现 16 对相似问题和 16 个多文档簇，比严格 0.85 结果更适合现场展示。
+3. `yarn_sim075_ht4_approx300` 验证了官方 `approxSimilarityJoin` 路线的工程压力：YARN smoke test 已通过，但全量 run 在当前资源下出现 executor 心跳超时和 stage 9 长尾，因此不作为现场展示主结果。
+4. `local_title_tag_sim065` 可作为无 Spark 环境时的兜底 Demo 数据，但答辩优先讲 YARN 结果。
+5. 答辩时应明确区分“高召回展示候选”和“严格高置信候选”：前者用于可视化展示，后者用于说明 precision/recall 取舍。
 
 ### 2.4 人工审核评测状态
 
@@ -123,7 +125,7 @@ evaluation/review_candidates.csv
 
 | 指标 | 数值 |
 |---|---:|
-| 待审核样本 | 74 |
+| 待审核样本 | 82 |
 | 已标注样本 | 0 |
 | precision | 待人工审核 |
 | F1 | 待人工审核 |

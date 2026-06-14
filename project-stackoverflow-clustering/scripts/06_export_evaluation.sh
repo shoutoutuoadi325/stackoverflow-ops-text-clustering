@@ -23,3 +23,4 @@ done
 python3 "$PROJECT_HOME/src/summarize_sweep_results.py" \
   --input-root "$PROJECT_HOME/output/evaluation/sweep" \
   --output "$PROJECT_HOME/output/evaluation/parameter_sweep_summary.csv"
+python3 "$PROJECT_HOME/src/sync_report_samples.py" --project-root "$PROJECT_HOME"

@@ -11,6 +11,7 @@ SWEEP_SIMILARITIES="${SWEEP_SIMILARITIES:-0.65 0.70 0.75 0.80 0.85}"
 SWEEP_HASH_TABLES="${SWEEP_HASH_TABLES:-2 4 8}"
 SWEEP_BUCKET_SIZES="${SWEEP_BUCKET_SIZES:-200 300 500}"
 SWEEP_OUTPUT_BASE="${SWEEP_OUTPUT_BASE:-$HDFS_BASE/output/evaluation/sweep}"
+SWEEP_JOIN_STRATEGY="${SWEEP_JOIN_STRATEGY:-bucket}"
 
 for similarity in $SWEEP_SIMILARITIES; do
   distance="$(python3 -c "print(round(1.0 - float('$similarity'), 4))")"
@@ -32,6 +33,7 @@ for similarity in $SWEEP_SIMILARITIES; do
         --similarity-threshold "$similarity" \
         --num-hash-tables "$hash_tables" \
         --max-bucket-size "$bucket_size" \
+        --join-strategy "$SWEEP_JOIN_STRATEGY" \
         --top-n-per-doc "$LSH_TOP_N_PER_DOC" \
         --shuffle-partitions "$SHUFFLE_PARTITIONS"
 

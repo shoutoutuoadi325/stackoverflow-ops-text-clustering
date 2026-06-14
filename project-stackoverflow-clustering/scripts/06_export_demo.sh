@@ -11,3 +11,4 @@ rm -rf "$LOCAL_EXPORT"
 mkdir -p "$(dirname "$LOCAL_EXPORT")"
 $HDFS -get -f "$HDFS_BASE/output" "$LOCAL_EXPORT"
 find "$LOCAL_EXPORT" -maxdepth 3 -type f | sort | head -100
+python3 "$PROJECT_HOME/src/sync_report_samples.py" --project-root "$PROJECT_HOME"

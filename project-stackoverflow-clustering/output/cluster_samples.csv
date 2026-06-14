@@ -1,1 +1,33 @@
-cluster_id,cluster_size,doc_id,title,score,tags,representative_id,representative_title,avg_similarity
+cluster_id,cluster_size,doc_id,title,score,representative_id,representative_title,avg_similarity,tags_text
+12744013,2,12745236,Install db-oracle for node js,0,12744013,Install oracle module for node js,0.6861313868613139,oracle-database|node.js
+12744013,2,12744013,Install oracle module for node js,1,12744013,Install oracle module for node js,0.6861313868613139,oracle-database|node.js|oracle10g
+1321253,2,1321253,JDBC Thin Oracle 11g,3,1321253,JDBC Thin Oracle 11g,0.7741935483870968,java|oracle-database|jdbc
+1321253,2,2369316,JDBC Thin in Oracle 11g with java,2,1321253,JDBC Thin Oracle 11g,0.7741935483870968,oracle-database|jdbc
+18084908,2,18084908,The provider is not compatible with the version of Oracle client error popping up randomly,1,18084908,The provider is not compatible with the version of Oracle client error popping up randomly,0.7297297297297297,asp.net|oracle-database
+18084908,2,18103665,"Random ""The provider is not compatible with the version of Oracle client"" error",0,18084908,The provider is not compatible with the version of Oracle client error popping up randomly,0.7297297297297297,asp.net|vb.net|oracle-database
+25541869,2,26797803,i want to trim last two characters in string with selected row in selected column,-1,25541869,is it possible to trim last three characters in string with selected row in selected column,0.8260869565217391,sql|database|oracle-database|oracle11g
+25541869,2,25541869,is it possible to trim last three characters in string with selected row in selected column,0,25541869,is it possible to trim last three characters in string with selected row in selected column,0.8260869565217391,sql|oracle-database|oracle11g
+28753859,2,28753859,Correlation and analytic function,0,28753859,Correlation and analytic function,0.85,sql|oracle-database|oracle11g
+28753859,2,28768945,Correlation function over analytic function,0,28753859,Correlation and analytic function,0.85,sql|oracle-database|oracle11g
+40107817,2,43255769,"ORA-00904: ""from$_subquery$_014"".""column_name"": invalid identifier",2,43255769,"ORA-00904: ""from$_subquery$_014"".""column_name"": invalid identifier",0.7430555555555556,sql|oracle-database
+40107817,2,40107817,I am getting error while applying multiple joins in a select query,-3,43255769,"ORA-00904: ""from$_subquery$_014"".""column_name"": invalid identifier",0.7430555555555556,sql|oracle-database
+49319893,2,694133,How to Convert SQL server to Oracle?,5,694133,How to Convert SQL server to Oracle?,0.6918604651162791,sql|sql-server|oracle-database|migration
+49319893,2,49319893,will functionalities of stored procedure remains same aftermigration of data from ms sqlserver to oracle,0,694133,How to Convert SQL server to Oracle?,0.6918604651162791,oracle-database|sql-server-2008|oracle11g|oracle-sqldeveloper
+50217243,2,50217243,Convert SQL query to SQL Server,-5,71211553,Convert from Oracle to SQL Server,0.6666666666666666,sql|sql-server|oracle-database
+50217243,2,71211553,Convert from Oracle to SQL Server,-3,71211553,Convert from Oracle to SQL Server,0.6666666666666666,sql|sql-server|oracle-database|oracle11g
+57530055,2,57530055,Reset running sum when condition is met in Oracle,2,57530417,Reset sum when condition is met in Oracle,0.782608695652174,sql|oracle-database
+57530055,2,57530417,Reset sum when condition is met in Oracle,3,57530417,Reset sum when condition is met in Oracle,0.782608695652174,sql|oracle-database
+60892922,2,60906739,Update statement error - Remove any non-deterministic where clauses and reissue the dml,0,60892922,Merge statement issue - error unable to get a stable set of rows in the source tables,0.7236842105263158,oracle-database|sql-merge
+60892922,2,60892922,Merge statement issue - error unable to get a stable set of rows in the source tables,0,60892922,Merge statement issue - error unable to get a stable set of rows in the source tables,0.7236842105263158,oracle-database|sql-merge
+66320191,2,66321562,How should I improve query performance while keeping the existing structure?,1,66321562,How should I improve query performance while keeping the existing structure?,0.7037037037037037,oracle-database
+66320191,2,66320191,How should I edit the query to improve performance while keeping the existing structure?,0,66321562,How should I improve query performance while keeping the existing structure?,0.7037037037037037,oracle-database
+67307641,2,67307641,join with lookup and groupby,0,67307641,join with lookup and groupby,0.8666666666666667,sql|oracle-database
+67307641,2,67322152,join with lookup and group by,0,67307641,join with lookup and groupby,0.8666666666666667,sql|oracle-database
+69744559,2,69746788,How to turn 5 sets of data from one column into 5 different columns,2,69746788,How to turn 5 sets of data from one column into 5 different columns,0.6818181818181818,sql|oracle-database|oracle10g
+69744559,2,69744559,How to express 5 sets of data currently in one column 5 different columns,0,69746788,How to turn 5 sets of data from one column into 5 different columns,0.6818181818181818,sql|oracle-database|pivot|oracle10g
+70027182,2,70027182,Oracle prefix data to a clob,0,70027182,Oracle prefix data to a clob,0.6896551724137931,oracle-database|procedure|clob
+70027182,2,70185088,Oracle prefix data into a clob with a procedure,0,70027182,Oracle prefix data to a clob,0.6896551724137931,oracle-database|stored-procedures|clob
+70089553,2,70089553,UPDATED - Terraform OCI - create multiple VCN in different regions,1,70089553,UPDATED - Terraform OCI - create multiple VCN in different regions,0.75,oracle-database|terraform|terraform-provider-oci
+70089553,2,70094984,Terraform OCI - create multiple VCN in multiple regions,0,70089553,UPDATED - Terraform OCI - create multiple VCN in different regions,0.75,oracle-database|terraform|terraform-provider-oci
+9660235,2,9660235,sql statement how to keep null value,-2,9662930,sql returning no rows selected,0.8164893617021277,sql|oracle-database
+9660235,2,9662930,sql returning no rows selected,0,9662930,sql returning no rows selected,0.8164893617021277,sql|oracle-database

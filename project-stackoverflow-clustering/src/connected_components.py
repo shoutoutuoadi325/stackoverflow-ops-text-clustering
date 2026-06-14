@@ -16,6 +16,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", default="hdfs:///user/bigdata/stackoverflow/output/clusters")
     parser.add_argument("--metrics-output", help="Optional CSV output directory for cluster metrics.")
     parser.add_argument("--iterations", type=int, default=20)
+    parser.add_argument("--checkpoint-dir", help="Optional checkpoint directory. Use an HDFS path when running on YARN.")
     parser.add_argument("--shuffle-partitions", type=int, default=24)
     return parser.parse_args()
 
@@ -24,7 +25,8 @@ def main() -> None:
     args = parse_args()
     spark = SparkSession.builder.appName("stackoverflow-connected-components").getOrCreate()
     spark.conf.set("spark.sql.shuffle.partitions", str(args.shuffle_partitions))
-    spark.sparkContext.setCheckpointDir("/tmp/stackoverflow-spark-checkpoints")
+    if args.checkpoint_dir:
+        spark.sparkContext.setCheckpointDir(args.checkpoint_dir)
 
     questions = spark.read.parquet(args.questions).select("doc_id", "title", "score", "tags")
     edges = spark.read.parquet(args.pairs).select("src", "dst", "similarity").cache()

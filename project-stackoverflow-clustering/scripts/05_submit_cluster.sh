@@ -24,6 +24,7 @@ spark_submit_project "$PROJECT_HOME/src/cluster_lsh.py" \
   --similarity-threshold "$SIMILARITY_THRESHOLD" \
   --num-hash-tables "$MINHASH_TABLES" \
   --max-bucket-size "$LSH_MAX_BUCKET_SIZE" \
+  --join-strategy "${LSH_JOIN_STRATEGY:-approx}" \
   --top-n-per-doc "$LSH_TOP_N_PER_DOC" \
   --shuffle-partitions "$SHUFFLE_PARTITIONS"
 

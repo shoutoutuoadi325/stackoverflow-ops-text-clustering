@@ -21,8 +21,8 @@ $env:PYSPARK_SUBMIT_ARGS = "--master local[4] --driver-memory 8g pyspark-shell"
 & $Python src\feature_engineering.py --input "$OutputRoot\questions" --output "$OutputRoot\features" --num-features 262144 --shuffle-partitions 48
 
 $env:PYSPARK_SUBMIT_ARGS = "--master local[4] --driver-memory 10g pyspark-shell"
-& $Python src\cluster_lsh.py --features "$OutputRoot\features" --output "$OutputRoot\similar_pairs_sim075_ht4_b300" --distance-threshold 0.25 --similarity-threshold 0.75 --num-hash-tables 4 --max-bucket-size 300 --top-n-per-doc 10 --shuffle-partitions 48
-& $Python src\cluster_lsh.py --features "$OutputRoot\features" --output "$OutputRoot\similar_pairs_sim085_ht4_b300" --distance-threshold 0.15 --similarity-threshold 0.85 --num-hash-tables 4 --max-bucket-size 300 --top-n-per-doc 10 --shuffle-partitions 48
+& $Python src\cluster_lsh.py --features "$OutputRoot\features" --output "$OutputRoot\similar_pairs_sim075_ht4_b300" --distance-threshold 0.25 --similarity-threshold 0.75 --num-hash-tables 4 --max-bucket-size 300 --join-strategy approx --top-n-per-doc 10 --shuffle-partitions 48
+& $Python src\cluster_lsh.py --features "$OutputRoot\features" --output "$OutputRoot\similar_pairs_sim085_ht4_b300" --distance-threshold 0.15 --similarity-threshold 0.85 --num-hash-tables 4 --max-bucket-size 300 --join-strategy approx --top-n-per-doc 10 --shuffle-partitions 48
 
 $env:PYSPARK_SUBMIT_ARGS = "--master local[4] --driver-memory 6g pyspark-shell"
 & $Python src\connected_components.py --questions "$OutputRoot\questions" --pairs "$OutputRoot\similar_pairs_sim075_ht4_b300" --output "$OutputRoot\clusters_sim075_ht4_b300" --iterations 8 --shuffle-partitions 48

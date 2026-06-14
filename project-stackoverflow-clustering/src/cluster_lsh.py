@@ -8,18 +8,7 @@ import argparse
 from pyspark.ml.feature import MinHashLSH
 from pyspark import StorageLevel
 from pyspark.sql import SparkSession, Window
-from pyspark.sql.functions import (
-    avg,
-    array_intersect,
-    array_union,
-    col,
-    concat_ws,
-    count,
-    lit,
-    posexplode,
-    row_number,
-    size,
-)
+from pyspark.sql.functions import avg, array_intersect, array_union, col, concat_ws, count, lit, posexplode, row_number, size
 
 
 def parse_args() -> argparse.Namespace:
@@ -32,6 +21,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--num-hash-tables", type=int, default=8)
     parser.add_argument("--top-n-per-doc", type=int, default=10)
     parser.add_argument("--max-bucket-size", type=int, default=500)
+    parser.add_argument(
+        "--join-strategy",
+        choices=["approx", "bucket"],
+        default="approx",
+        help=(
+            "Use Spark ML approxSimilarityJoin so --distance-threshold is applied during LSH candidate generation. "
+            "Use bucket for the historical bucket self-join implementation with --max-bucket-size skew control."
+        ),
+    )
     parser.add_argument("--min-token-count", type=int, default=2)
     parser.add_argument("--shuffle-partitions", type=int, default=24)
     return parser.parse_args()
@@ -54,6 +52,110 @@ def main() -> None:
     )
     model = lsh.fit(features)
 
+    candidate_pairs = build_candidate_pairs(model, features, args).persist(StorageLevel.MEMORY_AND_DISK)
+    candidate_pair_count = candidate_pairs.count()
+
+    intersection_size = size(array_intersect(col("src_tokens"), col("dst_tokens")))
+    union_size = size(array_union(col("src_tokens"), col("dst_tokens")))
+
+    pairs = (
+        candidate_pairs.select(
+            "src",
+            "dst",
+            "src_title",
+            "dst_title",
+            "src_score",
+            "dst_score",
+            (intersection_size / union_size).alias("token_similarity"),
+        )
+        .withColumn("jaccard_distance", lit(1.0) - col("token_similarity"))
+        .withColumn("similarity", col("token_similarity"))
+        .drop("token_similarity")
+        .filter((col("jaccard_distance") <= args.distance_threshold) & (col("similarity") >= args.similarity_threshold))
+    ).persist(StorageLevel.MEMORY_AND_DISK)
+    pair_count = pairs.count()
+
+    window = Window.partitionBy("src").orderBy(col("similarity").desc(), col("dst").asc())
+    pairs = pairs.withColumn("rank", row_number().over(window)).filter(col("rank") <= args.top_n_per_doc).drop("rank")
+    output_pair_count = pairs.count()
+
+    pairs.write.mode("overwrite").parquet(args.output)
+    pairs.orderBy(col("similarity").desc()).limit(500).coalesce(1).write.mode("overwrite").option(
+        "header", True
+    ).csv(args.output.rstrip("/") + "_samples_csv")
+    if args.metrics_output:
+        similarity_stats = pairs.agg(avg("similarity").alias("avg_similarity")).collect()[0]
+        spark.createDataFrame(
+            [
+                (
+                    args.similarity_threshold,
+                    args.distance_threshold,
+                    args.num_hash_tables,
+                    args.max_bucket_size,
+                    args.join_strategy,
+                    args.top_n_per_doc,
+                    args.min_token_count,
+                    input_count,
+                    candidate_pair_count,
+                    pair_count,
+                    output_pair_count,
+                    float(similarity_stats.avg_similarity or 0.0),
+                )
+            ],
+            [
+                "similarity_threshold",
+                "distance_threshold",
+                "num_hash_tables",
+                "max_bucket_size",
+                "join_strategy",
+                "top_n_per_doc",
+                "min_token_count",
+                "input_count",
+                "candidate_pair_count",
+                "pre_topn_pair_count",
+                "pair_count",
+                "avg_similarity",
+            ],
+        ).coalesce(1).write.mode("overwrite").option("header", True).csv(args.metrics_output)
+    spark.stop()
+
+
+def build_candidate_pairs(model: MinHashLSH, features, args: argparse.Namespace):
+    if args.join_strategy == "bucket":
+        return build_bucket_candidate_pairs(model, features, args)
+    return build_approx_candidate_pairs(model, features, args)
+
+
+def build_approx_candidate_pairs(model: MinHashLSH, features, args: argparse.Namespace):
+    """Generate candidates with Spark ML's native MinHashLSH distance threshold."""
+    left_input = features.select("doc_id", "title", "score", "tokens", "term_features")
+    right_input = features.select("doc_id", "title", "score", "tokens", "term_features")
+
+    joined = model.approxSimilarityJoin(
+        left_input,
+        right_input,
+        args.distance_threshold,
+        distCol="lsh_jaccard_distance",
+    )
+    return (
+        joined.filter(col("datasetA.doc_id") < col("datasetB.doc_id"))
+        .select(
+            col("datasetA.doc_id").alias("src"),
+            col("datasetB.doc_id").alias("dst"),
+            col("datasetA.title").alias("src_title"),
+            col("datasetB.title").alias("dst_title"),
+            col("datasetA.score").alias("src_score"),
+            col("datasetB.score").alias("dst_score"),
+            col("datasetA.tokens").alias("src_tokens"),
+            col("datasetB.tokens").alias("dst_tokens"),
+        )
+        .dropDuplicates(["src", "dst"])
+        .repartition(args.shuffle_partitions, "src")
+    )
+
+
+def build_bucket_candidate_pairs(model: MinHashLSH, features, args: argparse.Namespace):
+    """Historical bucket self-join path used when explicit bucket-size skew control is needed."""
     hashed = model.transform(features).select("doc_id", "title", "score", "tokens", "hashes")
     buckets = hashed.select(
         "doc_id",
@@ -66,7 +168,6 @@ def main() -> None:
     bucket_sizes = buckets.groupBy("hash_key").agg(count("*").alias("bucket_size")).filter(
         (col("bucket_size") > 1) & (col("bucket_size") <= args.max_bucket_size)
     )
-    kept_bucket_count = bucket_sizes.count()
     buckets = (
         buckets.join(bucket_sizes.select("hash_key"), "hash_key")
         .repartition(args.shuffle_partitions, "hash_key")
@@ -89,71 +190,8 @@ def main() -> None:
             col("right.tokens").alias("dst_tokens"),
         )
         .dropDuplicates(["src", "dst"])
-        .persist(StorageLevel.MEMORY_AND_DISK)
     )
-    candidate_pair_count = candidate_pairs.count()
-
-    intersection_size = size(array_intersect(col("src_tokens"), col("dst_tokens")))
-    union_size = size(array_union(col("src_tokens"), col("dst_tokens")))
-
-    pairs = (
-        candidate_pairs.select(
-            "src",
-            "dst",
-            "src_title",
-            "dst_title",
-            "src_score",
-            "dst_score",
-            (lit(1.0) - (intersection_size / union_size)).alias("jaccard_distance"),
-            (intersection_size / union_size).alias("similarity"),
-        )
-        .filter((col("jaccard_distance") <= args.distance_threshold) & (col("similarity") >= args.similarity_threshold))
-    ).persist(StorageLevel.MEMORY_AND_DISK)
-    pair_count = pairs.count()
-
-    window = Window.partitionBy("src").orderBy(col("similarity").desc(), col("dst").asc())
-    pairs = pairs.withColumn("rank", row_number().over(window)).filter(col("rank") <= args.top_n_per_doc).drop("rank")
-    output_pair_count = pairs.count()
-
-    pairs.write.mode("overwrite").parquet(args.output)
-    pairs.orderBy(col("similarity").desc()).limit(500).coalesce(1).write.mode("overwrite").option(
-        "header", True
-    ).csv(args.output.rstrip("/") + "_samples_csv")
-    if args.metrics_output:
-        similarity_stats = pairs.agg(avg("similarity").alias("avg_similarity")).collect()[0]
-        spark.createDataFrame(
-            [
-                (
-                    args.similarity_threshold,
-                    args.distance_threshold,
-                    args.num_hash_tables,
-                    args.max_bucket_size,
-                    args.top_n_per_doc,
-                    args.min_token_count,
-                    input_count,
-                    kept_bucket_count,
-                    candidate_pair_count,
-                    pair_count,
-                    output_pair_count,
-                    float(similarity_stats.avg_similarity or 0.0),
-                )
-            ],
-            [
-                "similarity_threshold",
-                "distance_threshold",
-                "num_hash_tables",
-                "max_bucket_size",
-                "top_n_per_doc",
-                "min_token_count",
-                "input_count",
-                "kept_bucket_count",
-                "candidate_pair_count",
-                "pre_topn_pair_count",
-                "pair_count",
-                "avg_similarity",
-            ],
-        ).coalesce(1).write.mode("overwrite").option("header", True).csv(args.metrics_output)
-    spark.stop()
+    return candidate_pairs
 
 
 if __name__ == "__main__":

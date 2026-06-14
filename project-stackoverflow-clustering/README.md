@@ -15,6 +15,8 @@ project-stackoverflow-clustering/
   output/                        # 本地验证输出或 HDFS 导出结果
     hdfs_output/                 # 从 HDFS 导出的完整结果样例
     local_profile_sample/        # 本地小样本统计结果
+    cluster_samples.csv          # 报告用重复簇样例，自动同步为非空 CSV
+    similar_pair_samples.csv     # 报告用相似问题样例，自动同步为非空 CSV
   demo/                          # 静态 Demo 展示页
   data/                          # 本地数据软链接或拷贝目录
   requirements.txt               # Python 依赖说明
@@ -264,9 +266,9 @@ RegexTokenizer -> StopWordsRemover -> HashingTF -> IDF -> Normalizer -> Bisectin
 
 ```text
 RegexTokenizer -> StopWordsRemover -> binary HashingTF -> MinHashLSH
-MinHash bucket join -> token Jaccard distance / similarity
-jaccard_distance <= 0.15 且 similarity >= 0.85 -> similar_pairs
+approxSimilarityJoin(distance_threshold) -> token Jaccard distance / similarity
+jaccard_distance <= 0.25 且 similarity >= 0.75 -> similar_pairs
 similar_pairs -> connected components -> duplicate clusters
 ```
 
-`similarity >= 0.65` 可作为推荐候选阈值；本次最终实验为保证高置信和集群稳定，采用 `SIMILARITY_THRESHOLD=0.85`，因此结果偏向高精度、低召回。
+默认配置采用 `SIMILARITY_THRESHOLD=0.75`、`MINHASH_TABLES=4` 和 Spark ML 原生 `approxSimilarityJoin`，让 `LSH_DISTANCE_THRESHOLD` 直接参与候选生成。YARN smoke test 已验证该路径可用；全量 `0.75/ht4/approx` 压力测试在当前资源下出现 join 长尾，约 29 分钟后主动停止。因此答辩展示建议使用 `scripts/05_submit_cluster_recall.sh` 的 `0.65/ht2/bucket200` 高召回配置；严格高置信分析可保留 `0.85` 结果作为 precision/recall 取舍说明。
