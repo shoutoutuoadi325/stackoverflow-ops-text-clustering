@@ -1,0 +1,55 @@
+Cluster verification date: 2026-06-11
+
+Environment:
+- Master: 10.176.62.239
+- Workers: 10.176.62.240, 10.176.62.241
+- Hadoop: 3.3.6
+- Spark: 3.5.1
+- Java on cluster: OpenJDK 1.8.0_412
+
+Access and services:
+- SSH password authentication succeeded for all three nodes.
+- Passwordless SSH from master to worker1/worker2 was repaired.
+- HDFS report showed 2 live DataNodes.
+- YARN node list showed 2 running NodeManagers.
+- A stale SparkPi/SparkSubmit process and a stale HDFS FsShell process were cleared.
+
+Data validation:
+- HDFS raw object: /user/bigdata/stackoverflow/raw/oracle_database_questions.json
+- HDFS raw size: 561.6 M logical, 1.1 G replicated
+- HDFS checksum: MD5-of-262144MD5-of-512CRC32C 0000020000000000000400005dbb3123143928735efdb5ee17de7d18
+- Local raw SHA256: 799f1a59c6ae5618e7b64d4769f202131bd82d1e6a01f2ac42c6ac5a37fb861d
+- Local raw validation count: 152758 questions, 203393 answers, 331642 question comments, 220296 answer comments
+
+Spark/YARN smoke:
+- SparkPi on YARN completed successfully.
+- Observed output: Pi is roughly 3.1367437891459637
+
+YARN parameter runs:
+- yarn_sim065_ht2_bucket200:
+  - similarity_threshold: 0.65
+  - num_hash_tables: 2
+  - max_bucket_size: 200
+  - candidate_pair_count: 2227681
+  - pair_count: 16
+  - avg_similarity: 0.7488968938325841
+  - multi_doc_cluster_count: 16
+  - multi_doc_question_count: 32
+  - max_cluster_size: 2
+  - elapsed_seconds: 1665
+- yarn_sim085_ht4_bucket300:
+  - similarity_threshold: 0.85
+  - num_hash_tables: 4
+  - max_bucket_size: 300
+  - candidate_pair_count: 6858115
+  - pair_count: 3
+  - avg_similarity: 0.8684343434343434
+  - multi_doc_cluster_count: 3
+  - multi_doc_question_count: 6
+  - max_cluster_size: 2
+  - elapsed_seconds: 2603
+
+Notes:
+- Full 45-run Spark grid was not executed because one YARN LSH run took 1665-2603 seconds on the available two-worker cluster.
+- The final demo includes real local raw validation, historical YARN baseline, two current YARN parameter runs, Spark local verification runs, and the local title/tag high-recall sweep.
+- Precision/F1 remain pending until review_candidates.csv receives human labels.

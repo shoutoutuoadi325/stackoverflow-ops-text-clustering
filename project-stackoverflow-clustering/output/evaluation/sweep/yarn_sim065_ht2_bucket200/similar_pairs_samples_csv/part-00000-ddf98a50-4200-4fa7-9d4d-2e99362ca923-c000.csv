@@ -1,0 +1,17 @@
+src,dst,src_title,dst_title,src_score,dst_score,jaccard_distance,similarity
+67307641,67322152,join with lookup and groupby,join with lookup and group by,0,0,0.1333333333333333,0.8666666666666667
+28753859,28768945,Correlation and analytic function,Correlation function over analytic function,0,0,0.15000000000000002,0.85
+25541869,26797803,is it possible to trim last three characters in string with selected row in selected column,i want to trim last two characters in string with selected row in selected column,0,-1,0.17391304347826086,0.8260869565217391
+9660235,9662930,sql statement how to keep null value,sql returning no rows selected,-2,0,0.18351063829787229,0.8164893617021277
+57530055,57530417,Reset running sum when condition is met in Oracle,Reset sum when condition is met in Oracle,2,3,0.21739130434782605,0.782608695652174
+1321253,2369316,JDBC Thin Oracle 11g,JDBC Thin in Oracle 11g with java,3,2,0.22580645161290325,0.7741935483870968
+70089553,70094984,UPDATED - Terraform OCI - create multiple VCN in different regions,Terraform OCI - create multiple VCN in multiple regions,1,0,0.25,0.75
+40107817,43255769,I am getting error while applying multiple joins in a select query,"ORA-00904: \"from$_subquery$_014\".\"column_name\": invalid identifier",-3,2,0.2569444444444444,0.7430555555555556
+18084908,18103665,The provider is not compatible with the version of Oracle client error popping up randomly,"Random \"The provider is not compatible with the version of Oracle client\" error",1,0,0.2702702702702703,0.7297297297297297
+60892922,60906739,Merge statement issue - error unable to get a stable set of rows in the source tables,Update statement error - Remove any non-deterministic where clauses and reissue the dml,0,0,0.2763157894736842,0.7236842105263158
+66320191,66321562,How should I edit the query to improve performance while keeping the existing structure?,How should I improve query performance while keeping the existing structure?,0,1,0.2962962962962963,0.7037037037037037
+49319893,694133,will functionalities of stored procedure remains same aftermigration of data from ms sqlserver to oracle,How to Convert SQL server to Oracle?,0,5,0.3081395348837209,0.6918604651162791
+70027182,70185088,Oracle prefix data to a clob,Oracle prefix data into a clob with a procedure,0,0,0.31034482758620685,0.6896551724137931
+12744013,12745236,Install oracle module for node js,Install db-oracle for node js,1,0,0.3138686131386861,0.6861313868613139
+69744559,69746788,How to express 5 sets of data currently in one column 5 different columns,How to turn 5 sets of data from one column into 5 different columns,0,2,0.31818181818181823,0.6818181818181818
+50217243,71211553,Convert SQL query to SQL Server,Convert from Oracle to SQL Server,-5,-3,0.33333333333333337,0.6666666666666666

@@ -23,6 +23,8 @@ spark_submit_project "$PROJECT_HOME/src/cluster_lsh.py" \
   --distance-threshold "$LSH_DISTANCE_THRESHOLD" \
   --similarity-threshold "$SIMILARITY_THRESHOLD" \
   --num-hash-tables "$MINHASH_TABLES" \
+  --max-bucket-size "$LSH_MAX_BUCKET_SIZE" \
+  --top-n-per-doc "$LSH_TOP_N_PER_DOC" \
   --shuffle-partitions "$SHUFFLE_PARTITIONS"
 
 spark_submit_project "$PROJECT_HOME/src/connected_components.py" \

@@ -11,6 +11,7 @@ __pycache__/
 *$py.class
 .Python
 .venv/
+project-stackoverflow-clustering/.venv-spark/
 venv/
 env/
 ENV/
@@ -40,6 +41,7 @@ StackOverFlow_Oracle_Database/
 # Full converted JSONL exceeds GitHub's 100 MB per-file limit.
 # Keep smaller samples and derived result tables under output/ tracked.
 project-stackoverflow-clustering/output/questions.jsonl
+project-stackoverflow-clustering/output/spark_local_verified/
 
 # Spark/Hadoop local metadata and transient files
 spark-warehouse/
@@ -47,6 +49,7 @@ metastore_db/
 derby.log
 *.crc
 _temporary/
+project-stackoverflow-clustering/tools/hadoop/
 
 # Offline installer/cache payloads. Re-download from vendor sources when needed.
 dist/

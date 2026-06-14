@@ -1,0 +1,7 @@
+cluster_id,cluster_size,doc_id,title,score,representative_id,representative_title,avg_similarity,tags_text
+12603250,2,12603250,How to compare two different rows of two different tables?,-2,12604002,How to compare two different rows of two different tables and update a third table?,0.8636363636363636,sql|oracle-database
+12603250,2,12604002,How to compare two different rows of two different tables and update a third table?,0,12604002,How to compare two different rows of two different tables and update a third table?,0.8636363636363636,sql|oracle-database
+52080769,2,61044368,oracle pl/sql utl_file ORA-29280: invalid directory path and ORA-29280: invalid directory object,0,52080769,oracle pl/sql utl_file ORA-29280: invalid directory path,0.875,oracle-database|utl-file
+52080769,2,52080769,oracle pl/sql utl_file ORA-29280: invalid directory path,0,52080769,oracle pl/sql utl_file ORA-29280: invalid directory path,0.875,oracle-database|utl-file
+67307641,2,67307641,join with lookup and groupby,0,67307641,join with lookup and groupby,0.8666666666666667,sql|oracle-database
+67307641,2,67322152,join with lookup and group by,0,67307641,join with lookup and groupby,0.8666666666666667,sql|oracle-database

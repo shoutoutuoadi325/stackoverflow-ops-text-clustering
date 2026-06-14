@@ -1,0 +1,11 @@
+run_name,method,similarity_threshold,num_hash_tables,max_bucket_size,candidate_pair_count,pair_count,avg_similarity,multi_doc_cluster_count,multi_doc_question_count,max_cluster_size,avg_doc_similarity,elapsed_seconds
+spark_local_sim075_ht4_b300,spark_minhash_lsh,0.75,4,300,,10,0.812145,9,19,3,0.812784,
+spark_local_sim085_ht4_b300,spark_minhash_lsh,0.85,4,300,,3,0.868227,3,6,2,0.868227,
+yarn_historical_baseline,spark_minhash_lsh,0.75,4,300,,2,0.858333,2,4,2,0.858333,
+yarn_sim065_ht2_bucket200,spark_minhash_lsh,0.65,2,200,2227681,16,0.7488968938325841,16,32,2,0.7488968938325841,1665
+yarn_sim085_ht4_bucket300,spark_minhash_lsh,0.85,4,300,6858115,3,0.8684343434343434,3,6,2,0.8684343434343434,2603
+local_title_tag_sim065,local_title_tag,0.65,,200,10819,10427,0.9719,2185,6412,83,0.9719,12.532
+local_title_tag_sim07,local_title_tag,0.7,,200,10819,10116,0.9811,2141,6254,71,0.9811,12.532
+local_title_tag_sim075,local_title_tag,0.75,,200,10819,9812,0.9892,2113,6109,36,0.9892,12.532
+local_title_tag_sim08,local_title_tag,0.8,,200,10819,9685,0.992,2094,6031,32,0.992,12.532
+local_title_tag_sim085,local_title_tag,0.85,,200,10819,9382,0.9976,2037,5817,28,0.9976,12.532

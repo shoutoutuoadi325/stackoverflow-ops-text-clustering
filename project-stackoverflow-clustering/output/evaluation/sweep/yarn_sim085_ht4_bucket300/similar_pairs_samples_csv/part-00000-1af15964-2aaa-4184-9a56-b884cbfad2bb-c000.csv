@@ -1,0 +1,4 @@
+src,dst,src_title,dst_title,src_score,dst_score,jaccard_distance,similarity
+52080769,61044368,oracle pl/sql utl_file ORA-29280: invalid directory path,oracle pl/sql utl_file ORA-29280: invalid directory path and ORA-29280: invalid directory object,0,0,0.125,0.875
+67307641,67322152,join with lookup and groupby,join with lookup and group by,0,0,0.1333333333333333,0.8666666666666667
+12603250,12604002,How to compare two different rows of two different tables?,How to compare two different rows of two different tables and update a third table?,-2,0,0.13636363636363635,0.8636363636363636

@@ -1,0 +1,14 @@
+metric,value
+source_path,C:\Users\30126\Desktop\stackoverflow-ops-text-clustering\StackOverFlow_Oracle_Database\oracle_database_questions.json
+file_size_bytes,588919290
+sha256,799f1a59c6ae5618e7b64d4769f202131bd82d1e6a01f2ac42c6ac5a37fb861d
+validated_at_utc,2026-06-11T07:50:20+00:00
+questions,152758
+answers,203393
+question_comments,331642
+answer_comments,220296
+avg_answers_per_question,1.331
+max_answers_per_question,34
+unanswered_questions,29937
+max_question_score,1382
+max_question_id,470542

@@ -1,0 +1,9 @@
+{
+  "status": "pending_labels",
+  "labeled_count": 0,
+  "positive_count": 0,
+  "precision": null,
+  "f1": null,
+  "note": "F1 is not computed without a known recall denominator.",
+  "by_threshold": {}
+}

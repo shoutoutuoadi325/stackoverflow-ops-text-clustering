@@ -14,6 +14,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--questions", default="hdfs:///user/bigdata/stackoverflow/parquet/questions")
     parser.add_argument("--pairs", default="hdfs:///user/bigdata/stackoverflow/output/similar_pairs")
     parser.add_argument("--output", default="hdfs:///user/bigdata/stackoverflow/output/clusters")
+    parser.add_argument("--metrics-output", help="Optional CSV output directory for cluster metrics.")
     parser.add_argument("--iterations", type=int, default=20)
     parser.add_argument("--shuffle-partitions", type=int, default=24)
     return parser.parse_args()
@@ -81,6 +82,30 @@ def main() -> None:
     sample_output.filter(col("cluster_size") > 1).orderBy(col("cluster_size").desc(), col("cluster_id").asc()).limit(1000).coalesce(
         1
     ).write.mode("overwrite").option("header", True).csv(args.output.rstrip("/") + "_samples_csv")
+
+    if args.metrics_output:
+        multi_doc = output.filter(col("cluster_size") > 1).cache()
+        cluster_stats = multi_doc.select("cluster_id", "cluster_size").distinct()
+        max_cluster_size = cluster_stats.agg({"cluster_size": "max"}).collect()[0][0] or 0
+        avg_similarity_value = multi_doc.agg(avg("avg_similarity").alias("avg_similarity")).collect()[0].avg_similarity or 0.0
+        spark.createDataFrame(
+            [
+                (
+                    edges.count(),
+                    cluster_stats.count(),
+                    multi_doc.count(),
+                    int(max_cluster_size),
+                    float(avg_similarity_value),
+                )
+            ],
+            [
+                "edge_count",
+                "multi_doc_cluster_count",
+                "multi_doc_question_count",
+                "max_cluster_size",
+                "avg_doc_similarity",
+            ],
+        ).coalesce(1).write.mode("overwrite").option("header", True).csv(args.metrics_output)
 
     spark.stop()
 

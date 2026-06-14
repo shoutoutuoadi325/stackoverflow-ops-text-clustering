@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StackOverflow Oracle 运维文本聚类 Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Hadoop + Spark 文本聚类展示</p>
+        <h1>StackOverflow Oracle 运维问题去重分析台</h1>
+      </div>
+      <div class="header-actions">
+        <button class="tab-button active" data-view="overview">总览</button>
+        <button class="tab-button" data-view="validation">核验</button>
+        <button class="tab-button" data-view="evaluation">评测</button>
+        <button class="tab-button" data-view="clusters">重复簇</button>
+        <button class="tab-button" data-view="search">检索</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="metric-grid" id="metrics"></section>
+
+      <section class="view active" id="overview">
+        <div class="split">
+          <section class="panel">
+            <div class="panel-title">
+              <h2>Top 标签</h2>
+              <span>问题上下文</span>
+            </div>
+            <div class="bar-list" id="tagBars"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-title">
+              <h2>Oracle 错误码</h2>
+              <span>高价值去重信号</span>
+            </div>
+            <div class="bar-list" id="oraBars"></div>
+          </section>
+        </div>
+
+        <section class="panel">
+          <div class="panel-title">
+            <h2>主题聚类样例</h2>
+            <span>BisectingKMeans + TF-IDF</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>簇</th>
+                  <th>问题</th>
+                  <th>分数</th>
+                  <th>Top terms</th>
+                </tr>
+              </thead>
+              <tbody id="topicRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="validation">
+        <section class="panel">
+          <div class="panel-title">
+            <h2>原始数据核验</h2>
+            <span>直接读取 JSON 数据集</span>
+          </div>
+          <div class="validation-grid" id="validationGrid"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-title">
+            <h2>数据来源</h2>
+            <span>Demo 指标追溯</span>
+          </div>
+          <div class="source-list" id="sourceList"></div>
+        </section>
+      </section>
+
+      <section class="view" id="evaluation">
+        <section class="panel">
+          <div class="panel-title">
+            <h2>推荐参数</h2>
+            <span>真实性优先</span>
+          </div>
+          <div class="recommendation" id="recommendation"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-title">
+            <h2>参数扫描结果</h2>
+            <span>候选数、簇规模与人工审核</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>运行</th>
+                  <th>阈值</th>
+                  <th>Hash 表</th>
+                  <th>候选对</th>
+                  <th>输出对</th>
+                  <th>多文档簇</th>
+                  <th>最大簇</th>
+                  <th>耗时</th>
+                </tr>
+              </thead>
+              <tbody id="sweepRows"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-title">
+            <h2>人工审核样本</h2>
+            <span>precision 只来自已标注样本</span>
+          </div>
+          <div class="result-summary" id="reviewSummary"></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>问题对</th>
+                  <th>相似度</th>
+                  <th>阈值</th>
+                  <th>标签</th>
+                </tr>
+              </thead>
+              <tbody id="reviewRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="clusters">
+        <section class="panel">
+          <div class="panel-title">
+            <h2>重复问题簇</h2>
+            <span>MinHashLSH 相似边 + 连通分量</span>
+          </div>
+          <div class="toolbar">
+            <input id="clusterFilter" type="search" placeholder="按标题、问题 ID、标签过滤" />
+            <select id="clusterSort">
+              <option value="similarity">按相似度</option>
+              <option value="size">按簇规模</option>
+              <option value="score">按分数</option>
+            </select>
+          </div>
+          <div class="cluster-list" id="clusterList"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">
+            <h2>相似问题对</h2>
+            <span>当前导出结果</span>
+          </div>
+          <div class="pair-list" id="pairList"></div>
+        </section>
+      </section>
+
+      <section class="view" id="search">
+        <section class="panel search-panel">
+          <div class="panel-title">
+            <h2>演示查询</h2>
+            <span>输入关键词或 question_id</span>
+          </div>
+          <div class="search-box">
+            <input id="queryInput" type="search" value="analytic function" placeholder="例如 analytic function / group by / 28753859" />
+            <button id="queryButton">查询</button>
+          </div>
+          <div class="result-summary" id="resultSummary"></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>来源</th>
+                  <th>ID / 簇</th>
+                  <th>标题</th>
+                  <th>分数 / 相似度</th>
+                </tr>
+              </thead>
+              <tbody id="searchRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

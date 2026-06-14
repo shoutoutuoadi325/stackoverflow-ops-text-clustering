@@ -1,0 +1,3 @@
+src,dst,src_title,dst_title,src_score,dst_score,similarity
+67307641,67322152,join with lookup and groupby,join with lookup and group by,0,0,0.8666666666666667
+28753859,28768945,Correlation and analytic function,Correlation function over analytic function,0,0,0.85

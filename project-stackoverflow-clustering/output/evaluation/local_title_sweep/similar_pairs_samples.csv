@@ -1,0 +1,501 @@
+src,dst,src_title,dst_title,src_score,dst_score,similarity
+10000355,15596185,Oracle query with multiple tables,Oracle Query from multiple tables,4,0,1.0
+10000355,19393346,Oracle query with multiple tables,Oracle sql query with multiple tables,4,0,1.0
+10000355,30828609,Oracle query with multiple tables,query from multiple tables?,4,-2,1.0
+10000355,63903593,Oracle query with multiple tables,Database query with multiple tables,4,0,1.0
+10000355,72412522,Oracle query with multiple tables,Multiple Tables Query,4,0,1.0
+10015650,12863928,not a GROUP BY expression error in Oracle,"SQL Group by error - ""not a GROUP BY expression""",1,4,1.0
+10015650,13962772,not a GROUP BY expression error in Oracle,Not a GROUP BY expression error,1,5,1.0
+10015650,17746590,not a GROUP BY expression error in Oracle,Oracle: NOT A GROUP BY EXPRESSION ERROR,1,3,1.0
+10015650,19165041,not a GROUP BY expression error in Oracle,"Oracle ""not a GROUP BY expression error""",1,0,1.0
+10015650,20599780,not a GROUP BY expression error in Oracle,Not a group by expression SQL error,1,0,1.0
+10015650,23128018,not a GROUP BY expression error in Oracle,NOT A GROUP BY EXPRESSION ERROR (Oracle),1,1,1.0
+10015650,29900677,not a GROUP BY expression error in Oracle,Oracle: not group by expression error,1,-1,1.0
+10015747,34744244,ORA-14450: attempt to access a transactional temp table already in use,ORA-14450: attempt to access the transactional temp table already in use,2,-2,1.0
+10022805,11538869,Check Constraint in Oracle,An Oracle Check Constraint,0,3,1.0
+10022805,16400965,Check Constraint in Oracle,CHECK CONSTRAINT in Oracle SQL,0,3,1.0
+10022805,23672105,Check Constraint in Oracle,Oracle Constraint Check,0,0,1.0
+10022805,65326342,Check Constraint in Oracle,Oracle SQL - check constraint,0,2,1.0
+10022805,77632327,Check Constraint in Oracle,sql constraint in a check in,0,0,1.0
+10044824,46236536,slow sql query execution,Slow Query Execution,0,-1,1.0
+10084400,40415371,How to count the number of columns in a table using SQL?,count number of columns in table in oracle,25,-1,1.0
+10084400,76855362,How to count the number of columns in a table using SQL?,count number of columns in a table in Oracle,25,0,1.0
+10103629,48464166,Oracle + dbunit gets AmbiguousTableNameException,Dbunit gets AmbiguousTableNameException Oracle,10,0,1.0
+10107664,65433074,ORA-24247: network access denied by access control list (ACL),ORA-24247: network access denied by access control list (ACL)?,1,1,1.0
+10107664,68096588,ORA-24247: network access denied by access control list (ACL),ORA-24247: network access denied by access control list(ACL)?,1,1,1.0
+10118991,17326469,oracle - to_Date format,Oracle Date format,2,0,1.0
+10118991,18120619,oracle - to_Date format,Oracle date format,2,0,1.0
+10118991,28050545,oracle - to_Date format,Oracle SQL Date Format,2,1,1.0
+10118991,34935426,oracle - to_Date format,Oracle - Date Format,2,0,1.0
+10118991,46224479,oracle - to_Date format,DATE FORMAT in Oracle SQL,2,0,1.0
+10118991,58197703,oracle - to_Date format,Oracle: Date format,2,0,1.0
+10118991,59193520,oracle - to_Date format,format date in oracle SQL,2,0,1.0
+10132094,32349462,Edit Total line in Oracle report,Edit Total line in Oracle report 1,1,0,1.0
+10154577,10732673,Oracle select statement,select statement in oracle,2,1,1.0
+10154577,17859994,Oracle select statement,Use as in select statement on select statement,2,1,1.0
+10154577,27087745,Oracle select statement,select statement oracle sql,2,1,1.0
+10154577,27210109,Oracle select statement,select statement oracle,2,0,1.0
+10154577,36977627,Oracle select statement,Select statement for Oracle SQL,2,0,1.0
+10163643,31108320,Format SQL Output,Oracle sql output format,0,-1,1.0
+10178292,10550952,Comparing Dates in Oracle SQL,Oracle - Comparing dates,182,0,1.0
+10178292,19216076,Comparing Dates in Oracle SQL,Oracle SQL comparing dates,182,2,1.0
+10178292,69102725,Comparing Dates in Oracle SQL,Comparing dates in oracle,182,0,1.0
+10183061,60494115,PL/SQL Cursor for loop,Loop for a cursor - PL/SQL,4,0,1.0
+10197520,30599208,oracle query nested select using case,NESTED SELECT QUERY WITH CASE,1,0,1.0
+10202763,47516011,Oracle SQL using Like for a wildcard,Oracle SQL using Like and wildcard,7,5,1.0
+10206940,15063739,a sql query from oracle,WITH AS in oracle query,0,-3,1.0
+10206940,16050419,a sql query from oracle,Query sql in oracle,0,-5,1.0
+10206940,19486160,a sql query from oracle,How to query in Oracle,0,-4,1.0
+10206940,20386149,a sql query from oracle,SQL query in oracle,0,0,1.0
+10206940,21671526,a sql query from oracle,Oracle Sql query,0,0,1.0
+10206940,22328949,a sql query from oracle,Oracle SQL Query IN,0,0,1.0
+10206940,31473477,a sql query from oracle,Oracle sql query,0,4,1.0
+10206940,33952072,a sql query from oracle,Oracle Database SQL Query,0,1,1.0
+10206940,34524325,a sql query from oracle,Oracle Query with AND and OR,0,0,1.0
+10206940,37002379,a sql query from oracle,Oracle database query,0,1,1.0
+10206940,39995063,a sql query from oracle,Oracle SQL Query 2,0,1,1.0
+10206940,40610853,a sql query from oracle,query on oracle,0,-1,1.0
+10206940,41584293,a sql query from oracle,How to 2 Oracle Database in 1 Query,0,-1,1.0
+10206940,41976574,a sql query from oracle,oracle - sql query,0,0,1.0
+10206940,43435773,a sql query from oracle,Database Sql Query,0,-1,1.0
+10206940,46590775,a sql query from oracle,Oracle / SQL Query,0,0,1.0
+10206940,47182721,a sql query from oracle,SQL Query (Oracle SQL),0,1,1.0
+10206940,53242670,a sql query from oracle,Query with in an Query,0,0,1.0
+10206940,56431193,a sql query from oracle,query for oracle,0,-2,1.0
+10206940,68998194,a sql query from oracle,SQL_Oracle query,0,0,1.0
+10206940,71038137,a sql query from oracle,QUERY SQL ORACLE,0,-3,1.0
+10206940,72834706,a sql query from oracle,how query using oracle,0,0,1.0
+10206940,76276581,a sql query from oracle,How to use 'AND' in an Oracle SQL query,0,0,1.0
+10210320,14924787,Not a single-group group function,not a single-group group function ORACLE,10,0,1.0
+10210320,34575241,Not a single-group group function,Not a single-group group function Oracle SQL,10,0,1.0
+10210320,44926779,Not a single-group group function,Oracle - Not a single-group group function,10,0,1.0
+10210320,55407268,Not a single-group group function,"""not a single-group group function""",10,0,1.0
+10231131,45707097,PHP 5 oci_execute(): ORA-01008: not all variables bound,PHP oci_execute(): ORA-01008: not all variables bound,2,1,1.0
+10231131,59075174,PHP 5 oci_execute(): ORA-01008: not all variables bound,PHP: oci_execute(): ORA-01008: not all variables bound,2,0,1.0
+10251821,19748578,Basic SQL query,Oracle SQL Basic Query,1,0,1.0
+10251821,26827942,Basic SQL query,basic sql query,1,0,1.0
+10279324,16889822,Wrong number or types of arguments in call to,wrong number or types of arguments in call to,1,3,1.0
+10279324,45029019,Wrong number or types of arguments in call to,wrong number or types of arguments in call,1,1,1.0
+10279324,57719737,Wrong number or types of arguments in call to,Oracle: wrong number or types of arguments in call,1,1,1.0
+10279324,60775412,Wrong number or types of arguments in call to,Wrong number or types of arguments in call to '||',1,0,1.0
+10279324,67190871,Wrong number or types of arguments in call to,wrong number or types of arguments in call,1,0,1.0
+10287766,32474709,Oracle if statement in where clause,If statement in clause where,1,0,1.0
+10287766,45581675,Oracle if statement in where clause,IF statement in WHERE clause - SQL - Oracle,1,1,1.0
+1029032,8912714,"Oracle SQL Query to Summarize Statistics, using GROUP BY",Query to Summarize Statistics with Group By,2,0,1.0
+10353969,30173298,How can I select from list of values in Oracle,Oracle: Can I select from a list of values?,68,0,1.0
+10373785,12298451,oracle table creation,Oracle database table creation,-5,0,1.0
+10373785,46931378,oracle table creation,SQL table creation,-5,0,1.0
+10422024,55783323,Inserting values into tables Oracle SQL,Inserting values into the tables,12,0,1.0
+10434801,25832551,Oracle query self-join?,SQL Self-Join Query,2,-1,1.0
+10444440,32488828,TO_DATE Conversion Issue in Oracle?,Date conversion issue in sql,0,0,1.0
+10444440,47767699,TO_DATE Conversion Issue in Oracle?,TO_DATE ISSUE IN CONVERSION,0,-3,1.0
+10469941,64788817,SQL Sum of Sums,Oracle SQL sum of sums,3,-1,1.0
+10479809,13107900,ORA-01843 Not a Valid Month with Oracle SQL,ORA-01843: not a valid month,0,2,1.0
+10479809,25147120,ORA-01843 Not a Valid Month with Oracle SQL,ORA-01843 - not a valid month oracle SQL,0,1,1.0
+10479809,29875429,ORA-01843 Not a Valid Month with Oracle SQL,ORA-01843 Not a valid month,0,-6,1.0
+10479809,35869479,ORA-01843 Not a Valid Month with Oracle SQL,ORACLE - ORA-01843: not a valid month,0,0,1.0
+10479809,43087887,ORA-01843 Not a Valid Month with Oracle SQL,ORA-01843: not a valid month,0,-2,1.0
+10479809,65594746,ORA-01843 Not a Valid Month with Oracle SQL,SQL ORA-01843 not a Valid month,0,-1,1.0
+10484231,37526608,ORA-24408: could not generate unique server group name,ora-24408 could not generate unique server group name in,15,-2,1.0
+10500048,50342839,Invalid identifier on oracle inner join,Oracle Invalid Identifier (with Inner Join),2,1,1.0
+10537413,12744428,How to delete duplicate rows from an Oracle Database?,Delete duplicate rows - Oracle,8,1,1.0
+10537413,30560984,How to delete duplicate rows from an Oracle Database?,How to delete duplicate rows in Oracle,8,3,1.0
+10537413,56286617,How to delete duplicate rows from an Oracle Database?,To delete duplicate rows in Oracle SQL,8,0,1.0
+10537413,63703239,How to delete duplicate rows from an Oracle Database?,Oracle SQL : How to delete Duplicate Rows,8,1,1.0
+10550952,19216076,Oracle - Comparing dates,Oracle SQL comparing dates,0,2,1.0
+10550952,69102725,Oracle - Comparing dates,Comparing dates in oracle,0,0,1.0
+10565846,16063151,Use Composite Primary Key as Foreign Key,Foreign Key to Composite Primary Key,19,0,1.0
+10565846,33963436,Use Composite Primary Key as Foreign Key,composite primary key with foreign key,19,0,1.0
+10565846,74208854,Use Composite Primary Key as Foreign Key,Foreign key to a composite primary key,19,0,1.0
+10584598,22143806,Oracle Deadlock,Deadlock in Oracle,2,0,1.0
+10584598,29070564,Oracle Deadlock,Deadlock in Oracle 3,2,0,1.0
+10595222,20830561,sql pivot with oracle?,Oracle SQL pivot,0,2,1.0
+10595222,31429930,sql pivot with oracle?,PIVOT in Oracle sql,0,1,1.0
+10595222,46296158,sql pivot with oracle?,Pivot in oracle,0,-3,1.0
+10595222,48286001,sql pivot with oracle?,how to use Pivot SQL,0,-2,1.0
+10595222,56687792,sql pivot with oracle?,Oracle Pivot SQL,0,0,1.0
+10614515,15947382,procedure in pl/sql,PL/SQL Procedure,-4,-1,1.0
+10614515,78515817,procedure in pl/sql,ORACLE PL/SQL Procedure,-4,0,1.0
+10622856,17362010,Oracle Grouping,Oracle SQL grouping,4,-2,1.0
+10622856,45376653,Oracle Grouping,SQL and Grouping,4,1,1.0
+10634091,48465061,Oracle Export Import,Oracle Export and Import,1,2,1.0
+10634091,50558367,Oracle Export Import,Export import oracle,1,-4,1.0
+10634091,78535018,Oracle Export Import,export & import database,1,0,1.0
+10645812,12373866,SQL group by query,SQL Query using Group by 4,1,-1,1.0
+10645812,12486811,SQL group by query,Oracle query group by,1,0,1.0
+10645812,13242892,SQL group by query,SQL query using group by,1,1,1.0
+10645812,14441062,SQL group by query,Oracle Group by query,1,1,1.0
+10645812,16208178,SQL group by query,SQL Query GROUP BY,1,-1,1.0
+10645812,17073575,SQL group by query,Query using Group by in sql,1,0,1.0
+10645812,17580979,SQL group by query,SQL - Group By Query,1,0,1.0
+10645812,26499816,SQL group by query,oracle sql query using group by,1,1,1.0
+10645812,27208884,SQL group by query,SQL query (GROUP BY),1,0,1.0
+10645812,32549577,SQL group by query,Oracle Sql Query with Group By,1,-2,1.0
+10645812,36302403,SQL group by query,Group by query in Oracle,1,0,1.0
+10645812,40021841,SQL group by query,SQL query for group by,1,1,1.0
+10645812,40026354,SQL group by query,Oracle SQL group by query,1,0,1.0
+10645812,46722606,SQL group by query,Oracle query with group,1,1,1.0
+10645812,46788980,SQL group by query,Group Query for oracle,1,0,1.0
+10645812,54883999,SQL group by query,Query on oracle on group by,1,0,1.0
+10645812,68817237,SQL group by query,oracle query to group by,1,0,1.0
+10645812,73916471,SQL group by query,Oracle SQL Query Group By,1,0,1.0
+10656631,22487208,Oracle sqlplus line size,SQLPlus Line size,3,1,1.0
+10657775,50147067,"Error(5,3): PLS-00103: Encountered the symbol ""BEGIN"" when expecting one of the following: language","Oracle Database error Error(3,3): PLS-00103: Encountered the symbol ""BEGIN"" when expecting one of the following: language",6,-1,1.0
+10688980,28126249,Complicated oracle query,SQL ORACLE - complicated query,1,-2,1.0
+10703225,13190059,ORA-00936: missing expression,ORA-00936 missing expression,0,2,1.0
+10703225,22582103,ORA-00936: missing expression,ORA-00936: missing expression oracle,0,2,1.0
+10703225,22694334,ORA-00936: missing expression,ORA-00936 missing expression,0,2,1.0
+10703225,28872929,ORA-00936: missing expression,ORA-00936: missing expression,0,-1,1.0
+10703225,62116638,ORA-00936: missing expression,ORA-00936 :missing expression,0,-2,1.0
+10703225,64794156,ORA-00936: missing expression,Oracle SQL - ORA-00936: missing expression,0,0,1.0
+10703225,67330694,ORA-00936: missing expression,ORA-00936: missing expression for a '=',0,4,1.0
+10704472,29958303,Hierarchical queries in Oracle,Hierarchical Queries in Oracle SQL,2,-2,1.0
+10704472,34066931,Hierarchical queries in Oracle,Hierarchical Queries - Oracle,2,0,1.0
+10704472,34773716,Hierarchical queries in Oracle,oracle sql hierarchical queries,2,-1,1.0
+10704472,37364302,Hierarchical queries in Oracle,Oracle Hierarchical Queries,2,1,1.0
+10704472,38550821,Hierarchical queries in Oracle,Hierarchical queries,2,0,1.0
+10704472,40115351,Hierarchical queries in Oracle,sql hierarchical queries,2,0,1.0
+10713822,33519309,ora-00933:SQL command not properly ended for update sql statement,Update statement oracle - ORA-00933: SQL command not properly ended,1,0,1.0
+10727521,51982490,Insert CLOB into Oracle database,Insert into with CLOB,4,-1,1.0
+10731500,16275245,Oracle for loop query,SQL For Loop query,0,0,1.0
+10731500,61610301,Oracle for loop query,How to using loop with oracle query?,0,0,1.0
+10731500,69966929,Oracle for loop query,Using a query in a loop in Oracle SQL,0,1,1.0
+10732673,17859994,select statement in oracle,Use as in select statement on select statement,1,1,1.0
+10732673,27087745,select statement in oracle,select statement oracle sql,1,1,1.0
+10732673,27210109,select statement in oracle,select statement oracle,1,0,1.0
+10732673,36977627,select statement in oracle,Select statement for Oracle SQL,1,0,1.0
+10737520,23763273,"PLS-00103, in Trigger",PLS-00103 in a Trigger,0,-1,1.0
+10740433,14241216,SubQuery returning Multiple rows,Oracle - SubQuery returning Multiple rows,0,0,1.0
+10749665,20063735,Parent child relationship in Oracle,Parent child and relationship in Oracle,2,0,1.0
+10786782,37776091,ORA-12514 TNS:listener does not currently know of service requested in connect descriptor,"ORA-12514, TNS:listener does not currently know of service requested in connect descriptor",341,0,1.0
+10786782,64360620,ORA-12514 TNS:listener does not currently know of service requested in connect descriptor,ORA-12514 TNS Listener does not currently know of service requested in connect descriptor,341,0,1.0
+10801631,28762046,Trigger on a view in oracle,SQL Trigger for View,2,2,1.0
+10801631,28781915,Trigger on a view in oracle,Oracle SQL Trigger for View,2,0,1.0
+10801631,36903748,Trigger on a view in oracle,SQL Trigger for View,2,-2,1.0
+10802212,26429994,Oracle (ORA-02270) : no matching unique or primary key for this column-list error,error ORA-02270: no matching unique or primary key for this column-list,31,3,1.0
+10802212,34530201,Oracle (ORA-02270) : no matching unique or primary key for this column-list error,SQL Error: ORA-02270: no matching unique or primary key for this column-list,31,0,1.0
+10802212,38816869,Oracle (ORA-02270) : no matching unique or primary key for this column-list error,Database SQL Error: ORA-02270: no matching unique or primary key for this column-list,31,0,1.0
+10802212,58003536,Oracle (ORA-02270) : no matching unique or primary key for this column-list error,ORACLE SQL Error - ORA-02270: no matching unique or primary key for this column-list,31,0,1.0
+10802212,61469823,Oracle (ORA-02270) : no matching unique or primary key for this column-list error,Oracle: Error ORA-02270 (no matching unique or primary key for this column-list),31,1,1.0
+10802212,63782499,Oracle (ORA-02270) : no matching unique or primary key for this column-list error,Oracle - ORA-02270 : no matching unique or primary key for this column-list error,31,0,1.0
+10802212,65380448,Oracle (ORA-02270) : no matching unique or primary key for this column-list error,Oracle error ORA-02270: no matching unique or primary key for this column-list,31,0,1.0
+10802212,66429895,Oracle (ORA-02270) : no matching unique or primary key for this column-list error,(Error) ORA-02270: no matching unique or primary key for this column-list,31,0,1.0
+10802212,76158128,Oracle (ORA-02270) : no matching unique or primary key for this column-list error,Error: ORA-02270: no matching unique or primary key for this column-list,31,1,1.0
+10812277,29782143,GROUP BY with '+' expression,"""Group by"" expression",1,0,1.0
+10827268,26273224,Wrapping a Stored Procedure SQL,Wrapping a Stored Procedure,0,2,1.0
+10827364,46557020,How To use a Grouping query,Oracle query for grouping,0,0,1.0
+10827364,61253326,How To use a Grouping query,How to query Oracle grouping?,0,0,1.0
+10841430,20164650,Oracle: Return multiple values in a function,Return multiple values from an Oracle function,5,0,1.0
+10841430,56935878,Oracle: Return multiple values in a function,Return Multiple Values from Oracle Function,5,0,1.0
+10841430,71475514,Oracle: Return multiple values in a function,Return multiple values from a oracle function,5,0,1.0
+10847436,28608776,update multiple rows with SQL,how to update multiple rows in oracle,1,8,1.0
+10847436,61448089,update multiple rows with SQL,Update multiple rows in SQL,1,1,1.0
+10847436,66686214,update multiple rows with SQL,how to update multiple rows in oracle sql,1,0,1.0
+10861232,12252292,Oracle sql for count,Oracle sql count,0,-1,1.0
+10861232,33381751,Oracle sql for count,ORACLE SQL - Count,0,1,1.0
+10861232,52301096,Oracle sql for count,COUNT with Oracle SQL,0,1,1.0
+10868874,31697281,multiple row insert in Oracle SQL,Insert multiple row in sql,4,1,1.0
+10892643,11004623,Nested cursors in oracle,Oracle Nested cursors,0,0,1.0
+10898195,13811730,ORA-00923: FROM keyword not found where expected,FROM keyword not found where expected - ORA-00923,1,1,1.0
+10898195,22028674,ORA-00923: FROM keyword not found where expected,ORA-00923 - FROM keyword not found where expected,1,-1,1.0
+10898195,39792222,ORA-00923: FROM keyword not found where expected,ORA-00923:FROM keyword not found where expected,1,0,1.0
+10898195,42101185,ORA-00923: FROM keyword not found where expected,"""ORA-00923: FROM keyword not found where expected""",1,1,1.0
+10898195,56119604,ORA-00923: FROM keyword not found where expected,SQL ORACLE ORA-00923: FROM keyword not found where expected,1,0,1.0
+10917877,61166443,Oracle sql query rewrite,Rewrite the Oracle SQL Query,1,0,1.0
+1092120,11960512,OVER clause in Oracle,Over use of Oracle With clause?,84,7,1.0
+1092120,15350335,OVER clause in Oracle,Oracle SQL: ON Clause,84,1,1.0
+1092120,31018328,OVER clause in Oracle,SQL Oracle (using AND clause),84,0,1.0
+1092120,40169311,OVER clause in Oracle,sql oracle in() clause,84,3,1.0
+1092120,54783746,OVER clause in Oracle,WITH clause in sql,84,-3,1.0
+10931456,33233624,Oracle Trigger not working,Oracle: Trigger not working,2,0,1.0
+10931456,50188734,Oracle Trigger not working,Oracle Sql trigger not working,2,0,1.0
+1093946,17022308,Migrate SQL Server to Oracle,How to migrate an oracle database to sql server database,1,-1,1.0
+10943793,39051918,how to use like and in query,Oracle SQL LIKE Query,0,4,1.0
+10943793,77713697,how to use like and in query,"SQL query with ""LIKE""",0,-1,1.0
+10944241,29080372,using special characters in Oracle,special characters oracle,1,0,1.0
+10948787,43122086,Oracle Datapump export/import,Oracle datapump export/import,5,0,1.0
+10958478,13447099,right parenthesis missing ora-00907,ORA-00907: missing right parenthesis,0,2,1.0
+10958478,13452963,right parenthesis missing ora-00907,ORA-00907: Missing right parenthesis,0,1,1.0
+10958478,14360167,right parenthesis missing ora-00907,ORA-00907: missing right parenthesis 2,0,0,1.0
+10958478,14652979,right parenthesis missing ora-00907,Missing right parenthesis ORA-00907,0,1,1.0
+10958478,19996149,right parenthesis missing ora-00907,ORA-00907 missing right parenthesis,0,-3,1.0
+10958478,24580780,right parenthesis missing ora-00907,ORA-00907: missing right parenthesis,0,29,1.0
+10958478,33590261,right parenthesis missing ora-00907,SQL missing right parenthesis ORA-00907,0,-1,1.0
+10958478,33793033,right parenthesis missing ora-00907,SQL ORA-00907 missing right parenthesis?,0,0,1.0
+10958478,36483624,right parenthesis missing ora-00907,Oracle Missing right parenthesis ORA-00907,0,0,1.0
+10958478,40307871,right parenthesis missing ora-00907,ORA-00907: missing right parenthesis oracle sql,0,0,1.0
+10958478,42932889,right parenthesis missing ora-00907,ORA-00907 Missing Right Parenthesis (Oracle),0,1,1.0
+10958478,45878354,right parenthesis missing ora-00907,ORA-00907 Missing Right Parenthesis,0,-1,1.0
+10958478,48796491,right parenthesis missing ora-00907,Oracle ORA-00907: missing right parenthesis,0,-1,1.0
+10958478,51825467,right parenthesis missing ora-00907,ORA-00907: missing right parenthesis?,0,0,1.0
+10958478,52719938,right parenthesis missing ora-00907,Oracle ora-00907 missing right parenthesis,0,-2,1.0
+10958478,67027060,right parenthesis missing ora-00907,"ORA-00907: ""missing right parenthesis""",0,0,1.0
+10958478,67141099,right parenthesis missing ora-00907,ORA-00907 (missing right parenthesis),0,0,1.0
+10958478,67435199,right parenthesis missing ora-00907,Oracle - ORA-00907: missing right parenthesis,0,0,1.0
+10974951,19373028,sql update query,SQL query to update,2,0,1.0
+10974951,53592262,sql update query,Oracle update sql query,2,0,1.0
+10974951,53861659,sql update query,Oracle Query Update From,2,0,1.0
+10974951,71733879,sql update query,update sql oracle query,2,0,1.0
+10974951,77419128,sql update query,SQL query to update database,2,-2,1.0
+1099845,18460246,Oracle CASE with OR,how to use sql in case,9,0,1.0
+1099845,34948378,Oracle CASE with OR,How to use case in oracle sql,9,0,1.0
+1099845,46167408,Oracle CASE with OR,Case in oracle sql,9,0,1.0
+1099845,50941718,Oracle CASE with OR,Oracle SQL Case,9,2,1.0
+1099845,59368236,Oracle CASE with OR,Using CASE in Oracle SQL,9,0,1.0
+1099845,69697810,Oracle CASE with OR,Oracle sql - Case,9,0,1.0
+1101630,22317643,Entity Framework and Oracle,Entity framework 6 and oracle,4,1,1.0
+1101630,3316856,Entity Framework and Oracle,Entity framework with oracle database,4,1,1.0
+1101630,3945806,Entity Framework and Oracle,Entity Framework 4 with Oracle,4,0,1.0
+1101630,67468050,Entity Framework and Oracle,Oracle with Entity framework,4,0,1.0
+1101630,69406051,Entity Framework and Oracle,Entity Framework 6 an Oracle,4,0,1.0
+1101630,74705414,Entity Framework and Oracle,How to use Entity Framework with an Oracle database?,4,0,1.0
+1101630,8417415,Entity Framework and Oracle,Using Entity Framework with Oracle,4,0,1.0
+11031409,25942763,"decimal(s,p) or number(s,p)?",Number to decimal sql,23,-1,1.0
+11036300,60714561,ORA-01460: unimplemented or unreasonable conversion requested,ORA-01460 unimplemented or unreasonable conversion requested,13,0,1.0
+11037195,11132375,How to Connect R to Oracle?,Connect by in Oracle SQL,4,15,1.0
+11037195,37540373,How to Connect R to Oracle?,How to connect an oracle database in C #?,4,0,1.0
+11037195,44848974,How to Connect R to Oracle?,Oracle Connect By,4,1,1.0
+11037195,48927128,How to Connect R to Oracle?,Connect in database Oracle,4,0,1.0
+11037195,50966401,How to Connect R to Oracle?,How to connect to Oracle database,4,0,1.0
+11037195,53639424,How to Connect R to Oracle?,How to connect to the database,4,0,1.0
+11046455,33194498,Oracle Subquery,Oracle SQL subquery,2,-1,1.0
+11046455,44379165,Oracle Subquery,Oracle Subquery - How to?,2,1,1.0
+11046455,44425108,Oracle Subquery,Subquery using Oracle SQL,2,-3,1.0
+1109811,52832519,Character set mismatch,Character Set mismatch in Oracle SQL,3,0,1.0
+11123275,16800410,Query Issue in sql,Oracle SQL query issue,1,0,1.0
+11123275,21222423,Query Issue in sql,SQL Query issue,1,0,1.0
+11123275,51987727,Query Issue in sql,Issue with Oracle SQL Query,1,1,1.0
+11132375,37540373,Connect by in Oracle SQL,How to connect an oracle database in C #?,15,0,1.0
+11132375,44848974,Connect by in Oracle SQL,Oracle Connect By,15,1,1.0
+11132375,48927128,Connect by in Oracle SQL,Connect in database Oracle,15,0,1.0
+11132375,50966401,Connect by in Oracle SQL,How to connect to Oracle database,15,0,1.0
+11132375,53639424,Connect by in Oracle SQL,How to connect to the database,15,0,1.0
+11147497,41650928,Using SQL to Query XML,Oracle sql query to xml,2,2,1.0
+11205486,14900050,Oracle SQL join query,Sql Query Join in Oracle,0,0,1.0
+11205486,18559842,Oracle SQL join query,Oracle join query,0,0,1.0
+11205486,47595893,Oracle SQL join query,SQL Query - JOIN?,0,0,1.0
+11253409,30703251,Split value of a column in Oracle,How to split column value in Oracle sql,0,0,1.0
+1126963,17704277,Query Hangs,oracle sql query hangs,0,0,1.0
+11283885,12480731,oracle PL/SQL stored procedure,Oracle PL/SQL stored procedure,0,1,1.0
+11296023,40924314,Oracle error: character string buffer too small,Character string buffer too small error in Oracle,0,0,1.0
+11312499,14156928,Dynamic column name in Oracle,oracle : Dynamic column name,4,4,1.0
+11349571,70963642,ORA-00937: Not a single-group group function - Query error,QUERY ERROR : ORA-00937: not a single-group group function,0,0,1.0
+11353739,21374457,left join with 4 tables oracle,Using Left Join in 3 tables,0,0,1.0
+11365469,15619530,C# and Oracle database connection,C# connection to Oracle database,1,1,1.0
+11365469,25488348,C# and Oracle database connection,C# Oracle database connection,1,0,1.0
+11365469,30208518,C# and Oracle database connection,SQL connection c#,1,1,1.0
+11391249,11393397,JSP CODE dbms obfuscation toolkit.DESEncrypt DECRYPT Oracle,JSP Code to decrypt dbms_obfuscation_toolkit.DESEncrypt oracle,0,0,1.0
+11407116,22086451,connecting oracle from r,Connecting Oracle Database,2,0,1.0
+11407116,25536150,connecting oracle from r,Connecting to Oracle Database from R?,2,0,1.0
+11420582,27705393,SQL Join in the same table,Oracle SQL join the same table,-2,0,1.0
+11420582,32668646,SQL Join in the same table,How to join the same table in sql,-2,0,1.0
+11420582,38545391,SQL Join in the same table,SQL join over same table,-2,1,1.0
+11420582,44679834,SQL Join in the same table,Join in the same table,-2,-3,1.0
+11420582,60228768,SQL Join in the same table,SQL Join on the same table,-2,0,1.0
+11436432,13267084,How can I check if a procedure exists in a package?,How can I check if a procedure exists in a package in Oracle 8?,10,3,1.0
+11443606,31832766,Optimising a query,Optimising SQL query,0,1,1.0
+11443606,44591512,Optimising a query,Oracle - optimising SQL query,0,2,1.0
+11449505,18253354,Oracle SQL Query tuning,Oracle Query SQL Tuning?,-1,0,1.0
+11449505,19756127,Oracle SQL Query tuning,Tuning Oracle SQL Query,-1,0,1.0
+11449505,36003983,Oracle SQL Query tuning,Query tuning Oracle,-1,-1,1.0
+11449505,37401230,Oracle SQL Query tuning,Tuning SQL Query in Oracle,-1,0,1.0
+11449505,49921799,Oracle SQL Query tuning,Tuning for Oracle query,-1,0,1.0
+11449505,62458604,Oracle SQL Query tuning,Tuning a query in oracle,-1,0,1.0
+11449505,72716449,Oracle SQL Query tuning,Oracle database query tuning,-1,0,1.0
+11459726,23412692,Recursive Oracle query,Recursive query in Oracle 9,1,0,1.0
+11459726,37535106,Recursive Oracle query,Recursive Query in Oracle,1,0,1.0
+11459726,37758890,Recursive Oracle query,SQL recursive query (Oracle),1,0,1.0
+11459726,40846996,Recursive Oracle query,Recursive query in Oracle,1,3,1.0
+11459726,51321087,Recursive Oracle query,with recursive query in oracle,1,1,1.0
+11459726,55022754,Recursive Oracle query,Recursive sql query in oracle,1,3,1.0
+11459726,62331434,Recursive Oracle query,ORACLE Recursive query,1,0,1.0
+11459726,63300316,Recursive Oracle query,Oracle SQL Recursive Query,1,0,1.0
+11459726,74026372,Recursive Oracle query,Recursive query - Oracle,1,0,1.0
+11459726,79249009,Recursive Oracle query,Oracle SQL - Recursive Query?,1,1,1.0
+11505315,31536756,Android connect to oracle database,How to connect Android with Oracle database?,1,0,1.0
+11505315,39879383,Android connect to oracle database,How to connect android to oracle database?,1,4,1.0
+11505315,41571146,Android connect to oracle database,How to connect to an oracle database in android?,1,0,1.0
+1150667,63976430,Track changes on a database,Oracle track changes in database,2,1,1.0
+11522443,58916500,Connecting to a Remote Oracle Database using Python,Connecting to remote Oracle database using Python,-4,0,1.0
+11538869,16400965,An Oracle Check Constraint,CHECK CONSTRAINT in Oracle SQL,3,3,1.0
+11538869,23672105,An Oracle Check Constraint,Oracle Constraint Check,3,0,1.0
+11538869,65326342,An Oracle Check Constraint,Oracle SQL - check constraint,3,2,1.0
+11538869,77632327,An Oracle Check Constraint,sql constraint in a check in,3,0,1.0
+1154497,12214733,Oracle SQL Invalid Identifier,Oracle: Invalid identifier,0,2,1.0
+1154497,12529845,Oracle SQL Invalid Identifier,Invalid Identifier in Oracle,0,-3,1.0
+1154497,14355395,Oracle SQL Invalid Identifier,SQL invalid identifier,0,1,1.0
+1154497,14912926,Oracle SQL Invalid Identifier,Oracle SQL: invalid identifier,0,0,1.0
+1154497,15035802,Oracle SQL Invalid Identifier,Oracle Invalid Identifier,0,1,1.0
+1154497,16429648,Oracle SQL Invalid Identifier,Invalid Identifier SQL,0,1,1.0
+1154497,20701771,Oracle SQL Invalid Identifier,Invalid identifier in Oracle SQL,0,1,1.0
+1154497,20792306,Oracle SQL Invalid Identifier,SQL invalid identifier,0,-2,1.0
+1154497,22085980,Oracle SQL Invalid Identifier,Invalid identifier in sql oracle,0,0,1.0
+1154497,29386960,Oracle SQL Invalid Identifier,invalid identifier,0,-1,1.0
+1154497,30110016,Oracle SQL Invalid Identifier,SQL invalid identifier?,0,2,1.0
+1154497,37704522,Oracle SQL Invalid Identifier,Oracle: Invalid identifier,0,0,1.0
+1154497,39077704,Oracle SQL Invalid Identifier,Invalid identifier in OVER Oracle,0,0,1.0
+1154497,46840793,Oracle SQL Invalid Identifier,invalid identifier in sql,0,-1,1.0
+1154497,57167609,Oracle SQL Invalid Identifier,SQL: invalid identifier,0,0,1.0
+1154612,1588581,oracle varchar to number,Oracle - Number to varchar,33,2,1.0
+1154612,22154426,oracle varchar to number,Varchar to Number in sql,33,1,1.0
+11564566,16864750,Oracle SQL Triggers,Oracle Triggers,-1,0,1.0
+11564566,23585487,Oracle SQL Triggers,Triggers in Oracle SQL,-1,0,1.0
+11564566,32970846,Oracle SQL Triggers,Triggers in SQL,-1,0,1.0
+11564818,23144812,Oracle SQL (trigger),Oracle - Trigger,0,0,1.0
+11564818,27942382,Oracle SQL (trigger),oracle SQL trigger,0,1,1.0
+11564818,29703668,Oracle SQL (trigger),Oracle SQL Trigger,0,-1,1.0
+11564818,29798080,Oracle SQL (trigger),Trigger in Oracle,0,1,1.0
+11564818,32396810,Oracle SQL (trigger),Trigger Sql Oracle,0,0,1.0
+11564818,34193063,Oracle SQL (trigger),Trigger in oracle sql,0,1,1.0
+11564818,36014569,Oracle SQL (trigger),"oracle , sql , trigger",0,1,1.0
+11564818,39678604,Oracle SQL (trigger),Trigger in Oracle,0,0,1.0
+11564818,53774050,Oracle SQL (trigger),how to use trigger in sql,0,0,1.0
+11564818,53840511,Oracle SQL (trigger),Trigger on Oracle Sql database,0,0,1.0
+11564818,56813589,Oracle SQL (trigger),how to use trigger in oracle,0,1,1.0
+11564818,74956358,Oracle SQL (trigger),A trigger in Oracle SQL,0,1,1.0
+11579355,34712393,sql query logic,SQL query with logic,1,0,1.0
+11579355,76046433,sql query logic,Oracle SQL Query Logic,1,0,1.0
+11609856,67318079,Conditional unique constraint in oracle,Conditional Unique Constraint SQL,4,1,1.0
+11621638,16851314,How to call procedure with out parameter as table type from a Java class,how to call procedure with out parameter as table type from a java class (2),6,1,1.0
+11645427,17695990,ERROR at line 1:ORA-00933: SQL command not properly ended,ERROR at line 1: ORA-00933: SQL command not properly ended,1,0,1.0
+11645427,19485253,ERROR at line 1:ORA-00933: SQL command not properly ended,error at line 6 ora-00933 sql command not properly ended,1,1,1.0
+11645427,24574777,ERROR at line 1:ORA-00933: SQL command not properly ended,ERROR at line 3: ORA-00933: SQL command not properly ended,1,0,1.0
+11645427,66629047,ERROR at line 1:ORA-00933: SQL command not properly ended,ORA-00933: SQL Command not properly ended - (Error at Line 2),1,-1,1.0
+11652236,32703340,update table using another table,How to Update on table with another table,0,-1,1.0
+11652236,34191380,update table using another table,Update from another table Oracle,0,1,1.0
+11652236,43889344,update table using another table,Update table from another table in oracle,0,0,1.0
+11652236,64052480,update table using another table,Oracle - Update from another table,0,1,1.0
+1165646,12787846,Oracle Query Optimization,oracle SQL query Optimization,0,0,1.0
+1165646,16258009,Oracle Query Optimization,Query optimization in Oracle SQL,0,-1,1.0
+1165646,21407575,Oracle Query Optimization,Optimization of query,0,0,1.0
+1165646,22483170,Oracle Query Optimization,sql query optimization (oracle),0,0,1.0
+1165646,33364367,Oracle Query Optimization,Oracle:query optimization,0,2,1.0
+1165646,37610422,Oracle Query Optimization,Optimization of query in Oracle,0,0,1.0
+1165646,51357304,Oracle Query Optimization,SQL query optimization Oracle,0,0,1.0
+1165646,52767659,Oracle Query Optimization,Query optimization of oracle query,0,0,1.0
+1165646,53635048,Oracle Query Optimization,Query optimization [Oracle],0,0,1.0
+1165646,54807996,Oracle Query Optimization,Query optimization on Oracle,0,1,1.0
+1165646,61886875,Oracle Query Optimization,Query optimization in SQL,0,0,1.0
+1165646,6263051,Oracle Query Optimization,Query Optimization in oracle,0,0,1.0
+1166658,41748402,Oracle left outer join query,query with left outer join in sql,2,1,1.0
+1166658,8436434,Oracle left outer join query,Oracle SQL Query (LEFT OUTER JOIN),2,1,1.0
+11682943,18958122,SQL Error ORA-00933,Oracle SQL Error ORA-00933,-1,0,1.0
+11682943,46522316,SQL Error ORA-00933,Oracle SQL ORA-00933 error,-1,-1,1.0
+11691578,19395902,Comparing values sql,Oracle SQL comparing values,1,1,1.0
+11691578,58276217,Comparing values sql,SQL - Comparing Values,1,1,1.0
+11692528,23577704,ORA-00905: missing keyword,'ORA-00905: missing keyword',3,-1,1.0
+11692528,28407171,ORA-00905: missing keyword,ORA-00905: missing keyword,3,-3,1.0
+11692528,30734461,ORA-00905: missing keyword,ORA-00905 : missing keyword,3,-1,1.0
+11692528,35554017,ORA-00905: missing keyword,Missing Keyword ORA-00905,3,0,1.0
+11692528,36908560,ORA-00905: missing keyword,ORA-00905 missing keyword,3,0,1.0
+11692528,72444055,ORA-00905: missing keyword,ORA-00905: missing keyword on ORACLE,3,2,1.0
+11709787,52442985,oracle decode with multiple values,Multiple values in decode Oracle SQL,0,0,1.0
+11725972,36231754,Oracle Update with Joins,Update with 2 joins,0,2,1.0
+1176269,24313597,Oracle Left outer join,SQL JOIN and LEFT OUTER JOIN,1,1,1.0
+1176269,35463113,Oracle Left outer join,left outer join in Oracle,1,0,1.0
+1176269,37601984,Oracle Left outer join,Oracle SQL - left join + left outer join,1,0,1.0
+1176269,39711273,Oracle Left outer join,Oracle SQL left outer join,1,0,1.0
+1176269,49136819,Oracle Left outer join,Oracle using (+) for left outer join,1,-1,1.0
+1176269,5628961,Oracle Left outer join,Oracle and Left Outer Join,1,0,1.0
+11783795,17116727,sql complex select statement,Complex select statement in oracle,0,3,1.0
+11794242,21528478,Oracle select with subquery,SQL select from subquery,7,0,1.0
+11794242,40975018,Oracle select with subquery,Oracle subquery in select,7,0,1.0
+11794242,50267829,Oracle select with subquery,Oracle SELECT Subquery,7,0,1.0
+11802384,20750483,Oracle SQL query: how to use count,Use of count in Oracle SQL Query,4,0,1.0
+11802384,52044748,Oracle SQL query: how to use count,SQL query _count,4,-2,1.0
+11807835,68781381,Unable to create table oracle?,Unable to create table in Oracle,0,-1,1.0
+11810152,19085163,How to use group by,How to GROUP BY on Oracle?,0,-1,1.0
+11810152,19647406,How to use group by,Oracle group by,0,1,1.0
+11810152,21366202,How to use group by,Group by in Oracle?,0,0,1.0
+11810152,25398147,How to use group by,Group by in Oracle SQL,0,1,1.0
+11810152,26342905,How to use group by,SQL Oracle (group by),0,0,1.0
+11810152,29130176,How to use group by,Group By in Oracle,0,0,1.0
+11810152,29367371,How to use group by,Using OR in a GROUP BY,0,0,1.0
+11810152,35786258,How to use group by,how to group by,0,-6,1.0
+11810152,40896674,How to use group by,group by sql oracle,0,-1,1.0
+11810152,40916825,How to use group by,Oracle SQL group by,0,0,1.0
+11810152,43037096,How to use group by,Use of Group by in (Oracle) SQL,0,0,1.0
+11810152,69128346,How to use group by,HOW TO USE ORACLE GROUP BY?,0,0,1.0
+11810152,69742479,How to use group by,How to use group by in SQL?,0,0,1.0
+11834782,62094564,SQL query case statement,Oracle Case Statement Query,2,0,1.0
+11863244,19054379,missing right parenthesis in create table,Oracle Create Table -> Missing Right Parenthesis,0,0,1.0
+11863244,32269565,missing right parenthesis in create table,ORACLE : Create table - Missing right parenthesis,0,1,1.0
+11863244,32425221,missing right parenthesis in create table,SQL create table missing right parenthesis,0,-1,1.0
+11882214,50051173,Order by not working in Oracle subquery,oracle subquery with order by not working,2,0,1.0
+11883923,28714338,Converting number to date in oracle,Converting a number to a date,3,0,1.0
+11883923,31189358,Converting number to date in oracle,Converting NUMBER to DATE,3,0,1.0
+11894670,13466691,use of FOR UPDATE statement,Oracle: update statement,5,0,1.0
+11894670,18946440,use of FOR UPDATE statement,Update statement in SQL,5,-1,1.0
+11894670,22023305,use of FOR UPDATE statement,Oracle SQL Update Statement,5,0,1.0
+11894670,26972919,use of FOR UPDATE statement,Sql UPDATE STATEMENT oracle,5,0,1.0
+11894670,43324616,use of FOR UPDATE statement,Update Oracle statement,5,0,1.0
+11909723,15101841,Oracle To_Date issue,oracle date issue,0,-1,1.0
+11909723,25255048,Oracle To_Date issue,SQL to Oracle Date Issue,0,0,1.0
+11909723,49774018,Oracle To_Date issue,Issue with date in oracle,0,0,1.0
+11909723,50037085,Oracle To_Date issue,date issue in sql - oracle,0,-1,1.0
+11909723,59768386,Oracle To_Date issue,Oracle - Date - Date Issue,0,0,1.0
+11960512,15350335,Over use of Oracle With clause?,Oracle SQL: ON Clause,7,1,1.0
+11960512,31018328,Over use of Oracle With clause?,SQL Oracle (using AND clause),7,0,1.0
+11960512,40169311,Over use of Oracle With clause?,sql oracle in() clause,7,3,1.0
+11960512,54783746,Over use of Oracle With clause?,WITH clause in sql,7,-3,1.0
+11981184,12274596,ORA-12805: parallel query server died unexpectedly,ORA-12805:parallel query server died unexpectedly,0,2,1.0
+11982242,16206740,ORA-00937: not a single-group group function in oracle,Group by: ORA-00937: not a single-group group function,2,1,1.0
+11982242,22743342,ORA-00937: not a single-group group function in oracle,ORA-00937: not a single-group group function,2,0,1.0
+11982242,35009840,ORA-00937: not a single-group group function in oracle,"ORA-00937: ""not a single-group group function""",2,3,1.0
+11982242,41124349,ORA-00937: not a single-group group function in oracle,"ORA-00937: - ""not a single-group group function""",2,0,1.0
+11982242,41248679,ORA-00937: not a single-group group function in oracle,ORA-00937: not a single-group group function how?,2,0,1.0
+11982242,52899314,ORA-00937: not a single-group group function in oracle,Oracle SQL: ORA-00937: not a single-group group function,2,0,1.0
+11982242,54159404,ORA-00937: not a single-group group function in oracle,sql - ORA-00937: not a single-group group function,2,1,1.0
+11982242,61027529,ORA-00937: not a single-group group function in oracle,ORA-00937: not a single-group group function___,2,0,1.0
+12015111,20484529,INSERT TRIGGER IN ORACLE,Trigger Insert in database,2,-1,1.0
+12015111,23587224,INSERT TRIGGER IN ORACLE,Oracle Trigger on insert,2,0,1.0
+12015111,41181612,INSERT TRIGGER IN ORACLE,SQL: trigger on insert,2,0,1.0
+12015111,47024123,INSERT TRIGGER IN ORACLE,Oracle on insert trigger,2,0,1.0
+12015111,47086141,INSERT TRIGGER IN ORACLE,insert trigger ORACLE,2,1,1.0
+12025748,51418263,XML parsing in oracle pl/sql,XML parsing PL/SQL,0,0,1.0
+12034848,22845339,oracle insert from select,"SQL , INSERT with SELECT",0,0,1.0
+12034848,41317446,oracle insert from select,Insert select In ORACLE,0,-1,1.0
+12034848,58016778,oracle insert from select,Select on insert,0,0,1.0
+12034848,58780905,oracle insert from select,Oracle SQL: INSERT with SELECT,0,0,1.0
+12037418,34304169,Oracle SQL SELECT in loop,Select from a loop in Oracle,0,-7,1.0
+12037418,62532569,Oracle SQL SELECT in loop,select in a loop in oracle sql?,0,0,1.0
+12053852,36847983,Oracle conditional join,Oracle SQL conditional join,2,5,1.0
+12053852,37764642,Oracle conditional join,conditional join in sql,2,1,1.0
+12053852,41906127,Oracle conditional join,Conditional Join in Oracle SQL,2,-1,1.0
+12053852,50117408,Oracle conditional join,SQL Oracle SQL conditional join,2,2,1.0
+12053852,70993048,Oracle conditional join,conditional join (Oracle),2,0,1.0
+12055700,18200614,SQL compare string,Oracle compare string,7,0,1.0
+12055700,29582551,SQL compare string,Oracle SQL String Compare,7,1,1.0
+12068488,36467541,ORACLE UPDATE CORRELATED QUERY,Correlated Update query,1,0,1.0
+12068488,60252753,ORACLE UPDATE CORRELATED QUERY,oracle update with correlated query,1,3,1.0
+12085866,14921399,Max function in ORACLE,Using MAX function,1,0,1.0
+12085866,16540495,Max function in ORACLE,SQL Oracle - max function,1,1,1.0
+12089735,28712576,ORACLE Mutating trigger error,Mutating Error in Oracle trigger,0,0,1.0
+12089735,46156459,ORACLE Mutating trigger error,trigger mutating error,0,1,1.0
+12129717,19165881,Error in Oracle stored procedure,stored procedure in oracle with error,-1,-1,1.0
+12129717,38953569,Error in Oracle stored procedure,Stored procedure ERROR in Oracle,-1,-2,1.0
+12129717,41806869,Error in Oracle stored procedure,Oracle: stored procedure error,-1,0,1.0
+12171211,30995260,Oracle : SQL using REGEXP_LIKE,like and regexp_like,0,1,1.0
+12171211,35897646,Oracle : SQL using REGEXP_LIKE,REGEXP_LIKE in Oracle,0,0,1.0
+12171211,36861436,Oracle : SQL using REGEXP_LIKE,"Oracle, REGEXP_LIKE",0,2,1.0
+12171211,53554423,Oracle : SQL using REGEXP_LIKE,Using REGEXP_LIKE in Oracle,0,0,1.0
+12171211,59785506,Oracle : SQL using REGEXP_LIKE,Using regexp_like,0,2,1.0
+12171211,62346053,Oracle : SQL using REGEXP_LIKE,Oracle REGEXP_LIKE,0,-1,1.0
+12171211,72542747,Oracle : SQL using REGEXP_LIKE,How to use regexp_like in oracle?,0,1,1.0
+12179473,32951591,Grant privileges on database to a user,Oracle - grant privileges to a user,-1,-1,1.0
+12179473,72104396,Grant privileges on database to a user,How to grant user privileges in Oracle,-1,0,1.0
+12192592,28235626,java.sql.SQLException: - ORA-01000: maximum open cursors exceeded,java.sql.SQLException: ORA-01000: maximum open cursors exceeded,133,0,1.0
+12193206,46464602,reference the composite primary key,How to reference a composite primary key in SQL,0,1,1.0
+12214733,12529845,Oracle: Invalid identifier,Invalid Identifier in Oracle,2,-3,1.0
+12214733,14355395,Oracle: Invalid identifier,SQL invalid identifier,2,1,1.0
+12214733,14912926,Oracle: Invalid identifier,Oracle SQL: invalid identifier,2,0,1.0
+12214733,15035802,Oracle: Invalid identifier,Oracle Invalid Identifier,2,1,1.0
+12214733,16429648,Oracle: Invalid identifier,Invalid Identifier SQL,2,1,1.0
+12214733,20701771,Oracle: Invalid identifier,Invalid identifier in Oracle SQL,2,1,1.0
+12214733,20792306,Oracle: Invalid identifier,SQL invalid identifier,2,-2,1.0
+12214733,22085980,Oracle: Invalid identifier,Invalid identifier in sql oracle,2,0,1.0
+12214733,29386960,Oracle: Invalid identifier,invalid identifier,2,-1,1.0
+12214733,30110016,Oracle: Invalid identifier,SQL invalid identifier?,2,2,1.0
+12214733,37704522,Oracle: Invalid identifier,Oracle: Invalid identifier,2,0,1.0
+12214733,39077704,Oracle: Invalid identifier,Invalid identifier in OVER Oracle,2,0,1.0
+12214733,46840793,Oracle: Invalid identifier,invalid identifier in sql,2,-1,1.0

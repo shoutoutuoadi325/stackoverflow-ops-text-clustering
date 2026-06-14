@@ -1,0 +1,99 @@
+{
+  "source_path": "C:\\Users\\30126\\Desktop\\stackoverflow-ops-text-clustering\\StackOverFlow_Oracle_Database\\oracle_database_questions.json",
+  "file_size_bytes": 588919290,
+  "sha256": "799f1a59c6ae5618e7b64d4769f202131bd82d1e6a01f2ac42c6ac5a37fb861d",
+  "validated_at_utc": "2026-06-11T07:50:20+00:00",
+  "metrics": {
+    "questions": 152758,
+    "answers": 203393,
+    "question_comments": 331642,
+    "answer_comments": 220296,
+    "avg_answers_per_question": 1.331,
+    "max_answers_per_question": 34,
+    "unanswered_questions": 29937,
+    "max_question_score": 1382,
+    "max_question_id": "470542",
+    "top_tags": [
+      {
+        "tag": "oracle-database",
+        "count": 152758
+      },
+      {
+        "tag": "sql",
+        "count": 69761
+      },
+      {
+        "tag": "plsql",
+        "count": 22721
+      },
+      {
+        "tag": "oracle11g",
+        "count": 12287
+      },
+      {
+        "tag": "java",
+        "count": 10796
+      },
+      {
+        "tag": "database",
+        "count": 8740
+      },
+      {
+        "tag": "c#",
+        "count": 5025
+      },
+      {
+        "tag": "oracle-sqldeveloper",
+        "count": 4758
+      },
+      {
+        "tag": "oracle10g",
+        "count": 4381
+      },
+      {
+        "tag": "stored-procedures",
+        "count": 3976
+      },
+      {
+        "tag": "jdbc",
+        "count": 3737
+      },
+      {
+        "tag": "oracle-apex",
+        "count": 3584
+      },
+      {
+        "tag": "oracle12c",
+        "count": 2763
+      },
+      {
+        "tag": "sql-server",
+        "count": 2725
+      },
+      {
+        "tag": "sqlplus",
+        "count": 2565
+      },
+      {
+        "tag": "triggers",
+        "count": 2529
+      },
+      {
+        "tag": "hibernate",
+        "count": 2522
+      },
+      {
+        "tag": "mysql",
+        "count": 2373
+      },
+      {
+        "tag": "php",
+        "count": 2331
+      },
+      {
+        "tag": "join",
+        "count": 2118
+      }
+    ]
+  }
+}

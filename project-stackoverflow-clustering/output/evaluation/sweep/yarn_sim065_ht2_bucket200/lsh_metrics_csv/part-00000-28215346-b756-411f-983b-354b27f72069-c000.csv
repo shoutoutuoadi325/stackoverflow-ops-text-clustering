@@ -1,0 +1,2 @@
+similarity_threshold,distance_threshold,num_hash_tables,max_bucket_size,top_n_per_doc,min_token_count,input_count,kept_bucket_count,candidate_pair_count,pre_topn_pair_count,pair_count,avg_similarity
+0.65,0.35,2,200,10,2,152758,6456,2227681,16,16,0.7488968938325841

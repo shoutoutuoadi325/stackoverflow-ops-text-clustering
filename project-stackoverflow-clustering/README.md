@@ -15,6 +15,7 @@ project-stackoverflow-clustering/
   output/                        # 本地验证输出或 HDFS 导出结果
     hdfs_output/                 # 从 HDFS 导出的完整结果样例
     local_profile_sample/        # 本地小样本统计结果
+  demo/                          # 静态 Demo 展示页
   data/                          # 本地数据软链接或拷贝目录
   requirements.txt               # Python 依赖说明
 ```
@@ -32,6 +33,7 @@ project-stackoverflow-clustering/
 | `output/` | 本地输出与样例结果目录，包含 JSONL 样例、EDA 摘要、标签统计、相似问题样例和重复簇样例。 |
 | `output/hdfs_output/` | 从 HDFS 导出的 Spark 全量结果样例，包括 EDA、主题聚类、相似问题对和重复问题簇等输出目录。 |
 | `output/local_profile_sample/` | 不依赖 Spark 的本地小样本统计结果，用于快速验证数据读取、字段解析和基础统计逻辑。 |
+| `demo/` | 零前端依赖的本地展示界面，读取 `demo/data.js` 展示 EDA、主题聚类、相似问题对、重复簇和关键词检索。 |
 | `data/` | 本地数据目录，通常用于放置或软链接 StackOverflow Oracle 原始数据；正式运行时由脚本上传到 HDFS。 |
 
 ## 环境要求
@@ -78,6 +80,18 @@ cd /opt/bigdata/project-stackoverflow-clustering
 
 如果部署路径或 HDFS 路径不同，先修改 `conf/app.conf`。
 
+本仓库的本地数据集默认识别为项目同级目录：
+
+```text
+../StackOverFlow_Oracle_Database/oracle_database_questions.json
+```
+
+也可以通过环境变量覆盖：
+
+```bash
+LOCAL_DATA_DIR=/path/to/StackOverFlow_Oracle_Database bash scripts/01_json_to_jsonl.sh
+```
+
 上传原始 JSON：
 
 ```bash
@@ -100,6 +114,12 @@ bash scripts/04_submit_preprocess.sh
 bash scripts/05_submit_cluster.sh
 ```
 
+如果希望 Demo 中召回更多相似问题候选，可运行更高召回配置。该脚本会复用已有特征，写入带后缀的新 HDFS 输出目录：
+
+```bash
+bash scripts/05_submit_cluster_recall.sh
+```
+
 Demo 查询：
 
 ```bash
@@ -115,6 +135,74 @@ bash scripts/07_query_demo.sh --question-id 28753859 --limit 10
 
 ```bash
 bash scripts/06_export_demo.sh
+```
+
+生成并打开本地 Demo 界面：
+
+```bash
+python src/validate_raw_data.py \
+  --input ../StackOverFlow_Oracle_Database/oracle_database_questions.json
+python src/build_review_candidates.py
+python src/evaluate_review_labels.py
+python src/summarize_sweep_results.py
+python src/build_demo_assets.py
+```
+
+然后直接打开：
+
+```text
+demo/index.html
+```
+
+也可以使用脚本生成：
+
+```bash
+bash scripts/08_validate_raw_data.sh
+bash scripts/09_build_demo_assets.sh
+```
+
+## 真实评测与参数扫描
+
+为了避免把“结果数量更多”误当成“效果更好”，项目将评测拆成三层：
+
+1. 原始数据核验：`src/validate_raw_data.py` 直接读取原始 JSON，输出文件大小、SHA256、问题数、回答数、评论数、最高分问题等到 `output/validation/`。
+2. 参数扫描：`scripts/05_submit_cluster_sweep.sh` 按多组 LSH 参数写入独立 HDFS 输出目录，不覆盖基线结果。导出后运行 `scripts/06_export_evaluation.sh` 汇总到 `output/evaluation/parameter_sweep_summary.csv`。
+3. 人工审核：`src/build_review_candidates.py` 生成 `evaluation/review_candidates.csv`。只有人工填写 `label` 后，`src/evaluate_review_labels.py` 才会计算 precision；未标注时 Demo 显示“待人工审核”，不伪造 F1 或准确率。
+
+没有 Spark 集群时，可以运行本地真实数据兜底评测。该流程直接读取原始 JSON 的标题和标签，生成保守相似候选和阈值扫描结果，方法名标记为 `local_title_tag`，用于答辩展示和人工审核，不替代 Spark MinHashLSH 全量实验：
+
+```bash
+python src/local_similarity_sweep.py \
+  --input ../StackOverFlow_Oracle_Database/oracle_database_questions.json
+python src/summarize_sweep_results.py
+python src/build_review_candidates.py
+python src/evaluate_review_labels.py
+python src/build_demo_assets.py
+```
+
+本机 Windows 已验证可用的 Spark local 复现脚本为：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/10_run_spark_local_verified.ps1
+```
+
+该脚本使用项目内 `.venv-spark`、JDK 17 和 `tools/hadoop/bin/winutils.exe`/`hadoop.dll`，生成 `output/spark_local_verified`，并把 Spark MinHashLSH 的 `0.75` 与 `0.85` 两组真实结果汇总进 `output/evaluation/parameter_sweep_summary.csv`。
+
+参数扫描默认网格：
+
+```text
+similarity_threshold: 0.65 0.70 0.75 0.80 0.85
+num_hash_tables: 2 4 8
+max_bucket_size: 200 300 500
+```
+
+小规模 smoke run 可以覆盖环境变量：
+
+```bash
+SWEEP_SIMILARITIES="0.75 0.85" \
+SWEEP_HASH_TABLES="2" \
+SWEEP_BUCKET_SIZES="200" \
+bash scripts/05_submit_cluster_sweep.sh
 ```
 
 ## 输出结果

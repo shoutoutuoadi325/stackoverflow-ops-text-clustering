@@ -20,5 +20,8 @@ spark_submit_project() {
     --executor-memory "${EXECUTOR_MEMORY:-4g}" \
     --executor-cores "${EXECUTOR_CORES:-2}" \
     --num-executors "${NUM_EXECUTORS:-4}" \
+    --conf "spark.sql.adaptive.enabled=${SPARK_ADAPTIVE_ENABLED:-true}" \
+    --conf "spark.serializer=${SPARK_SERIALIZER:-org.apache.spark.serializer.KryoSerializer}" \
+    --conf "spark.eventLog.enabled=${SPARK_EVENTLOG_ENABLED:-false}" \
     "$@"
 }
