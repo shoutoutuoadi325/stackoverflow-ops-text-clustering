@@ -1,30 +1,72 @@
 {
-  "status": "ok",
+  "status": "labeled",
   "labeled_count": 52,
   "positive_count": 38,
   "precision": 0.7308,
+  "ci95_low": 0.5975,
+  "ci95_high": 0.8323,
   "f1": null,
-  "note": "F1 is not computed without a known recall denominator.",
+  "note": "Recall has no ground-truth denominator over 152K questions, so we deliberately do not compute F1. precision is reported with a Wilson 95% confidence interval; with small samples the interval is wide and that width is part of the honest evaluation story.",
   "by_threshold": {
     "0.65": {
       "labeled_count": 15,
       "positive_count": 11,
-      "precision": 0.7333
+      "precision": 0.7333,
+      "ci95_low": 0.4805,
+      "ci95_high": 0.891
     },
     "0.75": {
       "labeled_count": 10,
       "positive_count": 5,
-      "precision": 0.5
+      "precision": 0.5,
+      "ci95_low": 0.2366,
+      "ci95_high": 0.7634
     },
     "0.85": {
       "labeled_count": 4,
       "positive_count": 2,
-      "precision": 0.5
+      "precision": 0.5,
+      "ci95_low": 0.15,
+      "ci95_high": 0.85
     },
     "local": {
       "labeled_count": 23,
       "positive_count": 20,
-      "precision": 0.8696
+      "precision": 0.8696,
+      "ci95_low": 0.6787,
+      "ci95_high": 0.9546
+    }
+  },
+  "by_similarity_bucket": {
+    "[0.65,0.75)": {
+      "labeled_count": 9,
+      "positive_count": 6,
+      "precision": 0.6667,
+      "ci95_low": 0.3542,
+      "ci95_high": 0.8794
+    },
+    "[0.75,0.85)": {
+      "labeled_count": 12,
+      "positive_count": 7,
+      "precision": 0.5833,
+      "ci95_low": 0.3195,
+      "ci95_high": 0.8067
+    },
+    "[0.85,1.00]": {
+      "labeled_count": 31,
+      "positive_count": 25,
+      "precision": 0.8065,
+      "ci95_low": 0.6372,
+      "ci95_high": 0.9081
+    }
+  },
+  "by_ora_match": {
+    "no_ora_match": {
+      "labeled_count": 52,
+      "positive_count": 38,
+      "precision": 0.7308,
+      "ci95_low": 0.5975,
+      "ci95_high": 0.8323
     }
   }
 }

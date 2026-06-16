@@ -8,7 +8,19 @@ import csv
 from pathlib import Path
 
 
-FIELDNAMES = ["src", "dst", "src_title", "dst_title", "similarity", "threshold", "hash_tables", "label", "notes"]
+FIELDNAMES = [
+    "src",
+    "dst",
+    "src_title",
+    "dst_title",
+    "similarity",
+    "threshold",
+    "hash_tables",
+    "shared_ora_codes",
+    "ora_match",
+    "label",
+    "notes",
+]
 
 
 def read_rows(path: Path) -> list[dict[str, str]]:
@@ -48,7 +60,10 @@ def read_existing_labels(path: Path) -> dict[tuple[str, str, str, str], dict[str
         for row in csv.DictReader(handle, escapechar="\\"):
             key = (row.get("src", ""), row.get("dst", ""), row.get("threshold", ""), row.get("hash_tables", ""))
             if row.get("label", "") or row.get("notes", ""):
-                labels[key] = {"label": row.get("label", ""), "notes": row.get("notes", "")}
+                labels[key] = {
+                    "label": row.get("label", ""),
+                    "notes": row.get("notes", ""),
+                }
     return labels
 
 
@@ -92,6 +107,8 @@ def main() -> None:
                     "similarity": row.get("similarity", ""),
                     "threshold": threshold,
                     "hash_tables": hash_tables,
+                    "shared_ora_codes": row.get("shared_ora_codes", ""),
+                    "ora_match": row.get("ora_match", ""),
                     "label": preserved.get("label", ""),
                     "notes": preserved.get("notes", ""),
                 }
