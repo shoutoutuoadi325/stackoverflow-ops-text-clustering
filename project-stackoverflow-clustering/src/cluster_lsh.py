@@ -8,7 +8,20 @@ import argparse
 from pyspark.ml.feature import MinHashLSH
 from pyspark import StorageLevel
 from pyspark.sql import SparkSession, Window
-from pyspark.sql.functions import avg, array_intersect, array_union, col, concat_ws, count, lit, posexplode, row_number, size
+from pyspark.sql.functions import (
+    array_intersect,
+    array_union,
+    avg,
+    col,
+    concat_ws,
+    count,
+    least,
+    lit,
+    posexplode,
+    row_number,
+    size,
+    when,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -32,6 +45,26 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--min-token-count", type=int, default=2)
     parser.add_argument("--shuffle-partitions", type=int, default=24)
+    parser.add_argument(
+        "--ora-boost",
+        type=float,
+        default=0.10,
+        help=(
+            "Domain boost added to similarity when two documents share at least one ORA-XXXXX "
+            "error code. Set to 0 to disable the boost. The boosted similarity is capped at 1.0."
+        ),
+    )
+    parser.add_argument(
+        "--ora-rescue-floor",
+        type=float,
+        default=0.0,
+        help=(
+            "When > 0, pairs whose raw similarity is below --similarity-threshold but above this "
+            "floor and that share an ORA code are kept as 'ORA-rescued' candidates. They are "
+            "marked with ora_rescued=true in the output so the report can show domain-knowledge "
+            "recall improvements without polluting the main similar_pairs result."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -40,9 +73,14 @@ def main() -> None:
     spark = SparkSession.builder.appName("stackoverflow-lsh-clustering").getOrCreate()
     spark.conf.set("spark.sql.shuffle.partitions", str(args.shuffle_partitions))
 
-    features = spark.read.parquet(args.features).select(
-        "doc_id", "title", "tags", "score", "tokens", "term_features"
-    ).filter(size(col("tokens")) >= args.min_token_count).persist(StorageLevel.MEMORY_AND_DISK)
+    raw_features = spark.read.parquet(args.features)
+    has_ora = "ora_codes" in raw_features.columns
+    base_cols = ["doc_id", "title", "tags", "score", "tokens", "term_features"]
+    if has_ora:
+        base_cols.append("ora_codes")
+    features = raw_features.select(*base_cols).filter(size(col("tokens")) >= args.min_token_count).persist(
+        StorageLevel.MEMORY_AND_DISK
+    )
     input_count = features.count()
 
     lsh = MinHashLSH(
@@ -66,13 +104,50 @@ def main() -> None:
             "dst_title",
             "src_score",
             "dst_score",
+            *(["src_ora_codes", "dst_ora_codes"] if has_ora else []),
             (intersection_size / union_size).alias("token_similarity"),
         )
         .withColumn("jaccard_distance", lit(1.0) - col("token_similarity"))
-        .withColumn("similarity", col("token_similarity"))
+        .withColumn("similarity_raw", col("token_similarity"))
         .drop("token_similarity")
-        .filter((col("jaccard_distance") <= args.distance_threshold) & (col("similarity") >= args.similarity_threshold))
-    ).persist(StorageLevel.MEMORY_AND_DISK)
+    )
+
+    if has_ora:
+        shared_ora = array_intersect(col("src_ora_codes"), col("dst_ora_codes"))
+        pairs = (
+            pairs.withColumn("shared_ora_codes", shared_ora)
+            .withColumn("ora_match", size(col("shared_ora_codes")) > 0)
+            .withColumn(
+                "similarity",
+                least(
+                    lit(1.0),
+                    col("similarity_raw") + when(col("ora_match"), lit(args.ora_boost)).otherwise(lit(0.0)),
+                ),
+            )
+        )
+    else:
+        pairs = pairs.withColumn("similarity", col("similarity_raw")).withColumn(
+            "shared_ora_codes", lit(None).cast("array<string>")
+        ).withColumn("ora_match", lit(False))
+
+    base_filter = (col("jaccard_distance") <= args.distance_threshold) & (
+        col("similarity") >= args.similarity_threshold
+    )
+    if has_ora and args.ora_rescue_floor > 0:
+        rescue_filter = (
+            col("ora_match")
+            & (col("similarity_raw") >= args.ora_rescue_floor)
+            & (col("similarity_raw") < args.similarity_threshold)
+        )
+        keep_filter = base_filter | rescue_filter
+    else:
+        rescue_filter = lit(False)
+        keep_filter = base_filter
+
+    pairs = pairs.withColumn(
+        "ora_rescued",
+        when((~base_filter) & rescue_filter, lit(True)).otherwise(lit(False)),
+    ).filter(keep_filter).persist(StorageLevel.MEMORY_AND_DISK)
     pair_count = pairs.count()
 
     window = Window.partitionBy("src").orderBy(col("similarity").desc(), col("dst").asc())
@@ -84,7 +159,15 @@ def main() -> None:
         "header", True
     ).csv(args.output.rstrip("/") + "_samples_csv")
     if args.metrics_output:
-        similarity_stats = pairs.agg(avg("similarity").alias("avg_similarity")).collect()[0]
+        agg_exprs = [avg("similarity").alias("avg_similarity")]
+        if has_ora:
+            agg_exprs += [
+                avg(when(col("ora_match"), 1.0).otherwise(0.0)).alias("ora_match_rate"),
+                avg(when(col("ora_rescued"), 1.0).otherwise(0.0)).alias("ora_rescued_rate"),
+            ]
+        similarity_stats = pairs.agg(*agg_exprs).collect()[0]
+        ora_match_rate = float(similarity_stats["ora_match_rate"]) if has_ora else 0.0
+        ora_rescued_rate = float(similarity_stats["ora_rescued_rate"]) if has_ora else 0.0
         spark.createDataFrame(
             [
                 (
@@ -95,11 +178,15 @@ def main() -> None:
                     args.join_strategy,
                     args.top_n_per_doc,
                     args.min_token_count,
+                    args.ora_boost,
+                    args.ora_rescue_floor,
                     input_count,
                     candidate_pair_count,
                     pair_count,
                     output_pair_count,
                     float(similarity_stats.avg_similarity or 0.0),
+                    ora_match_rate,
+                    ora_rescued_rate,
                 )
             ],
             [
@@ -110,11 +197,15 @@ def main() -> None:
                 "join_strategy",
                 "top_n_per_doc",
                 "min_token_count",
+                "ora_boost",
+                "ora_rescue_floor",
                 "input_count",
                 "candidate_pair_count",
                 "pre_topn_pair_count",
                 "pair_count",
                 "avg_similarity",
+                "ora_match_rate",
+                "ora_rescued_rate",
             ],
         ).coalesce(1).write.mode("overwrite").option("header", True).csv(args.metrics_output)
     spark.stop()
@@ -128,8 +219,12 @@ def build_candidate_pairs(model: MinHashLSH, features, args: argparse.Namespace)
 
 def build_approx_candidate_pairs(model: MinHashLSH, features, args: argparse.Namespace):
     """Generate candidates with Spark ML's native MinHashLSH distance threshold."""
-    left_input = features.select("doc_id", "title", "score", "tokens", "term_features")
-    right_input = features.select("doc_id", "title", "score", "tokens", "term_features")
+    has_ora = "ora_codes" in features.columns
+    base_cols = ["doc_id", "title", "score", "tokens", "term_features"]
+    if has_ora:
+        base_cols.append("ora_codes")
+    left_input = features.select(*base_cols)
+    right_input = features.select(*base_cols)
 
     joined = model.approxSimilarityJoin(
         left_input,
@@ -137,18 +232,24 @@ def build_approx_candidate_pairs(model: MinHashLSH, features, args: argparse.Nam
         args.distance_threshold,
         distCol="lsh_jaccard_distance",
     )
+    select_exprs = [
+        col("datasetA.doc_id").alias("src"),
+        col("datasetB.doc_id").alias("dst"),
+        col("datasetA.title").alias("src_title"),
+        col("datasetB.title").alias("dst_title"),
+        col("datasetA.score").alias("src_score"),
+        col("datasetB.score").alias("dst_score"),
+        col("datasetA.tokens").alias("src_tokens"),
+        col("datasetB.tokens").alias("dst_tokens"),
+    ]
+    if has_ora:
+        select_exprs += [
+            col("datasetA.ora_codes").alias("src_ora_codes"),
+            col("datasetB.ora_codes").alias("dst_ora_codes"),
+        ]
     return (
         joined.filter(col("datasetA.doc_id") < col("datasetB.doc_id"))
-        .select(
-            col("datasetA.doc_id").alias("src"),
-            col("datasetB.doc_id").alias("dst"),
-            col("datasetA.title").alias("src_title"),
-            col("datasetB.title").alias("dst_title"),
-            col("datasetA.score").alias("src_score"),
-            col("datasetB.score").alias("dst_score"),
-            col("datasetA.tokens").alias("src_tokens"),
-            col("datasetB.tokens").alias("dst_tokens"),
-        )
+        .select(*select_exprs)
         .dropDuplicates(["src", "dst"])
         .repartition(args.shuffle_partitions, "src")
     )
@@ -156,12 +257,16 @@ def build_approx_candidate_pairs(model: MinHashLSH, features, args: argparse.Nam
 
 def build_bucket_candidate_pairs(model: MinHashLSH, features, args: argparse.Namespace):
     """Historical bucket self-join path used when explicit bucket-size skew control is needed."""
-    hashed = model.transform(features).select("doc_id", "title", "score", "tokens", "hashes")
+    has_ora = "ora_codes" in features.columns
+    transform_cols = ["doc_id", "title", "score", "tokens", "hashes"]
+    if has_ora:
+        transform_cols.append("ora_codes")
+    hashed = model.transform(features).select(*transform_cols)
+    bucket_select = ["doc_id", "title", "score", "tokens"]
+    if has_ora:
+        bucket_select.append("ora_codes")
     buckets = hashed.select(
-        "doc_id",
-        "title",
-        "score",
-        "tokens",
+        *bucket_select,
         posexplode("hashes").alias("hash_table", "hash_value"),
     ).withColumn("hash_key", concat_ws(":", col("hash_table").cast("string"), col("hash_value").cast("string")))
 
@@ -176,19 +281,25 @@ def build_bucket_candidate_pairs(model: MinHashLSH, features, args: argparse.Nam
 
     left = buckets.alias("left")
     right = buckets.alias("right")
+    select_exprs = [
+        col("left.doc_id").alias("src"),
+        col("right.doc_id").alias("dst"),
+        col("left.title").alias("src_title"),
+        col("right.title").alias("dst_title"),
+        col("left.score").alias("src_score"),
+        col("right.score").alias("dst_score"),
+        col("left.tokens").alias("src_tokens"),
+        col("right.tokens").alias("dst_tokens"),
+    ]
+    if has_ora:
+        select_exprs += [
+            col("left.ora_codes").alias("src_ora_codes"),
+            col("right.ora_codes").alias("dst_ora_codes"),
+        ]
     candidate_pairs = (
         left.join(right, "hash_key")
         .filter(col("left.doc_id") < col("right.doc_id"))
-        .select(
-            col("left.doc_id").alias("src"),
-            col("right.doc_id").alias("dst"),
-            col("left.title").alias("src_title"),
-            col("right.title").alias("dst_title"),
-            col("left.score").alias("src_score"),
-            col("right.score").alias("dst_score"),
-            col("left.tokens").alias("src_tokens"),
-            col("right.tokens").alias("dst_tokens"),
-        )
+        .select(*select_exprs)
         .dropDuplicates(["src", "dst"])
     )
     return candidate_pairs

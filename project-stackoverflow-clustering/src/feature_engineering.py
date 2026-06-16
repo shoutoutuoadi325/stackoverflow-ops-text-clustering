@@ -75,7 +75,8 @@ def main() -> None:
 
     model = Pipeline(stages=[tokenizer, remover, binary_tf, tf, idf, normalizer]).fit(df)
     features = model.transform(df).filter(size(col("tokens")) >= 2)
-    features.select(
+    has_ora = "ora_codes" in features.columns
+    select_cols = [
         "doc_id",
         "title",
         "tags",
@@ -86,7 +87,10 @@ def main() -> None:
         "tokens",
         "term_features",
         "features",
-    ).write.mode("overwrite").parquet(args.output)
+    ]
+    if has_ora:
+        select_cols.insert(4, "ora_codes")
+    features.select(*select_cols).write.mode("overwrite").parquet(args.output)
 
     spark.stop()
 

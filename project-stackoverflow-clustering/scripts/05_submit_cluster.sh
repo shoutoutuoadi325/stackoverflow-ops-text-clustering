@@ -26,6 +26,8 @@ spark_submit_project "$PROJECT_HOME/src/cluster_lsh.py" \
   --max-bucket-size "$LSH_MAX_BUCKET_SIZE" \
   --join-strategy "${LSH_JOIN_STRATEGY:-approx}" \
   --top-n-per-doc "$LSH_TOP_N_PER_DOC" \
+  --ora-boost "${ORA_BOOST:-0.10}" \
+  --ora-rescue-floor "${ORA_RESCUE_FLOOR:-0.0}" \
   --shuffle-partitions "$SHUFFLE_PARTITIONS"
 
 spark_submit_project "$PROJECT_HOME/src/connected_components.py" \

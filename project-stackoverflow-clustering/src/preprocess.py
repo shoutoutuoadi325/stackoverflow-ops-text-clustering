@@ -6,7 +6,16 @@ from __future__ import annotations
 import argparse
 
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import array_join, col, concat_ws, expr, lower, regexp_replace
+from pyspark.sql.functions import (
+    array_distinct,
+    array_join,
+    col,
+    concat_ws,
+    expr,
+    lower,
+    regexp_replace,
+    transform,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -78,6 +87,15 @@ def main() -> None:
         expr("case when answers is null then 0 else size(answers) end").alias("answer_count"),
         expr("case when comments is null then 0 else size(comments) end").alias("comment_count"),
         clean_text_expr(col("raw_doc_text")).alias("clean_text"),
+        # ORA-XXXXX error codes are a domain-specific strong signal in Oracle Q&A.
+        # We extract them as a structured array so the LSH stage can apply a domain
+        # boost when two documents share the same code.
+        array_distinct(
+            transform(
+                expr(r"regexp_extract_all(lower(coalesce(raw_doc_text, '')), '\\bora-\\d{4,5}\\b', 0)"),
+                lambda c: lower(c),
+            )
+        ).alias("ora_codes"),
     )
 
     out.repartition(args.shuffle_partitions).write.mode("overwrite").parquet(args.output)
