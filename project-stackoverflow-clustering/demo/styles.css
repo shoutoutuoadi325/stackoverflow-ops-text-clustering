@@ -319,3 +319,10 @@ th {
     grid-template-columns: 110px 1fr 64px;
   }
 }
+
+.ora-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}

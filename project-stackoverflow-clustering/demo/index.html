@@ -17,6 +17,8 @@
         <button class="tab-button" data-view="validation">核验</button>
         <button class="tab-button" data-view="evaluation">评测</button>
         <button class="tab-button" data-view="clusters">重复簇</button>
+        <button class="tab-button" data-view="topicDedup">主题 × 去重</button>
+        <button class="tab-button" data-view="ora">ORA 强信号</button>
         <button class="tab-button" data-view="search">检索</button>
       </div>
     </header>
@@ -156,6 +158,55 @@
             <span>当前导出结果</span>
           </div>
           <div class="pair-list" id="pairList"></div>
+        </section>
+      </section>
+
+      <section class="view" id="topicDedup">
+        <section class="panel">
+          <div class="panel-title">
+            <h2>主题 × 去重交叉视图</h2>
+            <span>BisectingKMeans 主题 × MinHashLSH 重复簇</span>
+          </div>
+          <p class="result-summary">把"数据分布"和"问题去重"两个独立结果 join 在一起，得到每个主题里有多少重复簇、能压缩多少。</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>主题</th>
+                  <th>主题规模</th>
+                  <th>重复簇数</th>
+                  <th>重复问题数</th>
+                  <th>重复率</th>
+                  <th>Top terms</th>
+                </tr>
+              </thead>
+              <tbody id="topicDedupRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="ora">
+        <section class="panel">
+          <div class="panel-title">
+            <h2>ORA 错误码作为领域强信号</h2>
+            <span>共享 ORA-XXXXX 时给相似度加 +0.10 boost</span>
+          </div>
+          <div class="ora-summary" id="oraSummary"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-title">
+            <h2>ORA 救回的对</h2>
+            <span>原始相似度低于阈值，但因共享 ORA 码被保留</span>
+          </div>
+          <div class="pair-list" id="oraRescuedList"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-title">
+            <h2>共享 ORA 的高相似对</h2>
+            <span>领域信号确认的重复</span>
+          </div>
+          <div class="pair-list" id="oraMatchedList"></div>
         </section>
       </section>
 

@@ -233,6 +233,69 @@ function bindEvents() {
   });
 }
 
+function renderTopicDedup() {
+  const rows = (data.topicDedupView || [])
+    .slice()
+    .sort((a, b) => number(b.dedup_ratio) - number(a.dedup_ratio));
+  const body = byId("topicDedupRows");
+  if (!body) return;
+  body.innerHTML =
+    rows
+      .slice(0, 30)
+      .map(
+        (row) => `<tr>
+          <td>${number(row.topic_id)}</td>
+          <td>${fmt.format(number(row.topic_size))}</td>
+          <td>${fmt.format(number(row.duplicate_cluster_count))}</td>
+          <td>${fmt.format(number(row.duplicate_question_count))}</td>
+          <td>${(number(row.dedup_ratio) * 100).toFixed(2)}%</td>
+          <td>${text(row.top_terms)}</td>
+        </tr>`,
+      )
+      .join("") || `<tr><td colspan="6">未生成 topic_dedup_view，请先运行 13_submit_topic_dedup_view.sh 并导出。</td></tr>`;
+}
+
+function renderOra() {
+  const summary = data.oraSummary || {};
+  const summaryEl = byId("oraSummary");
+  if (summaryEl) {
+    const total = number(summary.total_questions);
+    const withOra = number(summary.questions_with_ora_code);
+    const ratio = total ? ((withOra / total) * 100).toFixed(2) : "0.00";
+    const distinct = number(summary.distinct_ora_codes);
+    const occurrences = number(summary.total_ora_occurrences);
+    summaryEl.innerHTML = `
+      <div class="metric"><span>含 ORA 码问题</span><strong>${fmt.format(withOra)}</strong></div>
+      <div class="metric"><span>覆盖率</span><strong>${ratio}%</strong></div>
+      <div class="metric"><span>独立 ORA 码</span><strong>${fmt.format(distinct)}</strong></div>
+      <div class="metric"><span>总出现次数</span><strong>${fmt.format(occurrences)}</strong></div>
+    `;
+  }
+
+  const renderList = (containerId, rows, fallback) => {
+    const el = byId(containerId);
+    if (!el) return;
+    el.innerHTML =
+      (rows || [])
+        .slice(0, 30)
+        .map(
+          (row) => `<article class="pair-item">
+            <div><strong>[${text(row.src)}]</strong> ${text(row.src_title)}</div>
+            <div><strong>[${text(row.dst)}]</strong> ${text(row.dst_title)}</div>
+            <div class="pair-meta">
+              <span class="pill">similarity ${number(row.similarity).toFixed(3)}</span>
+              <span>raw ${number(row.similarity_raw).toFixed(3)}</span>
+              <span>ORA ${text(row.shared_ora_codes) || "-"}</span>
+              <span>src ${number(row.src_score)} / dst ${number(row.dst_score)}</span>
+            </div>
+          </article>`,
+        )
+        .join("") || `<div class="result-summary">${fallback}</div>`;
+  };
+  renderList("oraRescuedList", data.oraRescuedPairs, "未生成 ORA 救回样例。运行 11_submit_ora_stats.sh 后再生成 demo/data.js。");
+  renderList("oraMatchedList", data.oraMatchedPairs, "未生成共享 ORA 的相似对样例。");
+}
+
 function init() {
   renderMetrics();
   renderValidation();
@@ -240,6 +303,8 @@ function init() {
   renderBars("tagBars", data.topTags || [], "tag");
   renderBars("oraBars", data.topOraCodes || [], "token");
   renderTopicRows();
+  renderTopicDedup();
+  renderOra();
   renderClusters();
   renderPairs();
   runSearch();

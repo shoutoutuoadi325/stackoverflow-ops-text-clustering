@@ -156,6 +156,11 @@ def main() -> None:
     eda_root = output_root / "eda"
     sweep_summary = read_csv_file(Path(args.sweep_summary))
     review_metrics = read_json(Path(args.review_metrics))
+    topic_dedup_rows = read_csv_dir(output_root / "topic_dedup_view_csv", 200)
+    ora_summary_rows = read_csv_dir(output_root / "ora_codes" / "ora_code_summary_csv")
+    ora_distribution_rows = read_csv_dir(output_root / "ora_codes" / "ora_code_distribution_csv", 30)
+    ora_rescued_rows = read_csv_dir(output_root / "ora_showcase" / "ora_rescued_pairs_csv", 80)
+    ora_matched_rows = read_csv_dir(output_root / "ora_showcase" / "ora_match_top_pairs_csv", 80)
     data = {
         "dataSources": {
             "sparkOutputRoot": str(output_root),
@@ -173,6 +178,11 @@ def main() -> None:
         "scoreDistribution": read_csv_dir(eda_root / "score_distribution", 20),
         "lengthDistribution": read_csv_dir(eda_root / "text_length_distribution", 20),
         "topicSamples": read_csv_dir(output_root / "topic_clusters_samples_csv", args.topic_limit),
+        "topicDedupView": topic_dedup_rows,
+        "oraSummary": ora_summary_rows[0] if ora_summary_rows else {},
+        "oraDistribution": ora_distribution_rows,
+        "oraRescuedPairs": ora_rescued_rows,
+        "oraMatchedPairs": ora_matched_rows,
         "similarPairs": read_all_pair_samples(output_root, evaluation_root, 500),
         "duplicateClusters": read_csv_dir(output_root / "clusters_samples_csv", 1000),
         "parameterSweep": sweep_summary,
@@ -207,6 +217,20 @@ def main() -> None:
             row[key] = to_int(row.get(key))
         for key in ["similarity_threshold", "avg_similarity", "avg_doc_similarity"]:
             row[key] = round(to_float(row.get(key)), 4)
+
+    for row in data["topicDedupView"]:
+        row["topic_id"] = to_int(row.get("topic_id"))
+        row["topic_size"] = to_int(row.get("topic_size"))
+        row["duplicate_cluster_count"] = to_int(row.get("duplicate_cluster_count"))
+        row["duplicate_question_count"] = to_int(row.get("duplicate_question_count"))
+        row["dedup_ratio"] = round(to_float(row.get("dedup_ratio")), 4)
+
+    for collection in ("oraRescuedPairs", "oraMatchedPairs"):
+        for row in data[collection]:
+            row["similarity"] = round(to_float(row.get("similarity")), 4)
+            row["similarity_raw"] = round(to_float(row.get("similarity_raw")), 4)
+            row["src_score"] = to_int(row.get("src_score"))
+            row["dst_score"] = to_int(row.get("dst_score"))
 
     output_path = demo_dir / "data.js"
     payload = json.dumps(data, ensure_ascii=False, indent=2)
