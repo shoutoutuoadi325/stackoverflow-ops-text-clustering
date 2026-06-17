@@ -1,11 +1,11 @@
 src,dst,src_title,dst_title,similarity,threshold,hash_tables,shared_ora_codes,ora_match,label,notes
 67307641,67322152,join with lookup and groupby,join with lookup and group by,0.8666666666666667,0.85,4,,,1,严格重复：仅 groupby/group by 写法差异，问题表述等价。
-28753859,28768945,Correlation and analytic function,Correlation function over analytic function,0.85,0.85,4,,,,不确定：标题都很短且含义不清，无法确认是否同一分析函数问题。
-10000355,15596185,Oracle query with multiple tables,Oracle Query from multiple tables,1.0,local,,,,,不确定：标题过泛，只能判断都涉及多表查询。
-10000355,19393346,Oracle query with multiple tables,Oracle sql query with multiple tables,1.0,local,,,,,不确定：标题过泛，只能判断都涉及 Oracle 多表 SQL。
-10000355,30828609,Oracle query with multiple tables,query from multiple tables?,1.0,local,,,,,不确定：标题过泛，只能判断都涉及多表查询。
-10000355,63903593,Oracle query with multiple tables,Database query with multiple tables,1.0,local,,,,,不确定：标题过泛，只能判断都涉及数据库多表查询。
-10000355,72412522,Oracle query with multiple tables,Multiple Tables Query,1.0,local,,,,,不确定：标题过泛，只能判断都涉及多表查询。
+28753859,28768945,Correlation and analytic function,Correlation function over analytic function,0.85,0.85,4,,,1,不确定：标题都很短且含义不清，无法确认是否同一分析函数问题。 | LLM-as-Judge: Correlation function 同一问题，词序略不同
+10000355,15596185,Oracle query with multiple tables,Oracle Query from multiple tables,1.0,local,,,,0,不确定：标题过泛，只能判断都涉及多表查询。 | LLM-as-Judge: 都是通用'多表查询'但具体问题不明，不应判为重复
+10000355,19393346,Oracle query with multiple tables,Oracle sql query with multiple tables,1.0,local,,,,0,不确定：标题过泛，只能判断都涉及 Oracle 多表 SQL。 | LLM-as-Judge: 同上，通用 SQL 多表查询标题
+10000355,30828609,Oracle query with multiple tables,query from multiple tables?,1.0,local,,,,0,不确定：标题过泛，只能判断都涉及多表查询。 | LLM-as-Judge: 标题更通用，几乎肯定不同问题
+10000355,63903593,Oracle query with multiple tables,Database query with multiple tables,1.0,local,,,,0,不确定：标题过泛，只能判断都涉及数据库多表查询。 | LLM-as-Judge: 通用'数据库多表查询'，主题宽泛
+10000355,72412522,Oracle query with multiple tables,Multiple Tables Query,1.0,local,,,,0,不确定：标题过泛，只能判断都涉及多表查询。 | LLM-as-Judge: 通用 'Multiple Tables Query'，太宽泛
 10015650,12863928,not a GROUP BY expression error in Oracle,"SQL Group by error - ""not a GROUP BY expression""",1.0,local,,,,1,严格重复：同一 Oracle GROUP BY 报错，解决思路大概率相同。
 10015650,13962772,not a GROUP BY expression error in Oracle,Not a GROUP BY expression error,1.0,local,,,,1,严格重复：同一 not a GROUP BY expression 报错。
 10015650,17746590,not a GROUP BY expression error in Oracle,Oracle: NOT A GROUP BY EXPRESSION ERROR,1.0,local,,,,1,严格重复：同一 Oracle NOT A GROUP BY EXPRESSION 报错。
@@ -14,31 +14,31 @@ src,dst,src_title,dst_title,similarity,threshold,hash_tables,shared_ora_codes,or
 10015650,23128018,not a GROUP BY expression error in Oracle,NOT A GROUP BY EXPRESSION ERROR (Oracle),1.0,local,,,,1,严格重复：同一 Oracle NOT A GROUP BY EXPRESSION 报错。
 10015650,29900677,not a GROUP BY expression error in Oracle,Oracle: not group by expression error,1.0,local,,,,1,严格重复：同一 Oracle not group by expression 报错。
 10015747,34744244,ORA-14450: attempt to access a transactional temp table already in use,ORA-14450: attempt to access the transactional temp table already in use,1.0,local,,,,1,严格重复：同一 ORA-14450 临时表占用错误。
-10022805,11538869,Check Constraint in Oracle,An Oracle Check Constraint,1.0,local,,,,,不确定：标题过泛，只能判断都涉及 Oracle check constraint。
-10022805,16400965,Check Constraint in Oracle,CHECK CONSTRAINT in Oracle SQL,1.0,local,,,,,不确定：标题过泛，只能判断都涉及 Oracle SQL check constraint。
-10022805,23672105,Check Constraint in Oracle,Oracle Constraint Check,1.0,local,,,,,不确定：标题过泛，只能判断都涉及 Oracle check constraint。
-10022805,65326342,Check Constraint in Oracle,Oracle SQL - check constraint,1.0,local,,,,,不确定：标题过泛，只能判断都涉及 Oracle SQL check constraint。
-10022805,77632327,Check Constraint in Oracle,sql constraint in a check in,1.0,local,,,,,不确定：标题过泛，check constraint 相关但具体问题不明。
-10044824,46236536,slow sql query execution,Slow Query Execution,1.0,local,,,,,不确定：慢查询标题过泛，无法确认同一执行计划或同一优化点。
+10022805,11538869,Check Constraint in Oracle,An Oracle Check Constraint,1.0,local,,,,1,不确定：标题过泛，只能判断都涉及 Oracle check constraint。 | LLM-as-Judge: An Oracle Check Constraint vs Check Constraint in Oracle，几乎相同
+10022805,16400965,Check Constraint in Oracle,CHECK CONSTRAINT in Oracle SQL,1.0,local,,,,1,不确定：标题过泛，只能判断都涉及 Oracle SQL check constraint。 | LLM-as-Judge: CHECK CONSTRAINT in Oracle SQL，仅大小写+sql后缀差异
+10022805,23672105,Check Constraint in Oracle,Oracle Constraint Check,1.0,local,,,,,不确定：标题过泛，只能判断都涉及 Oracle check constraint。 | LLM-as-Judge: Oracle Constraint Check 词序变了，不确定
+10022805,65326342,Check Constraint in Oracle,Oracle SQL - check constraint,1.0,local,,,,1,不确定：标题过泛，只能判断都涉及 Oracle SQL check constraint。 | LLM-as-Judge: Oracle SQL - check constraint，本质同一标题
+10022805,77632327,Check Constraint in Oracle,sql constraint in a check in,1.0,local,,,,0,不确定：标题过泛，check constraint 相关但具体问题不明。 | LLM-as-Judge: 'sql constraint in a check in' 看起来是支离破碎的标题，不像同一问题
+10044824,46236536,slow sql query execution,Slow Query Execution,1.0,local,,,,1,不确定：慢查询标题过泛，无法确认同一执行计划或同一优化点。 | LLM-as-Judge: slow sql query execution vs Slow Query Execution，本质相同
 10084400,40415371,How to count the number of columns in a table using SQL?,count number of columns in table in oracle,1.0,local,,,,1,严格重复：都是统计 Oracle/SQL 表的列数，解法可复用。
 10084400,76855362,How to count the number of columns in a table using SQL?,count number of columns in a table in Oracle,1.0,local,,,,1,严格重复：都是统计 Oracle 表的列数，解法可复用。
 10103629,48464166,Oracle + dbunit gets AmbiguousTableNameException,Dbunit gets AmbiguousTableNameException Oracle,1.0,local,,,,1,严格重复：同一 DbUnit + Oracle AmbiguousTableNameException。
 10107664,65433074,ORA-24247: network access denied by access control list (ACL),ORA-24247: network access denied by access control list (ACL)?,1.0,local,,,,1,严格重复：同一 ORA-24247 ACL 网络访问错误。
 10107664,68096588,ORA-24247: network access denied by access control list (ACL),ORA-24247: network access denied by access control list(ACL)?,1.0,local,,,,1,严格重复：同一 ORA-24247 ACL 网络访问错误，仅空格差异。
-10118991,17326469,oracle - to_Date format,Oracle Date format,1.0,local,,,,,不确定：Oracle 日期格式标题过泛，to_date/显示格式可能不是同一问题。
-10118991,18120619,oracle - to_Date format,Oracle date format,1.0,local,,,,,不确定：Oracle 日期格式标题过泛，无法确认具体转换方向。
-10118991,28050545,oracle - to_Date format,Oracle SQL Date Format,1.0,local,,,,,不确定：Oracle SQL 日期格式相关，但具体问题不明。
-10118991,34935426,oracle - to_Date format,Oracle - Date Format,1.0,local,,,,,不确定：Oracle 日期格式标题过泛，无法确认解法复用。
-10118991,46224479,oracle - to_Date format,DATE FORMAT in Oracle SQL,1.0,local,,,,,不确定：Oracle 日期格式相关，但可能是 TO_DATE 或 TO_CHAR。
-10118991,58197703,oracle - to_Date format,Oracle: Date format,1.0,local,,,,,不确定：Oracle 日期格式标题过泛，无法确认具体问题。
-10118991,59193520,oracle - to_Date format,format date in oracle SQL,1.0,local,,,,,不确定：Oracle 日期格式相关，但具体转换方向不明。
+10118991,17326469,oracle - to_Date format,Oracle Date format,1.0,local,,,,,不确定：Oracle 日期格式标题过泛，to_date/显示格式可能不是同一问题。 | LLM-as-Judge: to_Date format(具体函数) vs Date format(通用)，可能不同
+10118991,18120619,oracle - to_Date format,Oracle date format,1.0,local,,,,,不确定：Oracle 日期格式标题过泛，无法确认具体转换方向。 | LLM-as-Judge: 同上，通用 Date format 标题
+10118991,28050545,oracle - to_Date format,Oracle SQL Date Format,1.0,local,,,,,不确定：Oracle SQL 日期格式相关，但具体问题不明。 | LLM-as-Judge: Oracle SQL Date Format 太通用
+10118991,34935426,oracle - to_Date format,Oracle - Date Format,1.0,local,,,,,不确定：Oracle 日期格式标题过泛，无法确认解法复用。 | LLM-as-Judge: Oracle - Date Format 太通用
+10118991,46224479,oracle - to_Date format,DATE FORMAT in Oracle SQL,1.0,local,,,,,不确定：Oracle 日期格式相关，但可能是 TO_DATE 或 TO_CHAR。 | LLM-as-Judge: DATE FORMAT in Oracle SQL，太通用
+10118991,58197703,oracle - to_Date format,Oracle: Date format,1.0,local,,,,,不确定：Oracle 日期格式标题过泛，无法确认具体问题。 | LLM-as-Judge: Oracle: Date format，太通用
+10118991,59193520,oracle - to_Date format,format date in oracle SQL,1.0,local,,,,,不确定：Oracle 日期格式相关，但具体转换方向不明。 | LLM-as-Judge: format date in oracle SQL，太通用
 10132094,32349462,Edit Total line in Oracle report,Edit Total line in Oracle report 1,1.0,local,,,,1,严格重复：标题几乎完全相同，仅末尾编号差异。
-10154577,10732673,Oracle select statement,select statement in oracle,1.0,local,,,,,不确定：select statement 标题过泛，无法确认同一问题。
+10154577,10732673,Oracle select statement,select statement in oracle,1.0,local,,,,0,不确定：select statement 标题过泛，无法确认同一问题。 | LLM-as-Judge: select statement 极其通用，每个问题指向不同具体场景
 10154577,17859994,Oracle select statement,Use as in select statement on select statement,1.0,local,,,,0,非重复：dst 涉及 AS/子查询写法，src 只是泛泛的 select statement。
-10154577,27087745,Oracle select statement,select statement oracle sql,1.0,local,,,,,不确定：select statement 标题过泛，无法确认同一查询问题。
-10154577,27210109,Oracle select statement,select statement oracle,1.0,local,,,,,不确定：select statement 标题过泛，无法确认同一问题。
-10154577,36977627,Oracle select statement,Select statement for Oracle SQL,1.0,local,,,,,不确定：select statement 标题过泛，无法确认同一问题。
-10163643,31108320,Format SQL Output,Oracle sql output format,1.0,local,,,,,不确定：SQL 输出格式相关，但标题过泛，无法确认同一格式需求。
+10154577,27087745,Oracle select statement,select statement oracle sql,1.0,local,,,,0,不确定：select statement 标题过泛，无法确认同一查询问题。 | LLM-as-Judge: 同上，通用 select statement
+10154577,27210109,Oracle select statement,select statement oracle,1.0,local,,,,0,不确定：select statement 标题过泛，无法确认同一问题。 | LLM-as-Judge: 同上
+10154577,36977627,Oracle select statement,Select statement for Oracle SQL,1.0,local,,,,0,不确定：select statement 标题过泛，无法确认同一问题。 | LLM-as-Judge: 同上
+10163643,31108320,Format SQL Output,Oracle sql output format,1.0,local,,,,1,不确定：SQL 输出格式相关，但标题过泛，无法确认同一格式需求。 | LLM-as-Judge: Format SQL Output vs Oracle sql output format，本质相同主题且标题精炼
 10178292,10550952,Comparing Dates in Oracle SQL,Oracle - Comparing dates,1.0,local,,,,1,严格重复：都是 Oracle SQL 日期比较，解法大概率可复用。
 10178292,19216076,Comparing Dates in Oracle SQL,Oracle SQL comparing dates,1.0,local,,,,1,严格重复：都是 Oracle SQL 日期比较。
 10178292,69102725,Comparing Dates in Oracle SQL,Comparing dates in oracle,1.0,local,,,,1,严格重复：都是 Oracle 日期比较问题。
@@ -46,10 +46,10 @@ src,dst,src_title,dst_title,similarity,threshold,hash_tables,shared_ora_codes,or
 10197520,30599208,oracle query nested select using case,NESTED SELECT QUERY WITH CASE,1.0,local,,,,1,严格重复：都是 nested select 与 CASE 的查询写法。
 10202763,47516011,Oracle SQL using Like for a wildcard,Oracle SQL using Like and wildcard,1.0,local,,,,1,严格重复：都是 Oracle SQL LIKE wildcard 用法。
 10206940,15063739,a sql query from oracle,WITH AS in oracle query,1.0,local,,,,0,非重复：dst 明确是 WITH AS/CTE，src 是泛泛 Oracle 查询。
-10206940,16050419,a sql query from oracle,Query sql in oracle,1.0,local,,,,,不确定：两个标题都过泛，只能判断是 Oracle SQL 查询。
-10206940,19486160,a sql query from oracle,How to query in Oracle,1.0,local,,,,,不确定：两个标题都过泛，无法确认同一查询。
-10206940,20386149,a sql query from oracle,SQL query in oracle,1.0,local,,,,,不确定：两个标题都过泛，无法确认同一查询。
-10206940,21671526,a sql query from oracle,Oracle Sql query,1.0,local,,,,,不确定：两个标题都过泛，无法确认同一查询。
+10206940,16050419,a sql query from oracle,Query sql in oracle,1.0,local,,,,0,不确定：两个标题都过泛，只能判断是 Oracle SQL 查询。 | LLM-as-Judge: 通用 'sql query oracle' 标题
+10206940,19486160,a sql query from oracle,How to query in Oracle,1.0,local,,,,0,不确定：两个标题都过泛，无法确认同一查询。 | LLM-as-Judge: 'How to query in Oracle' 通用
+10206940,20386149,a sql query from oracle,SQL query in oracle,1.0,local,,,,0,不确定：两个标题都过泛，无法确认同一查询。 | LLM-as-Judge: 'SQL query in oracle' 通用
+10206940,21671526,a sql query from oracle,Oracle Sql query,1.0,local,,,,0,不确定：两个标题都过泛，无法确认同一查询。 | LLM-as-Judge: 'Oracle Sql query' 通用
 10206940,22328949,a sql query from oracle,Oracle SQL Query IN,1.0,local,,,,0,非重复：dst 明确涉及 IN，src 是泛泛 Oracle 查询。
 52080769,61044368,oracle pl/sql utl_file ORA-29280: invalid directory path,oracle pl/sql utl_file ORA-29280: invalid directory path and ORA-29280: invalid directory object,0.875,0.75,4,,,1,严格重复：同一 UTL_FILE ORA-29280 invalid directory path/object 问题。
 67307641,67322152,join with lookup and groupby,join with lookup and group by,0.8666666666666667,0.75,4,,,1,严格重复：仅 groupby/group by 写法差异，问题表述等价。
@@ -63,9 +63,9 @@ src,dst,src_title,dst_title,similarity,threshold,hash_tables,shared_ora_codes,or
 70089553,70094984,UPDATED - Terraform OCI - create multiple VCN in different regions,Terraform OCI - create multiple VCN in multiple regions,0.75,0.75,4,,,1,严格重复：都是 Terraform OCI 多区域创建多个 VCN。
 52080769,61044368,oracle pl/sql utl_file ORA-29280: invalid directory path,oracle pl/sql utl_file ORA-29280: invalid directory path and ORA-29280: invalid directory object,0.875,0.85,4,,,1,严格重复：同一 UTL_FILE ORA-29280 invalid directory path/object 问题。
 1476632,19848777,C# How to parse a string of date in an arbitrary specified Oracle date format?,How to format a date from Oracle to a valid datetime in c#,0.863013698630137,0.85,4,,,0,非重复：一个是按任意 Oracle 日期格式解析字符串，一个是从 Oracle 格式化为 C# datetime。
-28753859,28768945,Correlation and analytic function,Correlation function over analytic function,0.85,0.75,4,,,,不确定：标题都很短且含义不清，无法确认是否同一分析函数问题。
+28753859,28768945,Correlation and analytic function,Correlation function over analytic function,0.85,0.75,4,,,1,不确定：标题都很短且含义不清，无法确认是否同一分析函数问题。 | LLM-as-Judge: Correlation function 同一问题，词序略不同
 67307641,67322152,join with lookup and groupby,join with lookup and group by,0.8666666666666667,0.65,2,,,1,严格重复：仅 groupby/group by 写法差异，问题表述等价。
-28753859,28768945,Correlation and analytic function,Correlation function over analytic function,0.85,0.65,2,,,,不确定：标题都很短且含义不清，无法确认是否同一分析函数问题。
+28753859,28768945,Correlation and analytic function,Correlation function over analytic function,0.85,0.65,2,,,1,不确定：标题都很短且含义不清，无法确认是否同一分析函数问题。 | LLM-as-Judge: Correlation function 同一问题，词序略不同
 25541869,26797803,is it possible to trim last three characters in string with selected row in selected column,i want to trim last two characters in string with selected row in selected column,0.8260869565217391,0.65,2,,,1,严格重复：都是截取所选列字符串末尾字符数，差异只是 3 个/2 个字符。
 9660235,9662930,sql statement how to keep null value,sql returning no rows selected,0.8164893617021277,0.65,2,,,0,非重复：保留 NULL 值与查询无返回行不是同一问题。
 57530055,57530417,Reset running sum when condition is met in Oracle,Reset sum when condition is met in Oracle,0.782608695652174,0.65,2,,,1,严格重复：都是 Oracle 中满足条件时重置累计和/求和。
