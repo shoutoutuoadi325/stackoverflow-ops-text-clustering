@@ -365,9 +365,14 @@ def main() -> None:
         )
     edges.write.mode("overwrite").parquet(pairs_out)
     if "similarity" in edges.columns:
-        edges.orderBy(col("similarity").desc()).limit(500).coalesce(1).write.mode("overwrite").option(
-            "header", True
-        ).csv(samples_out)
+        # CSV cannot serialise array columns; flatten shared_ora_codes to a
+        # pipe-delimited string and drop array originals before writing.
+        samples_view = edges.orderBy(col("similarity").desc()).limit(500)
+        if "shared_ora_codes" in samples_view.columns:
+            samples_view = samples_view.withColumn(
+                "shared_ora_codes_text", concat_ws("|", col("shared_ora_codes"))
+            ).drop("shared_ora_codes")
+        samples_view.coalesce(1).write.mode("overwrite").option("header", True).csv(samples_out)
 
     spark.createDataFrame(
         metrics_rows,
