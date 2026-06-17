@@ -380,11 +380,16 @@ def main() -> None:
     ).coalesce(1).write.mode("overwrite").option("header", True).csv(topic_metrics_out)
 
     # Connected components on the union edges -> the headline "X duplicate groups" number.
+    # IMPORTANT: read edges back from the parquet we just wrote, not from the in-memory
+    # union_compatible() DataFrame. Otherwise Spark re-evaluates the whole per-topic LSH
+    # plan inside every connected-components iteration (15x), which scales to thousands
+    # of stages with thousands of tasks each. Reading from parquet hard-cuts the lineage.
     questions = spark.read.parquet(args.topics).select(
         col("doc_id"), col("title"), col("score"), col("tags")
     )
-    edge_input = edges.select("src", "dst", "similarity") if "similarity" in edges.columns else None
-    if edge_input is not None and edges.head(1):
+    edges_reread = spark.read.parquet(pairs_out) if "similarity" in edges.columns else None
+    if edges_reread is not None and edges_reread.head(1):
+        edge_input = edges_reread.select("src", "dst", "similarity")
         clusters = build_connected_components(spark, edge_input, questions, args.cc_iterations)
         clusters.write.mode("overwrite").parquet(clusters_out)
         sample_output = clusters.withColumn("tags_text", concat_ws("|", col("tags"))).drop("tags")

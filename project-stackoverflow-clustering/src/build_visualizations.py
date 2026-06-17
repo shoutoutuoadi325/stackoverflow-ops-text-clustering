@@ -320,6 +320,129 @@ def fig_topic_timing(intra_root: Path, out: Path) -> None:
     _save(fig, out)
 
 
+# ---------------------------------------------------------------------------
+# Figure 7: 4-column K table aligned with reference PPT slide 15
+# ---------------------------------------------------------------------------
+
+
+def fig_k_table_aligned(topic_rows: list[dict], intra_rows: list[dict], out: Path) -> None:
+    """Match the reference PPT's K-experiment table format: largest cluster /
+    largest share / Top 20 / median size — plus our extra duplicate group count.
+    """
+    if not topic_rows:
+        return
+    topic_rows = sorted(topic_rows, key=lambda r: _label_to_k(r.get("run_label", "")))
+    intra_by_label = {r.get("run_label"): r for r in intra_rows}
+
+    ks = [_label_to_k(r.get("run_label", "")) for r in topic_rows]
+    largest_share = [_to_float(r.get("largest_cluster_share")) * 100 for r in topic_rows]
+    top20 = [_to_float(r.get("top20_share")) * 100 for r in topic_rows]
+    median = [_to_int(r.get("median_size")) for r in topic_rows]
+    groups = [
+        _to_int(intra_by_label.get(r.get("run_label"), {}).get("multi_doc_cluster_count", 0))
+        for r in topic_rows
+    ]
+
+    fig, axes = plt.subplots(2, 2, figsize=(11, 7))
+    fig.suptitle("K 值实验:四指标对比", fontsize=13, weight="bold")
+    x = list(range(len(ks)))
+    xlabels = [f"K={k}" for k in ks]
+
+    # Top-left: largest cluster share
+    ax = axes[0, 0]
+    bars = ax.bar(x, largest_share, color=PROJECT_BLUE, edgecolor="white")
+    for bar, v in zip(bars, largest_share):
+        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.3, f"{v:.1f}%",
+                ha="center", va="bottom", fontsize=10)
+    ax.set_xticks(x); ax.set_xticklabels(xlabels)
+    ax.set_ylabel("最大簇占比 (%)"); ax.set_title("最大簇占比", fontsize=11)
+    ax.grid(axis="y", linestyle="--", alpha=0.4); ax.set_axisbelow(True)
+
+    # Top-right: Top 20 share
+    ax = axes[0, 1]
+    bars = ax.bar(x, top20, color=PROJECT_GREEN, edgecolor="white")
+    for bar, v in zip(bars, top20):
+        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.3, f"{v:.1f}%",
+                ha="center", va="bottom", fontsize=10)
+    ax.set_xticks(x); ax.set_xticklabels(xlabels)
+    ax.set_ylabel("Top 20 簇覆盖占比 (%)"); ax.set_title("Top 20 簇集中度", fontsize=11)
+    ax.grid(axis="y", linestyle="--", alpha=0.4); ax.set_axisbelow(True)
+
+    # Bottom-left: median cluster size
+    ax = axes[1, 0]
+    bars = ax.bar(x, median, color=PROJECT_AMBER, edgecolor="white")
+    for bar, v in zip(bars, median):
+        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + max(median) * 0.01, f"{v}",
+                ha="center", va="bottom", fontsize=10)
+    ax.set_xticks(x); ax.set_xticklabels(xlabels)
+    ax.set_ylabel("中位簇大小"); ax.set_title("中位簇", fontsize=11)
+    ax.grid(axis="y", linestyle="--", alpha=0.4); ax.set_axisbelow(True)
+
+    # Bottom-right: duplicate groups (our extra)
+    ax = axes[1, 1]
+    bars = ax.bar(x, groups, color=PROJECT_RED, edgecolor="white")
+    for bar, v in zip(bars, groups):
+        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + max(groups) * 0.01 if max(groups) > 0 else 0.5,
+                f"{v}", ha="center", va="bottom", fontsize=10)
+    ax.set_xticks(x); ax.set_xticklabels(xlabels)
+    ax.set_ylabel("重复问题组数"); ax.set_title("最终去重效果(我们独有)", fontsize=11)
+    ax.grid(axis="y", linestyle="--", alpha=0.4); ax.set_axisbelow(True)
+
+    fig.tight_layout(rect=[0, 0, 1, 0.95])
+    _save(fig, out)
+
+
+# ---------------------------------------------------------------------------
+# Figure 8: Decision view — main metric (largest share) + duplicate groups
+# overlaid on a single chart to spot the K trade-off at a glance.
+# ---------------------------------------------------------------------------
+
+
+def fig_k_decision(topic_rows: list[dict], intra_rows: list[dict], out: Path) -> None:
+    if not topic_rows:
+        return
+    topic_rows = sorted(topic_rows, key=lambda r: _label_to_k(r.get("run_label", "")))
+    intra_by_label = {r.get("run_label"): r for r in intra_rows}
+
+    ks = [_label_to_k(r.get("run_label", "")) for r in topic_rows]
+    share = [_to_float(r.get("largest_cluster_share")) * 100 for r in topic_rows]
+    groups = [
+        _to_int(intra_by_label.get(r.get("run_label"), {}).get("multi_doc_cluster_count", 0))
+        for r in topic_rows
+    ]
+
+    fig, ax1 = plt.subplots(figsize=(8.5, 5))
+    color1 = PROJECT_BLUE
+    ax1.plot(ks, share, marker="o", linewidth=2.4, color=color1, label="最大簇占比 (越低主题分得越均匀)")
+    for k, v in zip(ks, share):
+        ax1.annotate(f"{v:.1f}%", (k, v), textcoords="offset points", xytext=(0, 10),
+                     ha="center", fontsize=9, color=color1)
+    ax1.set_xlabel("K (主题数)", fontsize=11)
+    ax1.set_ylabel("最大簇占比 (%)", color=color1, fontsize=11)
+    ax1.tick_params(axis="y", labelcolor=color1)
+    ax1.grid(linestyle="--", alpha=0.3)
+    ax1.set_xticks(ks)
+
+    color2 = PROJECT_GREEN
+    ax2 = ax1.twinx()
+    ax2.plot(ks, groups, marker="s", linewidth=2.4, color=color2, label="重复问题组数 (越高去重效果越好)")
+    for k, v in zip(ks, groups):
+        ax2.annotate(str(v), (k, v), textcoords="offset points", xytext=(0, -15),
+                     ha="center", fontsize=9, color=color2)
+    ax2.set_ylabel("重复问题组数", color=color2, fontsize=11)
+    ax2.tick_params(axis="y", labelcolor=color2)
+
+    ax1.set_title("K 值决策图:主题聚类质量 × 去重效果", fontsize=12, weight="bold")
+
+    # combined legend
+    h1, l1 = ax1.get_legend_handles_labels()
+    h2, l2 = ax2.get_legend_handles_labels()
+    ax1.legend(h1 + h2, l1 + l2, loc="upper center", bbox_to_anchor=(0.5, -0.13), ncol=2, frameon=False)
+
+    fig.tight_layout()
+    _save(fig, out)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build PPT-ready charts.")
     parser.add_argument(
@@ -354,6 +477,8 @@ def main() -> None:
     fig_v1_v2_comparison(intra_rows, args.out_dir / "fig4_v1_vs_v2_comparison.png")
     fig_similarity_distribution(args.intra_root, args.out_dir / "fig5_similarity_distribution.png")
     fig_topic_timing(args.intra_root, args.out_dir / "fig6_topic_timing_skew.png")
+    fig_k_table_aligned(topic_rows, intra_rows, args.out_dir / "fig7_k_table_aligned.png")
+    fig_k_decision(topic_rows, intra_rows, args.out_dir / "fig8_k_decision.png")
 
     print(f"\nDone. Open {args.out_dir} to insert PNGs into the slides.")
 
