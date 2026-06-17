@@ -1,19 +1,19 @@
 {
   "status": "labeled",
-  "labeled_count": 74,
-  "positive_count": 46,
-  "precision": 0.6216,
-  "ci95_low": 0.5077,
-  "ci95_high": 0.7235,
+  "labeled_count": 90,
+  "positive_count": 60,
+  "precision": 0.6667,
+  "ci95_low": 0.5642,
+  "ci95_high": 0.7555,
   "f1": null,
   "note": "Recall has no ground-truth denominator over 152K questions, so we deliberately do not compute F1. precision is reported with a Wilson 95% confidence interval; with small samples the interval is wide and that width is part of the honest evaluation story.",
   "by_threshold": {
     "0.65": {
-      "labeled_count": 16,
-      "positive_count": 12,
-      "precision": 0.75,
-      "ci95_low": 0.505,
-      "ci95_high": 0.8982
+      "labeled_count": 32,
+      "positive_count": 26,
+      "precision": 0.8125,
+      "ci95_low": 0.6469,
+      "ci95_high": 0.9111
     },
     "0.75": {
       "labeled_count": 11,
@@ -39,18 +39,18 @@
   },
   "by_similarity_bucket": {
     "[0.65,0.75)": {
-      "labeled_count": 9,
-      "positive_count": 6,
-      "precision": 0.6667,
-      "ci95_low": 0.3542,
-      "ci95_high": 0.8794
+      "labeled_count": 24,
+      "positive_count": 19,
+      "precision": 0.7917,
+      "ci95_low": 0.5953,
+      "ci95_high": 0.9076
     },
     "[0.75,0.85)": {
-      "labeled_count": 12,
-      "positive_count": 7,
-      "precision": 0.5833,
-      "ci95_low": 0.3195,
-      "ci95_high": 0.8067
+      "labeled_count": 13,
+      "positive_count": 8,
+      "precision": 0.6154,
+      "ci95_low": 0.3552,
+      "ci95_high": 0.8229
     },
     "[0.85,1.00]": {
       "labeled_count": 53,
@@ -62,11 +62,18 @@
   },
   "by_ora_match": {
     "no_ora_match": {
-      "labeled_count": 74,
-      "positive_count": 46,
-      "precision": 0.6216,
-      "ci95_low": 0.5077,
-      "ci95_high": 0.7235
+      "labeled_count": 89,
+      "positive_count": 60,
+      "precision": 0.6742,
+      "ci95_low": 0.5713,
+      "ci95_high": 0.7626
+    },
+    "ora_match": {
+      "labeled_count": 1,
+      "positive_count": 0,
+      "precision": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.7935
     }
   }
 }
