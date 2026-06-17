@@ -31,6 +31,36 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib import font_manager
+
+
+def _pick_cjk_font() -> str | None:
+    """Return the first available CJK font name, or None to fall back to default."""
+    candidates = [
+        "PingFang HK",
+        "PingFang SC",
+        "Heiti TC",
+        "Hiragino Sans GB",
+        "Songti SC",
+        "STHeiti",
+        "Arial Unicode MS",
+        "Noto Sans CJK SC",
+        "WenQuanYi Zen Hei",
+        "SimHei",
+        "Microsoft YaHei",
+    ]
+    available = {f.name for f in font_manager.fontManager.ttflist}
+    for name in candidates:
+        if name in available:
+            return name
+    return None
+
+
+_cjk = _pick_cjk_font()
+if _cjk:
+    matplotlib.rcParams["font.family"] = ["sans-serif"]
+    matplotlib.rcParams["font.sans-serif"] = [_cjk] + list(matplotlib.rcParams["font.sans-serif"])
+    matplotlib.rcParams["axes.unicode_minus"] = False
 
 
 PROJECT_GREEN = "#246b57"
