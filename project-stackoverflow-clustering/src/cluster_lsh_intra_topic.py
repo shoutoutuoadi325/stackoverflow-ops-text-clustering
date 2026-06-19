@@ -1,49 +1,9 @@
 #!/usr/bin/env python3
 """Two-stage duplicate detection: topic clustering + intra-cluster MinHashLSH.
 
-Why this script exists
-----------------------
-The original v1 pipeline ran BisectingKMeans topic clustering AND a global
-MinHashLSH self-join, but never connected them: topic_clusters/ ended up as
-a standalone artefact that the downstream LSH ignored. Doing LSH globally
-over 152K documents then forces a strict similarity threshold (otherwise the
-candidate join explodes), which in turn caps recall: the v1 baseline at 0.85
-returns only 2 duplicate pairs.
-
-The course task is question deduplication, which is the well-known two-stage
-recipe in IR:
-
-  1. Coarse clustering shrinks the search space from O(N^2) to sum(O(n_i^2))
-  2. A finer-grained similarity search runs *inside each cluster* and can
-     therefore use a looser threshold without exploding the candidate set
-
-This file implements exactly that. We treat the BisectingKMeans output
-`topic_id` as the partition key, fit and run an independent MinHashLSH
-inside every topic, and union the resulting similar-pair edges.
-
-The narrative for the defense slide is:
-  v1 final design used global LSH, which forced sim>=0.85 and produced 2
-  duplicate pairs. v2 connects the topic clustering output back into LSH so
-  that we can run sim>=0.65 inside each topic without blowing up the join.
-  This is the *intended* two-stage design we converged to after looking at
-  the v1 output.
-
-Inputs
-------
-- features parquet from feature_engineering.py (must have term_features,
-  tokens; carries ora_codes if produced by the updated preprocess.py)
-- topic_clusters parquet from topic_clustering.py (must have doc_id,
-  cluster_id; cluster_id is treated as the topic id)
-
-Outputs
--------
-- <output>/parquet: similar pairs (same schema as cluster_lsh.py + a
-  topic_id column)
-- <output>/samples_csv: top-similarity samples
-- <output>/topic_metrics_csv: per-topic doc_count, pair_count, elapsed
-- <output>/clusters_parquet + clusters_samples_csv: connected-components
-  duplicate clusters built directly from the union edges (so we can quote
-  one definitive "X duplicate groups" number per K)
+Memory-optimised variation: the LSH join inside each topic uses a slim
+(doc_id, term_features) view so heavy metadata columns are not duplicated
+across every candidate pair within the LSH internal cross-join.
 """
 
 from __future__ import annotations
@@ -112,14 +72,52 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def _enrich_candidates_intra(candidates: DataFrame, bucket_df: DataFrame, has_ora: bool, shuffle_partitions: int) -> DataFrame:
+    """Join slim (src, dst) pairs back with the topic bucket to attach metadata."""
+    meta_cols = ["doc_id", "title", "score", "tokens"]
+    if has_ora:
+        meta_cols.append("ora_codes")
+
+    src_meta = bucket_df.select(
+        *[col(c).alias(f"src_{c}" if c != "doc_id" else "src_doc_id") for c in meta_cols]
+    )
+    dst_meta = bucket_df.select(
+        *[col(c).alias(f"dst_{c}" if c != "doc_id" else "dst_doc_id") for c in meta_cols]
+    )
+
+    select_exprs = [
+        "src",
+        "dst",
+        col("src_title").alias("src_title"),
+        col("dst_title").alias("dst_title"),
+        col("src_score").alias("src_score"),
+        col("dst_score").alias("dst_score"),
+        col("src_tokens").alias("src_tokens"),
+        col("dst_tokens").alias("dst_tokens"),
+    ]
+    if has_ora:
+        select_exprs += [
+            col("src_ora_codes").alias("src_ora_codes"),
+            col("dst_ora_codes").alias("dst_ora_codes"),
+        ]
+
+    return (
+        candidates.join(src_meta, candidates.src == col("src_doc_id"), "inner")
+        .drop("src_doc_id")
+        .join(dst_meta, candidates.dst == col("dst_doc_id"), "inner")
+        .drop("dst_doc_id")
+        .select(*select_exprs)
+    )
+
+
 def run_lsh_on_topic(
     bucket_df: DataFrame,
     args: argparse.Namespace,
     topic_id: int,
     has_ora: bool,
 ) -> Optional[DataFrame]:
-    """Fit MinHashLSH on a single topic subset and return its similar pairs."""
-    bucket_df = bucket_df.persist(StorageLevel.MEMORY_AND_DISK)
+    """Fit MinHashLSH on a single topic subset (two-phase: slim join → enrich)."""
+    bucket_df = bucket_df.persist(StorageLevel.MEMORY_AND_DISK_SER)
     doc_count = bucket_df.count()
     if doc_count < 2:
         bucket_df.unpersist()
@@ -132,34 +130,21 @@ def run_lsh_on_topic(
     )
     model = lsh.fit(bucket_df)
 
-    base_cols = ["doc_id", "title", "score", "tokens", "term_features"]
-    if has_ora:
-        base_cols.append("ora_codes")
-    left = bucket_df.select(*base_cols)
-    right = bucket_df.select(*base_cols)
-    joined = model.approxSimilarityJoin(left, right, args.distance_threshold, distCol="lsh_jaccard_distance")
+    # Phase 1: slim LSH join — only (doc_id, term_features) through the cross-join.
+    slim = bucket_df.select("doc_id", "term_features")
+    joined = model.approxSimilarityJoin(slim, slim, args.distance_threshold, distCol="lsh_jaccard_distance")
 
-    select_exprs = [
-        col("datasetA.doc_id").alias("src"),
-        col("datasetB.doc_id").alias("dst"),
-        col("datasetA.title").alias("src_title"),
-        col("datasetB.title").alias("dst_title"),
-        col("datasetA.score").alias("src_score"),
-        col("datasetB.score").alias("dst_score"),
-        col("datasetA.tokens").alias("src_tokens"),
-        col("datasetB.tokens").alias("dst_tokens"),
-    ]
-    if has_ora:
-        select_exprs += [
-            col("datasetA.ora_codes").alias("src_ora_codes"),
-            col("datasetB.ora_codes").alias("dst_ora_codes"),
-        ]
-
-    candidate_pairs = (
+    candidates = (
         joined.filter(col("datasetA.doc_id") < col("datasetB.doc_id"))
-        .select(*select_exprs)
+        .select(
+            col("datasetA.doc_id").alias("src"),
+            col("datasetB.doc_id").alias("dst"),
+        )
         .dropDuplicates(["src", "dst"])
     )
+
+    # Phase 2: enrich surviving candidates with metadata from the topic bucket.
+    candidate_pairs = _enrich_candidates_intra(candidates, bucket_df, has_ora, args.shuffle_partitions)
 
     intersection_size = size(array_intersect(col("src_tokens"), col("dst_tokens")))
     union_size = size(array_union(col("src_tokens"), col("dst_tokens")))
@@ -231,9 +216,12 @@ def build_connected_components(
     questions: DataFrame,
     iterations: int,
 ) -> DataFrame:
-    """Iterative label-propagation connected components, same as connected_components.py."""
+    """Iterative label-propagation connected components (memory-optimised).
+
+    Checkpoints edge_labels each iteration to prevent lineage depth explosion.
+    """
     labels = questions.select(col("doc_id"), col("doc_id").alias("cluster_id")).localCheckpoint(eager=True)
-    edges = edges.select("src", "dst", "similarity").cache()
+    edges = edges.select("src", "dst", "similarity").persist(StorageLevel.MEMORY_AND_DISK_SER)
     edges.count()
 
     for _ in range(iterations):
@@ -242,6 +230,10 @@ def build_connected_components(
             .join(labels.select(col("doc_id").alias("dst"), col("cluster_id").alias("dst_cluster")), "dst")
             .select("src", "dst", least("src_cluster", "dst_cluster").alias("candidate_cluster"))
         )
+        # Checkpoint edge_labels to break lineage — prevents plan depth explosion
+        # across iterations which can cause driver memory pressure.
+        edge_labels = edge_labels.localCheckpoint(eager=True)
+
         candidates = edge_labels.select(
             col("src").alias("doc_id"), col("candidate_cluster").alias("cluster_id")
         ).unionByName(

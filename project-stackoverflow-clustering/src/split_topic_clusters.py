@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import math
 
+from pyspark import StorageLevel
 from pyspark.sql import SparkSession, Window
 from pyspark.sql.functions import (
     array_join,
@@ -102,7 +103,7 @@ def main() -> None:
     if "ora_codes" in split_source.columns:
         hash_cols.append(array_join(col("ora_codes"), "|"))
     split = split_source.withColumn("split_bucket", pmod(xxhash64(*hash_cols), col("split_count")).cast("int"))
-    predicted = split.withColumn("cluster_id", col("cluster_offset") + col("split_bucket")).cache()
+    predicted = split.withColumn("cluster_id", col("cluster_offset") + col("split_bucket")).persist(StorageLevel.MEMORY_AND_DISK_SER)
 
     token_counts = predicted.select("cluster_id", explode("tokens").alias("token")).groupBy("cluster_id", "token").agg(
         count("*").alias("token_count")

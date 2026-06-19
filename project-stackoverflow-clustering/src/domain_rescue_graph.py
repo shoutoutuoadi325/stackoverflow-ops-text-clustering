@@ -2,12 +2,17 @@
 """Domain-aware hybrid graph: intra-topic LSH + cross-topic ORA rescue.
 
 Runs after cluster_lsh_intra_topic.py. Does not rerun MinHashLSH.
+
+Memory-optimised: pre-filters both sides of the ORA self-join against
+ora_stats so that only docs with valid ORA codes participate in the
+cross-product. Uses MEMORY_AND_DISK_SER for large persisted DataFrames.
 """
 
 from __future__ import annotations
 
 import argparse
 
+from pyspark import StorageLevel
 from pyspark.sql import DataFrame, SparkSession, Window
 from pyspark.sql.functions import (
     array,
@@ -102,7 +107,7 @@ def build_cross_topic_rescue(
             "topic_id",
             explode("ora_codes").alias("ora_code"),
         )
-        .persist()
+        .persist(StorageLevel.MEMORY_AND_DISK_SER)
     )
 
     ora_stats = (
@@ -113,11 +118,15 @@ def build_cross_topic_rescue(
         )
     )
 
-    left = ora_docs.alias("left")
-    right = ora_docs.alias("right")
+    # Pre-filter both sides to only docs that share a valid ORA code.
+    # This reduces the fan-out in the self-join: docs with invalid (too rare or
+    # too common) ORA codes never participate in the cross-product.
+    valid = ora_docs.join(ora_stats.select("ora_code"), "ora_code")
+    left = valid.alias("left")
+    right = valid.alias("right")
+
     joined = (
-        left.join(ora_stats, "ora_code")
-        .join(right, "ora_code")
+        left.join(right, "ora_code")
         .filter(col("left.doc_id") < col("right.doc_id"))
         .filter(col("left.topic_id") != col("right.topic_id"))
         .select(

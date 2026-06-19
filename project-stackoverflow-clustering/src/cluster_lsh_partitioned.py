@@ -1,43 +1,9 @@
 #!/usr/bin/env python3
 """Tag-partitioned MinHashLSH for similar-question detection.
 
-Motivation
-----------
-A global MinHashLSH self-join over 152K Oracle questions surfaces a stage-9
-long-tail (see docs/verification/full_approx075_2026-06-14.md): a few hash
-buckets contain >10K documents, the resulting candidate join explodes, and the
-job times out after ~29 minutes on the course cluster.
-
-This script splits the work along the natural domain boundary of Oracle Q&A
-data: every question carries multiple StackOverflow tags, and the *primary*
-tag (the first non-trivial tag, e.g. sql / plsql / java / jdbc) is a strong
-indicator of the question's topic. We pick a primary tag per question, then
-fit and run an independent MinHashLSH inside each tag bucket. The final
-similar-pairs output is a UNION across all buckets.
-
-Trade-off (must be stated in the report and slides)
----------------------------------------------------
-+ Each per-tag job is far smaller; a single oversized hash bucket is bounded
-  by the size of its tag, not by the full corpus.
-+ Per-bucket metrics (size, candidate_pair_count, output_pair_count, elapsed)
-  produce a credible "fixed the long tail" story for the defense.
-- Cross-tag duplicates (e.g. the same question tagged 'sql' on one post and
-  'plsql' on another) are missed. We accept this as a precision-favouring
-  trade-off; the report quantifies the gap by also reporting how many global
-  baseline pairs are recovered.
-
-Inputs
-------
-- features parquet from feature_engineering.py (must contain `tags`,
-  `term_features`, `tokens`; carries `ora_codes` if produced by the updated
-  preprocess.py)
-
-Outputs
--------
-- <output> parquet: similar_pairs from every bucket (same schema as
-  cluster_lsh.py output, plus a `primary_tag` column)
-- <output>_samples_csv: top-similarity samples (coalesced)
-- <metrics-output>: one row per primary_tag with timing + pair counts
+Memory-optimised variation: the LSH join inside each tag bucket uses a slim
+(doc_id, term_features) view so heavy metadata columns are not duplicated
+across every candidate pair within the LSH internal cross-join.
 """
 
 from __future__ import annotations
@@ -119,6 +85,44 @@ def assign_primary_tag(df: DataFrame, exclude: List[str]) -> DataFrame:
     return df.withColumn("primary_tag", expr(primary_expr))
 
 
+def _enrich_candidates_bucket(candidates: DataFrame, bucket_df: DataFrame, has_ora: bool) -> DataFrame:
+    """Join slim (src, dst) pairs back with the tag bucket to attach metadata."""
+    meta_cols = ["doc_id", "title", "score", "tokens"]
+    if has_ora:
+        meta_cols.append("ora_codes")
+
+    src_meta = bucket_df.select(
+        *[col(c).alias(f"src_{c}" if c != "doc_id" else "src_doc_id") for c in meta_cols]
+    )
+    dst_meta = bucket_df.select(
+        *[col(c).alias(f"dst_{c}" if c != "doc_id" else "dst_doc_id") for c in meta_cols]
+    )
+
+    select_exprs = [
+        "src",
+        "dst",
+        col("src_title").alias("src_title"),
+        col("dst_title").alias("dst_title"),
+        col("src_score").alias("src_score"),
+        col("dst_score").alias("dst_score"),
+        col("src_tokens").alias("src_tokens"),
+        col("dst_tokens").alias("dst_tokens"),
+    ]
+    if has_ora:
+        select_exprs += [
+            col("src_ora_codes").alias("src_ora_codes"),
+            col("dst_ora_codes").alias("dst_ora_codes"),
+        ]
+
+    return (
+        candidates.join(src_meta, candidates.src == col("src_doc_id"), "inner")
+        .drop("src_doc_id")
+        .join(dst_meta, candidates.dst == col("dst_doc_id"), "inner")
+        .drop("dst_doc_id")
+        .select(*select_exprs)
+    )
+
+
 def run_lsh_on_bucket(
     spark: SparkSession,
     bucket_df: DataFrame,
@@ -126,8 +130,8 @@ def run_lsh_on_bucket(
     primary_tag: str,
     has_ora: bool,
 ) -> Optional[DataFrame]:
-    """Fit MinHashLSH on a single primary-tag subset and return its similar pairs."""
-    bucket_df = bucket_df.persist(StorageLevel.MEMORY_AND_DISK)
+    """Fit MinHashLSH on a single primary-tag subset (two-phase: slim join → enrich)."""
+    bucket_df = bucket_df.persist(StorageLevel.MEMORY_AND_DISK_SER)
     doc_count = bucket_df.count()
     if doc_count < 2:
         bucket_df.unpersist()
@@ -140,34 +144,21 @@ def run_lsh_on_bucket(
     )
     model = lsh.fit(bucket_df)
 
-    base_cols = ["doc_id", "title", "score", "tokens", "term_features"]
-    if has_ora:
-        base_cols.append("ora_codes")
-    left = bucket_df.select(*base_cols)
-    right = bucket_df.select(*base_cols)
-    joined = model.approxSimilarityJoin(left, right, args.distance_threshold, distCol="lsh_jaccard_distance")
+    # Phase 1: slim LSH join — only (doc_id, term_features) through the cross-join.
+    slim = bucket_df.select("doc_id", "term_features")
+    joined = model.approxSimilarityJoin(slim, slim, args.distance_threshold, distCol="lsh_jaccard_distance")
 
-    select_exprs = [
-        col("datasetA.doc_id").alias("src"),
-        col("datasetB.doc_id").alias("dst"),
-        col("datasetA.title").alias("src_title"),
-        col("datasetB.title").alias("dst_title"),
-        col("datasetA.score").alias("src_score"),
-        col("datasetB.score").alias("dst_score"),
-        col("datasetA.tokens").alias("src_tokens"),
-        col("datasetB.tokens").alias("dst_tokens"),
-    ]
-    if has_ora:
-        select_exprs += [
-            col("datasetA.ora_codes").alias("src_ora_codes"),
-            col("datasetB.ora_codes").alias("dst_ora_codes"),
-        ]
-
-    candidate_pairs = (
+    candidates = (
         joined.filter(col("datasetA.doc_id") < col("datasetB.doc_id"))
-        .select(*select_exprs)
+        .select(
+            col("datasetA.doc_id").alias("src"),
+            col("datasetB.doc_id").alias("dst"),
+        )
         .dropDuplicates(["src", "dst"])
     )
+
+    # Phase 2: enrich surviving candidates with metadata from the tag bucket.
+    candidate_pairs = _enrich_candidates_bucket(candidates, bucket_df, has_ora)
 
     intersection_size = size(array_intersect(col("src_tokens"), col("dst_tokens")))
     union_size = size(array_union(col("src_tokens"), col("dst_tokens")))

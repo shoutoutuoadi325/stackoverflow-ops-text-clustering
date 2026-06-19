@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Find similar StackOverflow questions with MinHash LSH."""
+"""Find similar StackOverflow questions with MinHash LSH.
+
+Memory-optimised: the LSH join is performed on a slim (doc_id, term_features)
+view so that heavy metadata columns (tokens, titles, ora_codes) are not
+duplicated across every candidate pair inside the LSH internal cross-join.
+Enrichment joins attach metadata only to the surviving candidate pairs.
+"""
 
 from __future__ import annotations
 
@@ -68,6 +74,50 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def _enrich_candidates(candidates, features, has_ora: bool, shuffle_partitions: int):
+    """Join slim (src, dst) pairs back with features to attach metadata.
+
+    This is the second phase of the two-phase LSH pattern: only the candidate
+    pairs that survived LSH distance filtering carry the heavy token / title /
+    ora_codes payload.
+    """
+    meta_cols = ["doc_id", "title", "score", "tokens"]
+    if has_ora:
+        meta_cols.append("ora_codes")
+
+    src_meta = features.select(
+        *[col(c).alias(f"src_{c}" if c != "doc_id" else "src_doc_id") for c in meta_cols]
+    )
+    dst_meta = features.select(
+        *[col(c).alias(f"dst_{c}" if c != "doc_id" else "dst_doc_id") for c in meta_cols]
+    )
+
+    select_exprs = [
+        "src",
+        "dst",
+        col("src_title").alias("src_title"),
+        col("dst_title").alias("dst_title"),
+        col("src_score").alias("src_score"),
+        col("dst_score").alias("dst_score"),
+        col("src_tokens").alias("src_tokens"),
+        col("dst_tokens").alias("dst_tokens"),
+    ]
+    if has_ora:
+        select_exprs += [
+            col("src_ora_codes").alias("src_ora_codes"),
+            col("dst_ora_codes").alias("dst_ora_codes"),
+        ]
+
+    return (
+        candidates.join(src_meta, candidates.src == col("src_doc_id"), "inner")
+        .drop("src_doc_id")
+        .join(dst_meta, candidates.dst == col("dst_doc_id"), "inner")
+        .drop("dst_doc_id")
+        .select(*select_exprs)
+        .repartition(shuffle_partitions, "src")
+    )
+
+
 def main() -> None:
     args = parse_args()
     spark = SparkSession.builder.appName("stackoverflow-lsh-clustering").getOrCreate()
@@ -79,7 +129,7 @@ def main() -> None:
     if has_ora:
         base_cols.append("ora_codes")
     features = raw_features.select(*base_cols).filter(size(col("tokens")) >= args.min_token_count).persist(
-        StorageLevel.MEMORY_AND_DISK
+        StorageLevel.MEMORY_AND_DISK_SER
     )
     input_count = features.count()
 
@@ -90,7 +140,7 @@ def main() -> None:
     )
     model = lsh.fit(features)
 
-    candidate_pairs = build_candidate_pairs(model, features, args).persist(StorageLevel.MEMORY_AND_DISK)
+    candidate_pairs = build_candidate_pairs(model, features, args).persist(StorageLevel.MEMORY_AND_DISK_SER)
     candidate_pair_count = candidate_pairs.count()
 
     intersection_size = size(array_intersect(col("src_tokens"), col("dst_tokens")))
@@ -130,6 +180,9 @@ def main() -> None:
             "shared_ora_codes", lit(None).cast("array<string>")
         ).withColumn("ora_match", lit(False))
 
+    # Drop token arrays immediately — no longer needed after similarity computation.
+    pairs = pairs.drop("src_tokens", "dst_tokens")
+
     base_filter = (col("jaccard_distance") <= args.distance_threshold) & (
         col("similarity") >= args.similarity_threshold
     )
@@ -147,7 +200,7 @@ def main() -> None:
     pairs = pairs.withColumn(
         "ora_rescued",
         when((~base_filter) & rescue_filter, lit(True)).otherwise(lit(False)),
-    ).filter(keep_filter).persist(StorageLevel.MEMORY_AND_DISK)
+    ).filter(keep_filter).persist(StorageLevel.MEMORY_AND_DISK_SER)
     pair_count = pairs.count()
 
     window = Window.partitionBy("src").orderBy(col("similarity").desc(), col("dst").asc())
@@ -218,57 +271,52 @@ def build_candidate_pairs(model: MinHashLSH, features, args: argparse.Namespace)
 
 
 def build_approx_candidate_pairs(model: MinHashLSH, features, args: argparse.Namespace):
-    """Generate candidates with Spark ML's native MinHashLSH distance threshold."""
-    has_ora = "ora_codes" in features.columns
-    base_cols = ["doc_id", "title", "score", "tokens", "term_features"]
-    if has_ora:
-        base_cols.append("ora_codes")
-    left_input = features.select(*base_cols)
-    right_input = features.select(*base_cols)
+    """Two-phase approx strategy: slim LSH join → enrichment join for metadata.
 
+    Phase 1 runs approxSimilarityJoin on only (doc_id, term_features) so the
+    heavy token/title/ora payloads are not duplicated across every candidate.
+    Phase 2 joins surviving candidates back with features to attach metadata.
+    """
+    has_ora = "ora_codes" in features.columns
+
+    # Phase 1: slim LSH join — only the minimum columns needed.
+    slim = features.select("doc_id", "term_features")
     joined = model.approxSimilarityJoin(
-        left_input,
-        right_input,
+        slim,
+        slim,
         args.distance_threshold,
         distCol="lsh_jaccard_distance",
     )
-    select_exprs = [
-        col("datasetA.doc_id").alias("src"),
-        col("datasetB.doc_id").alias("dst"),
-        col("datasetA.title").alias("src_title"),
-        col("datasetB.title").alias("dst_title"),
-        col("datasetA.score").alias("src_score"),
-        col("datasetB.score").alias("dst_score"),
-        col("datasetA.tokens").alias("src_tokens"),
-        col("datasetB.tokens").alias("dst_tokens"),
-    ]
-    if has_ora:
-        select_exprs += [
-            col("datasetA.ora_codes").alias("src_ora_codes"),
-            col("datasetB.ora_codes").alias("dst_ora_codes"),
-        ]
-    return (
+
+    candidates = (
         joined.filter(col("datasetA.doc_id") < col("datasetB.doc_id"))
-        .select(*select_exprs)
+        .select(
+            col("datasetA.doc_id").alias("src"),
+            col("datasetB.doc_id").alias("dst"),
+        )
         .dropDuplicates(["src", "dst"])
-        .repartition(args.shuffle_partitions, "src")
     )
+
+    # Phase 2: enrich with metadata (tokens, titles, scores, ora_codes).
+    return _enrich_candidates(candidates, features, has_ora, args.shuffle_partitions)
 
 
 def build_bucket_candidate_pairs(model: MinHashLSH, features, args: argparse.Namespace):
-    """Historical bucket self-join path used when explicit bucket-size skew control is needed."""
+    """Two-phase bucket strategy: slim hash explosion → enrichment join.
+
+    Uses model.transform() + posexplode on hashes so that only doc_ids are
+    shuffled during the bucket self-join. term_features is dropped after
+    transform since hashes carry the needed information.
+    """
     has_ora = "ora_codes" in features.columns
-    transform_cols = ["doc_id", "title", "score", "tokens", "hashes"]
-    if has_ora:
-        transform_cols.append("ora_codes")
-    hashed = model.transform(features).select(*transform_cols)
-    bucket_select = ["doc_id", "title", "score", "tokens"]
-    if has_ora:
-        bucket_select.append("ora_codes")
-    buckets = hashed.select(
-        *bucket_select,
-        posexplode("hashes").alias("hash_table", "hash_value"),
-    ).withColumn("hash_key", concat_ws(":", col("hash_table").cast("string"), col("hash_value").cast("string")))
+
+    # Phase 1: transform slim features → explode hashes → bucket self-join.
+    slim = features.select("doc_id", "term_features")
+    hashed = model.transform(slim).select("doc_id", posexplode("hashes").alias("hash_table", "hash_value"))
+
+    buckets = hashed.withColumn(
+        "hash_key", concat_ws(":", col("hash_table").cast("string"), col("hash_value").cast("string"))
+    )
 
     bucket_sizes = buckets.groupBy("hash_key").agg(count("*").alias("bucket_size")).filter(
         (col("bucket_size") > 1) & (col("bucket_size") <= args.max_bucket_size)
@@ -276,33 +324,23 @@ def build_bucket_candidate_pairs(model: MinHashLSH, features, args: argparse.Nam
     buckets = (
         buckets.join(bucket_sizes.select("hash_key"), "hash_key")
         .repartition(args.shuffle_partitions, "hash_key")
-        .persist(StorageLevel.MEMORY_AND_DISK)
+        .persist(StorageLevel.MEMORY_AND_DISK_SER)
     )
 
     left = buckets.alias("left")
     right = buckets.alias("right")
-    select_exprs = [
-        col("left.doc_id").alias("src"),
-        col("right.doc_id").alias("dst"),
-        col("left.title").alias("src_title"),
-        col("right.title").alias("dst_title"),
-        col("left.score").alias("src_score"),
-        col("right.score").alias("dst_score"),
-        col("left.tokens").alias("src_tokens"),
-        col("right.tokens").alias("dst_tokens"),
-    ]
-    if has_ora:
-        select_exprs += [
-            col("left.ora_codes").alias("src_ora_codes"),
-            col("right.ora_codes").alias("dst_ora_codes"),
-        ]
-    candidate_pairs = (
+    candidates = (
         left.join(right, "hash_key")
         .filter(col("left.doc_id") < col("right.doc_id"))
-        .select(*select_exprs)
+        .select(
+            col("left.doc_id").alias("src"),
+            col("right.doc_id").alias("dst"),
+        )
         .dropDuplicates(["src", "dst"])
     )
-    return candidate_pairs
+
+    # Phase 2: enrich with metadata (tokens, titles, scores, ora_codes).
+    return _enrich_candidates(candidates, features, has_ora, args.shuffle_partitions)
 
 
 if __name__ == "__main__":

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Build duplicate clusters from similar-pair edges."""
+"""Build duplicate clusters from similar-pair edges (memory-optimised)."""
 
 from __future__ import annotations
 
 import argparse
 
+from pyspark import StorageLevel
 from pyspark.sql import SparkSession, Window
 from pyspark.sql.functions import avg, col, concat_ws, count, length, least, min as spark_min, row_number
 
@@ -29,7 +30,7 @@ def main() -> None:
         spark.sparkContext.setCheckpointDir(args.checkpoint_dir)
 
     questions = spark.read.parquet(args.questions).select("doc_id", "title", "score", "tags")
-    edges = spark.read.parquet(args.pairs).select("src", "dst", "similarity").cache()
+    edges = spark.read.parquet(args.pairs).select("src", "dst", "similarity").persist(StorageLevel.MEMORY_AND_DISK_SER)
     edges.count()
     labels = questions.select(col("doc_id"), col("doc_id").alias("cluster_id")).localCheckpoint(eager=True)
 
@@ -39,6 +40,10 @@ def main() -> None:
             .join(labels.select(col("doc_id").alias("dst"), col("cluster_id").alias("dst_cluster")), "dst")
             .select("src", "dst", least("src_cluster", "dst_cluster").alias("candidate_cluster"))
         )
+        # Checkpoint edge_labels to break lineage and prevent plan depth explosion
+        # across iterations, which can cause driver memory pressure.
+        edge_labels = edge_labels.localCheckpoint(eager=True)
+
         candidates = edge_labels.select(col("src").alias("doc_id"), col("candidate_cluster").alias("cluster_id")).unionByName(
             edge_labels.select(col("dst").alias("doc_id"), col("candidate_cluster").alias("cluster_id"))
         )
@@ -86,7 +91,7 @@ def main() -> None:
     ).write.mode("overwrite").option("header", True).csv(args.output.rstrip("/") + "_samples_csv")
 
     if args.metrics_output:
-        multi_doc = output.filter(col("cluster_size") > 1).cache()
+        multi_doc = output.filter(col("cluster_size") > 1).persist(StorageLevel.MEMORY_AND_DISK_SER)
         cluster_stats = multi_doc.select("cluster_id", "cluster_size").distinct()
         max_cluster_size = cluster_stats.agg({"cluster_size": "max"}).collect()[0][0] or 0
         avg_similarity_value = multi_doc.agg(avg("avg_similarity").alias("avg_similarity")).collect()[0].avg_similarity or 0.0
