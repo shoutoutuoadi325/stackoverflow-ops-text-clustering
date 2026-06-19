@@ -129,7 +129,7 @@ def main() -> None:
     if has_ora:
         base_cols.append("ora_codes")
     features = raw_features.select(*base_cols).filter(size(col("tokens")) >= args.min_token_count).persist(
-        StorageLevel.MEMORY_AND_DISK_SER
+        StorageLevel.MEMORY_AND_DISK
     )
     input_count = features.count()
 
@@ -140,7 +140,7 @@ def main() -> None:
     )
     model = lsh.fit(features)
 
-    candidate_pairs = build_candidate_pairs(model, features, args).persist(StorageLevel.MEMORY_AND_DISK_SER)
+    candidate_pairs = build_candidate_pairs(model, features, args).persist(StorageLevel.MEMORY_AND_DISK)
     candidate_pair_count = candidate_pairs.count()
 
     intersection_size = size(array_intersect(col("src_tokens"), col("dst_tokens")))
@@ -200,7 +200,7 @@ def main() -> None:
     pairs = pairs.withColumn(
         "ora_rescued",
         when((~base_filter) & rescue_filter, lit(True)).otherwise(lit(False)),
-    ).filter(keep_filter).persist(StorageLevel.MEMORY_AND_DISK_SER)
+    ).filter(keep_filter).persist(StorageLevel.MEMORY_AND_DISK)
     pair_count = pairs.count()
 
     window = Window.partitionBy("src").orderBy(col("similarity").desc(), col("dst").asc())
@@ -324,7 +324,7 @@ def build_bucket_candidate_pairs(model: MinHashLSH, features, args: argparse.Nam
     buckets = (
         buckets.join(bucket_sizes.select("hash_key"), "hash_key")
         .repartition(args.shuffle_partitions, "hash_key")
-        .persist(StorageLevel.MEMORY_AND_DISK_SER)
+        .persist(StorageLevel.MEMORY_AND_DISK)
     )
 
     left = buckets.alias("left")

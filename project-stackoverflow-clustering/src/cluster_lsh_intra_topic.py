@@ -117,7 +117,7 @@ def run_lsh_on_topic(
     has_ora: bool,
 ) -> Optional[DataFrame]:
     """Fit MinHashLSH on a single topic subset (two-phase: slim join → enrich)."""
-    bucket_df = bucket_df.persist(StorageLevel.MEMORY_AND_DISK_SER)
+    bucket_df = bucket_df.persist(StorageLevel.MEMORY_AND_DISK)
     doc_count = bucket_df.count()
     if doc_count < 2:
         bucket_df.unpersist()
@@ -221,7 +221,7 @@ def build_connected_components(
     Checkpoints edge_labels each iteration to prevent lineage depth explosion.
     """
     labels = questions.select(col("doc_id"), col("doc_id").alias("cluster_id")).localCheckpoint(eager=True)
-    edges = edges.select("src", "dst", "similarity").persist(StorageLevel.MEMORY_AND_DISK_SER)
+    edges = edges.select("src", "dst", "similarity").persist(StorageLevel.MEMORY_AND_DISK)
     edges.count()
 
     for _ in range(iterations):

@@ -27,9 +27,9 @@ def main() -> None:
     spark = SparkSession.builder.appName("stackoverflow-topic-clustering").getOrCreate()
     spark.conf.set("spark.sql.shuffle.partitions", str(args.shuffle_partitions))
 
-    features = spark.read.parquet(args.features).persist(StorageLevel.MEMORY_AND_DISK_SER)
+    features = spark.read.parquet(args.features).persist(StorageLevel.MEMORY_AND_DISK)
     model = BisectingKMeans(k=args.k, seed=args.seed, featuresCol="features", predictionCol="cluster_id").fit(features)
-    predicted = model.transform(features).persist(StorageLevel.MEMORY_AND_DISK_SER)
+    predicted = model.transform(features).persist(StorageLevel.MEMORY_AND_DISK)
 
     token_counts = predicted.select("cluster_id", explode("tokens").alias("token")).groupBy("cluster_id", "token").agg(
         count("*").alias("token_count")

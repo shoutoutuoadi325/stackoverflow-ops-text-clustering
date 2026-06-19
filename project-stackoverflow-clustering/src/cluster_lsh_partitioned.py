@@ -131,7 +131,7 @@ def run_lsh_on_bucket(
     has_ora: bool,
 ) -> Optional[DataFrame]:
     """Fit MinHashLSH on a single primary-tag subset (two-phase: slim join → enrich)."""
-    bucket_df = bucket_df.persist(StorageLevel.MEMORY_AND_DISK_SER)
+    bucket_df = bucket_df.persist(StorageLevel.MEMORY_AND_DISK)
     doc_count = bucket_df.count()
     if doc_count < 2:
         bucket_df.unpersist()

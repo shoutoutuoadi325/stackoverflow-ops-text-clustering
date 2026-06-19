@@ -30,7 +30,7 @@ def main() -> None:
         spark.sparkContext.setCheckpointDir(args.checkpoint_dir)
 
     questions = spark.read.parquet(args.questions).select("doc_id", "title", "score", "tags")
-    edges = spark.read.parquet(args.pairs).select("src", "dst", "similarity").persist(StorageLevel.MEMORY_AND_DISK_SER)
+    edges = spark.read.parquet(args.pairs).select("src", "dst", "similarity").persist(StorageLevel.MEMORY_AND_DISK)
     edges.count()
     labels = questions.select(col("doc_id"), col("doc_id").alias("cluster_id")).localCheckpoint(eager=True)
 
@@ -91,7 +91,7 @@ def main() -> None:
     ).write.mode("overwrite").option("header", True).csv(args.output.rstrip("/") + "_samples_csv")
 
     if args.metrics_output:
-        multi_doc = output.filter(col("cluster_size") > 1).persist(StorageLevel.MEMORY_AND_DISK_SER)
+        multi_doc = output.filter(col("cluster_size") > 1).persist(StorageLevel.MEMORY_AND_DISK)
         cluster_stats = multi_doc.select("cluster_id", "cluster_size").distinct()
         max_cluster_size = cluster_stats.agg({"cluster_size": "max"}).collect()[0][0] or 0
         avg_similarity_value = multi_doc.agg(avg("avg_similarity").alias("avg_similarity")).collect()[0].avg_similarity or 0.0

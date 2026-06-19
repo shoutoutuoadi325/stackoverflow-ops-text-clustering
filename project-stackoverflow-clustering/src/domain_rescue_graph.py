@@ -5,7 +5,7 @@ Runs after cluster_lsh_intra_topic.py. Does not rerun MinHashLSH.
 
 Memory-optimised: pre-filters both sides of the ORA self-join against
 ora_stats so that only docs with valid ORA codes participate in the
-cross-product. Uses MEMORY_AND_DISK_SER for large persisted DataFrames.
+cross-product. Uses MEMORY_AND_DISK for large persisted DataFrames.
 """
 
 from __future__ import annotations
@@ -107,7 +107,7 @@ def build_cross_topic_rescue(
             "topic_id",
             explode("ora_codes").alias("ora_code"),
         )
-        .persist(StorageLevel.MEMORY_AND_DISK_SER)
+        .persist(StorageLevel.MEMORY_AND_DISK)
     )
 
     ora_stats = (
