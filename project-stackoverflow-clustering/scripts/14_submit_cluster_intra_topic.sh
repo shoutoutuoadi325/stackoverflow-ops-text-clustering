@@ -16,6 +16,9 @@
 #   INTRA_DIST_THRESHOLD    LSH distance threshold (default 0.35)
 #   INTRA_HASH_TABLES       MinHashLSH numHashTables (default 4)
 #   MAX_TOPICS              if >0, only run on the largest N topics (smoke)
+#   TOPIC_TRAINING_NUM_FEATURES  fold high-dimensional TF-IDF vectors for
+#                                BisectingKMeans training only (0 keeps original)
+#   TOPIC_SKIP_SILHOUETTE   1 skips the expensive silhouette pass
 #   ORA_BOOST / ORA_RESCUE_FLOOR  forwarded from conf/app.conf
 set -euo pipefail
 
@@ -39,11 +42,18 @@ fi
 
 if [[ "$NEED_TRAIN" == "1" ]]; then
   echo "Training BisectingKMeans with K=$TOPIC_K_ARG -> $TOPICS_PATH"
-  spark_submit_project "$PROJECT_HOME/src/topic_clustering.py" \
-    --features "$HDFS_FEATURES" \
-    --output "$TOPICS_PATH" \
-    --k "$TOPIC_K_ARG" \
+  topic_args=(
+    --features "$HDFS_FEATURES"
+    --output "$TOPICS_PATH"
+    --k "$TOPIC_K_ARG"
     --shuffle-partitions "$SHUFFLE_PARTITIONS"
+    --training-num-features "${TOPIC_TRAINING_NUM_FEATURES:-0}"
+  )
+  if [[ "${TOPIC_SKIP_SILHOUETTE:-0}" == "1" ]]; then
+    topic_args+=(--skip-silhouette)
+  fi
+  spark_submit_project "$PROJECT_HOME/src/topic_clustering.py" \
+    "${topic_args[@]}"
 fi
 
 echo "Running intra-topic MinHashLSH (label=$LABEL, sim>=${INTRA_SIM_THRESHOLD:-0.65})"

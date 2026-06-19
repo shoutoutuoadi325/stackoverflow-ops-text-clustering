@@ -119,12 +119,6 @@ def run_lsh_on_topic(
     has_ora: bool,
 ) -> Optional[DataFrame]:
     """Fit MinHashLSH on a single topic subset and return its similar pairs."""
-    bucket_df = bucket_df.persist(StorageLevel.MEMORY_AND_DISK)
-    doc_count = bucket_df.count()
-    if doc_count < 2:
-        bucket_df.unpersist()
-        return None
-
     lsh = MinHashLSH(
         inputCol="term_features",
         outputCol="hashes",
@@ -225,6 +219,16 @@ def union_compatible(dfs: Iterable[DataFrame]) -> Optional[DataFrame]:
     return out
 
 
+def empty_edges_df(spark: SparkSession) -> DataFrame:
+    return spark.createDataFrame(
+        [],
+        "src string, dst string, src_title string, dst_title string, src_score int, dst_score int, "
+        "src_ora_codes array<string>, dst_ora_codes array<string>, similarity_raw double, "
+        "jaccard_distance double, shared_ora_codes array<string>, ora_match boolean, "
+        "similarity double, ora_rescued boolean, topic_id int",
+    )
+
+
 def build_connected_components(
     spark: SparkSession,
     edges: DataFrame,
@@ -322,32 +326,6 @@ def main() -> None:
         active = [r["topic_id"] for r in topic_sizes]
         skipped = []
 
-    metrics_rows: List[tuple] = []
-    bucket_outputs: List[DataFrame] = []
-    for topic_id in active:
-        topic_df = joined.filter(col("topic_id") == topic_id).select(*keep_cols)
-        doc_count = topic_df.count()
-        if doc_count < args.min_topic_size:
-            metrics_rows.append((int(topic_id), int(doc_count), 0, 0.0, "too_small"))
-            continue
-        start = time.monotonic()
-        try:
-            pairs = run_lsh_on_topic(topic_df, args, int(topic_id), has_ora)
-            elapsed = time.monotonic() - start
-            if pairs is None:
-                metrics_rows.append((int(topic_id), int(doc_count), 0, elapsed, "empty"))
-                continue
-            pair_count = pairs.count()
-            bucket_outputs.append(pairs)
-            metrics_rows.append((int(topic_id), int(doc_count), int(pair_count), elapsed, "ok"))
-        except Exception as exc:  # noqa: BLE001
-            elapsed = time.monotonic() - start
-            metrics_rows.append((int(topic_id), int(doc_count), 0, elapsed, f"error:{type(exc).__name__}"))
-
-    for r in skipped:
-        metrics_rows.append((int(r["topic_id"]), int(r["count"]), 0, 0.0, "skipped"))
-
-    edges = union_compatible(bucket_outputs)
     base_out = args.output.rstrip("/") + "/" + args.label
     pairs_out = base_out + "/similar_pairs"
     samples_out = base_out + "/similar_pairs_samples_csv"
@@ -356,22 +334,52 @@ def main() -> None:
     clusters_samples_out = base_out + "/clusters_samples_csv"
     summary_out = base_out + "/summary_csv"
 
-    if edges is None:
-        edges = spark.createDataFrame(
-            [],
-            "src string, dst string, src_title string, dst_title string, src_score int, dst_score int, "
-            "similarity_raw double, jaccard_distance double, shared_ora_codes array<string>, "
-            "ora_match boolean, similarity double, ora_rescued boolean, topic_id int",
-        )
-    edges.write.mode("overwrite").parquet(pairs_out)
-    if "similarity" in edges.columns:
+    metrics_rows: List[tuple] = []
+    wrote_pairs = False
+    for topic_id in active:
+        topic_df = joined.filter(col("topic_id") == topic_id).select(*keep_cols).persist(StorageLevel.MEMORY_AND_DISK)
+        doc_count = topic_df.count()
+        if doc_count < args.min_topic_size:
+            metrics_rows.append((int(topic_id), int(doc_count), 0, 0.0, "too_small"))
+            topic_df.unpersist()
+            continue
+        start = time.monotonic()
+        pairs: Optional[DataFrame] = None
+        try:
+            pairs = run_lsh_on_topic(topic_df, args, int(topic_id), has_ora)
+            elapsed = time.monotonic() - start
+            if pairs is None:
+                metrics_rows.append((int(topic_id), int(doc_count), 0, elapsed, "empty"))
+                continue
+            pairs = pairs.persist(StorageLevel.MEMORY_AND_DISK)
+            pair_count = pairs.count()
+            if pair_count > 0:
+                pairs.write.mode("append" if wrote_pairs else "overwrite").parquet(pairs_out)
+                wrote_pairs = True
+            metrics_rows.append((int(topic_id), int(doc_count), int(pair_count), elapsed, "ok"))
+        except Exception as exc:  # noqa: BLE001
+            elapsed = time.monotonic() - start
+            metrics_rows.append((int(topic_id), int(doc_count), 0, elapsed, f"error:{type(exc).__name__}"))
+        finally:
+            if pairs is not None:
+                pairs.unpersist()
+            topic_df.unpersist()
+
+    for r in skipped:
+        metrics_rows.append((int(r["topic_id"]), int(r["count"]), 0, 0.0, "skipped"))
+
+    if not wrote_pairs:
+        empty_edges_df(spark).write.mode("overwrite").parquet(pairs_out)
+
+    edges_reread = spark.read.parquet(pairs_out)
+    if edges_reread.head(1):
         # CSV cannot serialise array columns; flatten shared_ora_codes to a
         # pipe-delimited string and drop array originals before writing.
-        samples_view = edges.orderBy(col("similarity").desc()).limit(500)
+        samples_view = edges_reread.orderBy(col("similarity").desc()).limit(500)
         if "shared_ora_codes" in samples_view.columns:
             samples_view = samples_view.withColumn(
                 "shared_ora_codes_text", concat_ws("|", col("shared_ora_codes"))
-            ).drop("shared_ora_codes")
+            ).drop("shared_ora_codes", "src_ora_codes", "dst_ora_codes")
         samples_view.coalesce(1).write.mode("overwrite").option("header", True).csv(samples_out)
 
     spark.createDataFrame(
@@ -387,8 +395,7 @@ def main() -> None:
     questions = spark.read.parquet(args.topics).select(
         col("doc_id"), col("title"), col("score"), col("tags")
     )
-    edges_reread = spark.read.parquet(pairs_out) if "similarity" in edges.columns else None
-    if edges_reread is not None and edges_reread.head(1):
+    if edges_reread.head(1):
         edge_input = edges_reread.select("src", "dst", "similarity")
         clusters = build_connected_components(spark, edge_input, questions, args.cc_iterations)
         clusters.write.mode("overwrite").parquet(clusters_out)
@@ -405,10 +412,10 @@ def main() -> None:
         multi_question_count = 0
         max_size = 0
 
-    pair_total = edges.count() if "similarity" in edges.columns else 0
+    pair_total = edges_reread.count()
     avg_sim = (
-        edges.agg(avg("similarity").alias("v")).collect()[0]["v"] or 0.0
-        if "similarity" in edges.columns
+        edges_reread.agg(avg("similarity").alias("v")).collect()[0]["v"] or 0.0
+        if pair_total
         else 0.0
     )
     spark.createDataFrame(
