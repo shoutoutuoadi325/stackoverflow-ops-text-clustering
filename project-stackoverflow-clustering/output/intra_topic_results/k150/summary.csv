@@ -1,0 +1,2 @@
+run_label,num_hash_tables,similarity_threshold,distance_threshold,pair_count,multi_doc_cluster_count,multi_doc_question_count,max_cluster_size,avg_similarity
+k150,4,0.65,0.35,38,36,74,3,0.7592346018818226

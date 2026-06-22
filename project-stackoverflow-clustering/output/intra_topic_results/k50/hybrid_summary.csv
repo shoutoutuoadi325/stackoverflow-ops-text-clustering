@@ -1,0 +1,2 @@
+run_label,baseline_pair_count,rescued_pair_count,hybrid_pair_count,baseline_multi_doc_cluster_count,hybrid_multi_doc_cluster_count,baseline_multi_doc_question_count,hybrid_multi_doc_question_count,max_cluster_size,avg_similarity
+k50,43,3,46,39,42,81,87,4,0.7312518791276585

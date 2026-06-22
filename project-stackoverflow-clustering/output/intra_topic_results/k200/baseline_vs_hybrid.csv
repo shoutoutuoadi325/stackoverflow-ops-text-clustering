@@ -1,0 +1,3 @@
+run_label,method,pair_count,multi_doc_cluster_count,multi_doc_question_count
+k200,intra_topic_lsh,37,35,72
+k200,domain_hybrid_graph,42,40,82

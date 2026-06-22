@@ -1,0 +1,82 @@
+cluster_id,cluster_size,doc_id,title,score,representative_id,representative_title,avg_similarity,tags_text
+25472207,4,25472207,Error is missing right parenthesis,0,25472207,Error is missing right parenthesis,0.7555555555555555,sql|oracle-database
+25472207,4,70231735,"I'm getting this error: \"Missing right parenthesis\"",-1,25472207,Error is missing right parenthesis,0.7333333333333334,sql|database|oracle-database
+25472207,4,70783143,How to solve ERROR MISSING RIGHT PARENTHESIS ? (ORACLE),-3,25472207,Error is missing right parenthesis,0.7333333333333334,sql|oracle-database
+25472207,4,44783896,ORA-00907: missing right parenthesis error,-1,25472207,Error is missing right parenthesis,0.6666666666666666,sql|oracle-database|join
+25103756,3,25103756,NOT a group by expression SQL,-1,48136395,not a group by oracle,0.75,sql|oracle-database|group-by|expression
+25103756,3,48136395,not a group by oracle,0,48136395,not a group by oracle,0.7142857142857143,sql|oracle-database|group-by
+25103756,3,74078822,sql oracle query group by issue,0,48136395,not a group by oracle,0.7321428571428572,sql|oracle-database|group-by|ora-00979
+12538926,2,12538926,Database query to search using address,0,12544953,how to write a database query to search for the customers using address,0.6708860759493671,sql|oracle-database
+12538926,2,12544953,how to write a database query to search for the customers using address,2,12544953,how to write a database query to search for the customers using address,0.6708860759493671,sql|oracle-database
+12603250,2,12603250,How to compare two different rows of two different tables?,-2,12604002,How to compare two different rows of two different tables and update a third table?,0.8636363636363636,sql|oracle-database
+12603250,2,12604002,How to compare two different rows of two different tables and update a third table?,0,12604002,How to compare two different rows of two different tables and update a third table?,0.8636363636363636,sql|oracle-database
+12744013,2,12744013,Install oracle module for node js,1,12744013,Install oracle module for node js,0.6861313868613139,oracle-database|node.js|oracle10g
+12744013,2,12745236,Install db-oracle for node js,0,12744013,Install oracle module for node js,0.6861313868613139,oracle-database|node.js
+1321253,2,1321253,JDBC Thin Oracle 11g,3,1321253,JDBC Thin Oracle 11g,0.7741935483870968,java|oracle-database|jdbc
+1321253,2,2369316,JDBC Thin in Oracle 11g with java,2,1321253,JDBC Thin Oracle 11g,0.7741935483870968,oracle-database|jdbc
+16830152,2,16830152,create procedure in oracle,0,16830152,create procedure in oracle,0.684931506849315,sql|oracle-database|oracle11g|procedure
+16830152,2,37533512,"compiling procedure in oracle, md5 encryption",0,16830152,create procedure in oracle,0.684931506849315,sql|oracle-database|procedure
+18084908,2,18084908,The provider is not compatible with the version of Oracle client error popping up randomly,1,18084908,The provider is not compatible with the version of Oracle client error popping up randomly,0.7297297297297297,asp.net|oracle-database
+18084908,2,18103665,"Random \"The provider is not compatible with the version of Oracle client\" error",0,18084908,The provider is not compatible with the version of Oracle client error popping up randomly,0.7297297297297297,asp.net|vb.net|oracle-database
+1940579,2,1940579,SQL Inner join on select statements,23,1940579,SQL Inner join on select statements,0.7083333333333334,sql|oracle-database|ora-00933
+1940579,2,1940695,SQL Inner join on select statements,-3,1940579,SQL Inner join on select statements,0.7083333333333334,sql|oracle-database|ora-00933
+20348752,2,7764656,"Who is diana, and why won't she let my database objects compile?",24,7764656,"Who is diana, and why won't she let my database objects compile?",0.7046004842615012,oracle-database|stored-procedures|view
+20348752,2,20348752,"Who came up with the term \"DIANA node\" and how did they figure 6,000,000 LOC is approximately 67108864 (2**26) DIANA nodes?",5,7764656,"Who is diana, and why won't she let my database objects compile?",0.7046004842615012,oracle-database|plsql
+25541869,2,25541869,is it possible to trim last three characters in string with selected row in selected column,0,25541869,is it possible to trim last three characters in string with selected row in selected column,0.8260869565217391,sql|oracle-database|oracle11g
+25541869,2,26797803,i want to trim last two characters in string with selected row in selected column,-1,25541869,is it possible to trim last three characters in string with selected row in selected column,0.8260869565217391,sql|database|oracle-database|oracle11g
+28753859,2,28768945,Correlation function over analytic function,0,28753859,Correlation and analytic function,0.85,sql|oracle-database|oracle11g
+28753859,2,28753859,Correlation and analytic function,0,28753859,Correlation and analytic function,0.85,sql|oracle-database|oracle11g
+29261623,2,29261623,.ToList() - The method or operation is not implemented?,0,29263457,MVC DB Migration: The method or operation is not implemented?,0.6850393700787402,c#|asp.net-mvc|oracle-database|entity-framework|odp.net
+29261623,2,29263457,MVC DB Migration: The method or operation is not implemented?,2,29263457,MVC DB Migration: The method or operation is not implemented?,0.6850393700787402,c#|asp.net-mvc|oracle-database|entity-framework|odp.net
+30126702,2,30129553,Create IF Statement in SQL developer to calculate AGE,0,30126702,if statement in SQL to calculate age,0.7,sql|oracle-database
+30126702,2,30126702,if statement in SQL to calculate age,0,30126702,if statement in SQL to calculate age,0.7,excel|oracle-database|join
+33270747,2,33270747,Oracle 12c and C# connection ORA-12154 TNS: could not resolve the connect identifier specified,0,41279601,"ORA-12154: TNS: could not resolve the connect identifier specified (oracle, c#, VS13)",0.7272727272727273,c#|oracle-database|oracle12c|ora-12154
+33270747,2,41279601,"ORA-12154: TNS: could not resolve the connect identifier specified (oracle, c#, VS13)",1,41279601,"ORA-12154: TNS: could not resolve the connect identifier specified (oracle, c#, VS13)",0.7272727272727273,c#|oracle-database|oracle11g
+36411586,2,36424780,Retrieve rows with highest salary per month and year,0,36411586,Retrieve rows with highest salary per month,0.7,sql|oracle-database|oracle11g|oracle-sqldeveloper
+36411586,2,36411586,Retrieve rows with highest salary per month,0,36411586,Retrieve rows with highest salary per month,0.7,sql|oracle-database|oracle11g
+39979514,2,39979514,Why am I encountering the symbol end of file in Oracle?,-1,39979514,Why am I encountering the symbol end of file in Oracle?,0.6557377049180327,sql|oracle-database
+39979514,2,59370908,"Error(34,24): PLS-00103: Encountered the symbol \"end-of-file\" when expecting one of the following",-1,39979514,Why am I encountering the symbol end of file in Oracle?,0.6557377049180327,oracle-database|plsql
+40107817,2,40107817,I am getting error while applying multiple joins in a select query,-3,43255769,"ORA-00904: \"from$_subquery$_014\".\"column_name\": invalid identifier",0.7430555555555556,sql|oracle-database
+40107817,2,43255769,"ORA-00904: \"from$_subquery$_014\".\"column_name\": invalid identifier",2,43255769,"ORA-00904: \"from$_subquery$_014\".\"column_name\": invalid identifier",0.7430555555555556,sql|oracle-database
+40233768,2,40233768,I keep getting errors in my procedure that help add new course and i have put requirements in description,-1,40373279,NEW_COURSE pl/sql procedure is raising exception and i cant figure it out,0.6975806451612904,oracle-database|stored-procedures|plsql|error-handling
+40233768,2,40373279,NEW_COURSE pl/sql procedure is raising exception and i cant figure it out,1,40373279,NEW_COURSE pl/sql procedure is raising exception and i cant figure it out,0.6975806451612904,oracle-database|stored-procedures
+40821622,2,40821622,EXCEPTION in before the end of the loop,-1,56663428,"PLS-00103: Encountered the symbol \"CREATE\" when expecting one of the following:",0.6507936507936508,sql|oracle-database|for-loop|exception|plsql
+40821622,2,56663428,"PLS-00103: Encountered the symbol \"CREATE\" when expecting one of the following:",2,56663428,"PLS-00103: Encountered the symbol \"CREATE\" when expecting one of the following:",0.6507936507936508,sql|oracle-database
+41087980,2,41087980,How can I SELECT multiple values from 5 tables?,-1,41087980,How can I SELECT multiple values from 5 tables?,0.7142857142857143,sql|oracle-database|join
+41087980,2,41089026,How can I select multiple values from many tables?,-2,41087980,How can I SELECT multiple values from 5 tables?,0.7142857142857143,sql|oracle-database
+43556637,2,43560995,Listener refused the connection with the following error: ORA-12505,0,43556637,Listener refused the connection,0.74,java|oracle-database|hibernate|oracle11g
+43556637,2,43556637,Listener refused the connection,1,43556637,Listener refused the connection,0.74,oracle-database|hibernate|jdbc
+43775423,2,43775423,Entity Framework column concatenate in Oracle,2,43775423,Entity Framework column concatenate in Oracle,0.7407407407407407,c#|oracle-database|entity-framework-6
+43775423,2,43776051,Entity Framework cannot concat Enum column in Oracle,0,43775423,Entity Framework column concatenate in Oracle,0.7407407407407407,c#|oracle-database|entity-framework-6
+50217243,2,50217243,Convert SQL query to SQL Server,-5,71211553,Convert from Oracle to SQL Server,0.6666666666666666,sql|sql-server|oracle-database
+50217243,2,71211553,Convert from Oracle to SQL Server,-3,71211553,Convert from Oracle to SQL Server,0.6666666666666666,sql|sql-server|oracle-database|oracle11g
+5091642,2,5091642,Need to write a SQL query to fetch data from a Oracle database,0,5091642,Need to write a SQL query to fetch data from a Oracle database,0.6666666666666666,sql|oracle-database
+5091642,2,5092067,Need to write a SQL query to fetch data from a Oracle database,-1,5091642,Need to write a SQL query to fetch data from a Oracle database,0.6666666666666666,sql|oracle-database
+53082594,2,53084373,Table variables in oracle,1,53084373,Table variables in oracle,0.696969696969697,sql|oracle-database|t-sql|plsql
+53082594,2,53082594,SQL table variable in oracle,1,53084373,Table variables in oracle,0.696969696969697,sql|oracle-database|t-sql|plsql
+57082011,2,77060455,I am getting an error ORA-00920: invalid relational operator,-2,57082011,SQL Error [920] [42000]: ORA-00920: invalid relational operator,0.6666666666666666,sql|oracle-database
+57082011,2,57082011,SQL Error [920] [42000]: ORA-00920: invalid relational operator,0,57082011,SQL Error [920] [42000]: ORA-00920: invalid relational operator,0.6666666666666666,oracle-database
+57431031,2,57523881,How to call oracle function from spring boot application?,1,57523881,How to call oracle function from spring boot application?,0.7551020408163265,java|oracle-database|jpa|createquery
+57431031,2,57431031,How to call custom oracle function in spring boot application?,1,57523881,How to call oracle function from spring boot application?,0.7551020408163265,java|oracle-database|jpa|createquery
+57530055,2,57530417,Reset sum when condition is met in Oracle,3,57530417,Reset sum when condition is met in Oracle,0.782608695652174,sql|oracle-database
+57530055,2,57530055,Reset running sum when condition is met in Oracle,2,57530417,Reset sum when condition is met in Oracle,0.782608695652174,sql|oracle-database
+63518526,2,63522576,Warning: Package Body created with compilation errors...in plsql,0,63522576,Warning: Package Body created with compilation errors...in plsql,0.7037037037037037,sql|oracle-database|plsql|plsql-package
+63518526,2,63518526,issue on creating package,-1,63522576,Warning: Package Body created with compilation errors...in plsql,0.7037037037037037,oracle-database|plsql|plsql-package
+65121862,2,65124167,Linux and Oracle Instant Client,0,65121862,Docker Oracle Instant Client,0.7319587628865979,php|linux|oracle-database|docker|pecl
+65121862,2,65121862,Docker Oracle Instant Client,0,65121862,Docker Oracle Instant Client,0.7319587628865979,oracle-database|docker|makefile|docker-compose|dockerfile
+66320191,2,66320191,How should I edit the query to improve performance while keeping the existing structure?,0,66321562,How should I improve query performance while keeping the existing structure?,0.7037037037037037,oracle-database
+66320191,2,66321562,How should I improve query performance while keeping the existing structure?,1,66321562,How should I improve query performance while keeping the existing structure?,0.7037037037037037,oracle-database
+67307641,2,67307641,join with lookup and groupby,0,67307641,join with lookup and groupby,0.8666666666666667,sql|oracle-database
+67307641,2,67322152,join with lookup and group by,0,67307641,join with lookup and groupby,0.8666666666666667,sql|oracle-database
+69744559,2,69744559,How to express 5 sets of data currently in one column 5 different columns,0,69746788,How to turn 5 sets of data from one column into 5 different columns,0.6818181818181818,sql|oracle-database|pivot|oracle10g
+69744559,2,69746788,How to turn 5 sets of data from one column into 5 different columns,2,69746788,How to turn 5 sets of data from one column into 5 different columns,0.6818181818181818,sql|oracle-database|oracle10g
+70027182,2,70185088,Oracle prefix data into a clob with a procedure,0,70027182,Oracle prefix data to a clob,0.6896551724137931,oracle-database|stored-procedures|clob
+70027182,2,70027182,Oracle prefix data to a clob,0,70027182,Oracle prefix data to a clob,0.6896551724137931,oracle-database|procedure|clob
+70089553,2,70089553,UPDATED - Terraform OCI - create multiple VCN in different regions,1,70089553,UPDATED - Terraform OCI - create multiple VCN in different regions,0.75,oracle-database|terraform|terraform-provider-oci
+70089553,2,70094984,Terraform OCI - create multiple VCN in multiple regions,0,70089553,UPDATED - Terraform OCI - create multiple VCN in different regions,0.75,oracle-database|terraform|terraform-provider-oci
+7352827,2,7352827,MVC2: How to connect to ODBC datasource,0,7352827,MVC2: How to connect to ODBC datasource,0.726027397260274,c#|oracle-database|asp.net-mvc-2
+7352827,2,7392064,MVC2 Entity Model connectivity / Oracle,0,7352827,MVC2: How to connect to ODBC datasource,0.726027397260274,asp.net-mvc|oracle-database
+76380289,2,76387125,count(distinct) over (partition by ... range function) cannot do distinct w/ range,0,76380289,count(distinct) over (partition by ... range function),0.6835443037974683,sql|oracle-database|window-functions
+76380289,2,76380289,count(distinct) over (partition by ... range function),0,76380289,count(distinct) over (partition by ... range function),0.6835443037974683,sql|oracle-database|window-functions
+9660235,2,9660235,sql statement how to keep null value,-2,9662930,sql returning no rows selected,0.8164893617021277,sql|oracle-database
+9660235,2,9662930,sql returning no rows selected,0,9662930,sql returning no rows selected,0.8164893617021277,sql|oracle-database

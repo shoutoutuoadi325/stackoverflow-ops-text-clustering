@@ -1,0 +1,38 @@
+src,dst,src_title,dst_title,src_score,dst_score,similarity_raw,jaccard_distance,ora_match,similarity,ora_rescued,topic_id,shared_ora_codes_text
+12603250,12604002,How to compare two different rows of two different tables?,How to compare two different rows of two different tables and update a third table?,-2,0,0.8636363636363636,0.13636363636363635,false,0.8636363636363636,false,60,""
+1476632,19848777,C# How to parse a string of date in an arbitrary specified Oracle date format?,How to format a date from Oracle to a valid datetime in c#,1,1,0.863013698630137,0.136986301369863,false,0.863013698630137,false,24,""
+25103756,74078822,NOT a group by expression SQL,sql oracle query group by issue,-1,0,0.75,0.25,true,0.85,false,51,ora-00979
+28753859,28768945,Correlation and analytic function,Correlation function over analytic function,0,0,0.85,0.15000000000000002,false,0.85,false,43,""
+40107817,43255769,I am getting error while applying multiple joins in a select query,"ORA-00904: \"from$_subquery$_014\".\"column_name\": invalid identifier",-3,2,0.7430555555555556,0.2569444444444444,true,0.8430555555555556,false,142,ora-00904
+43775423,43776051,Entity Framework column concatenate in Oracle,Entity Framework cannot concat Enum column in Oracle,2,0,0.7407407407407407,0.2592592592592593,true,0.8407407407407407,false,58,ora-12704
+43556637,43560995,Listener refused the connection,Listener refused the connection with the following error: ORA-12505,1,0,0.74,0.26,true,0.84,false,173,ora-12505
+33270747,41279601,Oracle 12c and C# connection ORA-12154 TNS: could not resolve the connect identifier specified,"ORA-12154: TNS: could not resolve the connect identifier specified (oracle, c#, VS13)",0,1,0.7272727272727273,0.2727272727272727,true,0.8272727272727273,false,188,ora-12154
+25541869,26797803,is it possible to trim last three characters in string with selected row in selected column,i want to trim last two characters in string with selected row in selected column,0,-1,0.8260869565217391,0.17391304347826086,false,0.8260869565217391,false,70,""
+9660235,9662930,sql statement how to keep null value,sql returning no rows selected,-2,0,0.8164893617021277,0.18351063829787229,false,0.8164893617021277,false,9,""
+48136395,74078822,not a group by oracle,sql oracle query group by issue,0,0,0.7142857142857143,0.2857142857142857,true,0.8142857142857143,false,51,ora-00979
+1940579,1940695,SQL Inner join on select statements,SQL Inner join on select statements,23,-3,0.7083333333333334,0.29166666666666663,true,0.8083333333333333,false,78,ora-00933
+25472207,70783143,Error is missing right parenthesis,How to solve ERROR MISSING RIGHT PARENTHESIS ? (ORACLE),0,-3,0.8,0.19999999999999996,false,0.8,false,43,""
+53082594,53084373,SQL table variable in oracle,Table variables in oracle,1,1,0.696969696969697,0.303030303030303,true,0.796969696969697,false,138,ora-04044
+57530055,57530417,Reset running sum when condition is met in Oracle,Reset sum when condition is met in Oracle,2,3,0.782608695652174,0.21739130434782605,false,0.782608695652174,false,43,""
+57082011,77060455,SQL Error [920] [42000]: ORA-00920: invalid relational operator,I am getting an error ORA-00920: invalid relational operator,0,-2,0.6666666666666666,0.33333333333333337,true,0.7666666666666666,false,144,ora-00920
+57431031,57523881,How to call custom oracle function in spring boot application?,How to call oracle function from spring boot application?,1,1,0.7551020408163265,0.24489795918367352,false,0.7551020408163265,false,148,""
+40821622,56663428,EXCEPTION in before the end of the loop,"PLS-00103: Encountered the symbol \"CREATE\" when expecting one of the following:",-1,2,0.6507936507936508,0.3492063492063492,true,0.7507936507936508,false,139,ora-06550
+70089553,70094984,UPDATED - Terraform OCI - create multiple VCN in different regions,Terraform OCI - create multiple VCN in multiple regions,1,0,0.75,0.25,false,0.75,false,142,""
+65121862,65124167,Docker Oracle Instant Client,Linux and Oracle Instant Client,0,0,0.7319587628865979,0.2680412371134021,false,0.7319587628865979,false,193,""
+18084908,18103665,The provider is not compatible with the version of Oracle client error popping up randomly,"Random \"The provider is not compatible with the version of Oracle client\" error",1,0,0.7297297297297297,0.2702702702702703,false,0.7297297297297297,false,198,""
+41087980,41089026,How can I SELECT multiple values from 5 tables?,How can I select multiple values from many tables?,-1,-2,0.7142857142857143,0.2857142857142857,false,0.7142857142857143,false,43,""
+20348752,7764656,"Who came up with the term \"DIANA node\" and how did they figure 6,000,000 LOC is approximately 67108864 (2**26) DIANA nodes?","Who is diana, and why won't she let my database objects compile?",5,24,0.7046004842615012,0.29539951573849876,false,0.7046004842615012,false,142,""
+36411586,36424780,Retrieve rows with highest salary per month,Retrieve rows with highest salary per month and year,0,0,0.7,0.30000000000000004,false,0.7,false,43,""
+30126702,30129553,if statement in SQL to calculate age,Create IF Statement in SQL developer to calculate AGE,0,0,0.7,0.30000000000000004,false,0.7,false,43,""
+71205776,71999370,How to group by container with their date,HOW TO GROUP ROWS OF A TABLE WITH COLUMN DATE,1,1,0.7,0.30000000000000004,false,0.7,false,31,""
+40233768,40373279,I keep getting errors in my procedure that help add new course and i have put requirements in description,NEW_COURSE pl/sql procedure is raising exception and i cant figure it out,-1,1,0.6975806451612904,0.30241935483870963,false,0.6975806451612904,false,76,""
+70027182,70185088,Oracle prefix data to a clob,Oracle prefix data into a clob with a procedure,0,0,0.6896551724137931,0.31034482758620685,false,0.6896551724137931,false,126,""
+12744013,12745236,Install oracle module for node js,Install db-oracle for node js,1,0,0.6861313868613139,0.3138686131386861,false,0.6861313868613139,false,142,""
+16830152,37533512,create procedure in oracle,"compiling procedure in oracle, md5 encryption",0,0,0.684931506849315,0.31506849315068497,false,0.684931506849315,false,139,""
+76380289,76387125,count(distinct) over (partition by ... range function),count(distinct) over (partition by ... range function) cannot do distinct w/ range,0,0,0.6835443037974683,0.31645569620253167,false,0.6835443037974683,false,50,""
+69744559,69746788,How to express 5 sets of data currently in one column 5 different columns,How to turn 5 sets of data from one column into 5 different columns,0,2,0.6818181818181818,0.31818181818181823,false,0.6818181818181818,false,142,""
+12538926,12544953,Database query to search using address,how to write a database query to search for the customers using address,0,2,0.6708860759493671,0.3291139240506329,false,0.6708860759493671,false,43,""
+5091642,5092067,Need to write a SQL query to fetch data from a Oracle database,Need to write a SQL query to fetch data from a Oracle database,0,-1,0.6666666666666666,0.33333333333333337,false,0.6666666666666666,false,60,""
+25472207,44783896,Error is missing right parenthesis,ORA-00907: missing right parenthesis error,0,-1,0.6666666666666666,0.33333333333333337,false,0.6666666666666666,false,43,""
+50217243,71211553,Convert SQL query to SQL Server,Convert from Oracle to SQL Server,-5,-3,0.6666666666666666,0.33333333333333337,false,0.6666666666666666,false,184,""
+39979514,59370908,Why am I encountering the symbol end of file in Oracle?,"Error(34,24): PLS-00103: Encountered the symbol \"end-of-file\" when expecting one of the following",-1,-1,0.6557377049180327,0.34426229508196726,false,0.6557377049180327,false,139,""
