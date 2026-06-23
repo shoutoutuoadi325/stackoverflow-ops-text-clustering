@@ -1,21 +1,15 @@
 # 输出说明
 
-`eda_summary.csv` 和 `top_tags.csv` 填入了实施方案中已经给出的全量数据统计，可直接用于报告初稿。
+最终结果位于 `output/intra_topic_results/`，包含 k50、k100、k150、k150c2、k200、k200c2。
 
-`cluster_samples.csv` 和 `similar_pair_samples.csv` 是报告与答辩可直接打开的稳定样例文件。导出脚本会优先从 `output/evaluation/sweep/yarn_sim065_ht2_bucket200/` 同步高召回样例；如果该目录不存在，则回退到 Spark local 或 `output/hdfs_output/` 中的样例目录。
+权威派生表：
 
-```bash
-bash scripts/03_submit_eda.sh
-bash scripts/04_submit_preprocess.sh
-bash scripts/05_submit_cluster.sh
-bash scripts/06_export_demo.sh
-bash scripts/06_export_evaluation.sh
-```
+- `evaluation/final_intra_topic_sweep.csv`：六组 Baseline/Hybrid 汇总。
+- `evaluation/hybrid_edge_overlap.csv`：K 与压缩方案的边集合重叠。
+- `intra_topic_results/<label>/summary.csv`：Baseline。
+- `intra_topic_results/<label>/hybrid_summary.csv`：Hybrid。
+- 其余 CSV：topic metrics、相似对、救援记录、Baseline/Hybrid 簇样例。
 
-也可以手动刷新顶层样例：
+`rescued_pair_count` 是按 ORA join 生成的记录数，同一 pair 可能出现多次。净新增边使用 `hybrid_pair_count - baseline_pair_count`。
 
-```bash
-python src/sync_report_samples.py
-```
-
-Spark 运行后，原始样例 CSV 仍会保存在 HDFS 输出旁边的 `*_samples_csv` 目录中。
+Raw Parquet 和完整日志保留在 HDFS。顶层旧全局 LSH 文件只作历史对照，不进入最终结论。

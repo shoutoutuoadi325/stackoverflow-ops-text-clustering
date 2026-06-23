@@ -1,0 +1,5 @@
+comparison,edges_a,edges_b,common_edges,union_edges,set_jaccard,interpretation
+k150_vs_k200_4x,42,42,42,42,1.0000,K saturated within the 4x regime
+k150c2_vs_k200c2_2x,42,42,42,42,1.0000,K saturated within the 2x regime
+k150_4x_vs_k150c2_2x,42,42,37,47,0.7872,aggregate metrics stable but five edges differ per set
+k200_4x_vs_k200c2_2x,42,42,37,47,0.7872,aggregate metrics stable but five edges differ per set

@@ -6,6 +6,11 @@
 #
 # Env overrides:
 #   RESCUE_TITLE_SIM_FLOOR=0.55  RESCUE_TAG_SIM_FLOOR=0.50
+#   TOPIC_TRAINING_NUM_FEATURES=65536 folds TF-IDF vectors only for large-K
+#   BisectingKMeans training to avoid driver-side summarize OOM. Set to 0 to
+#   use the original 262144-dim vectors.
+#   TOPIC_SKIP_SILHOUETTE=1 skips the expensive silhouette pass; duplicate
+#   pair/group metrics are still produced by intra-topic LSH.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -15,6 +20,8 @@ source "$SCRIPT_DIR/common.sh"
 export PATH="/opt/bigdata/hadoop/bin:/opt/bigdata/spark/bin:/opt/bigdata/jdk/bin:${PATH:-}"
 export RESCUE_TITLE_SIM_FLOOR="${RESCUE_TITLE_SIM_FLOOR:-0.55}"
 export RESCUE_TAG_SIM_FLOOR="${RESCUE_TAG_SIM_FLOOR:-0.50}"
+export TOPIC_TRAINING_NUM_FEATURES="${TOPIC_TRAINING_NUM_FEATURES:-65536}"
+export TOPIC_SKIP_SILHOUETTE="${TOPIC_SKIP_SILHOUETTE:-1}"
 
 LOG="${PIPELINE_LOG:-/tmp/k150_k200_pipeline.log}"
 

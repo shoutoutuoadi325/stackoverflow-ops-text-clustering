@@ -1,0 +1,436 @@
+﻿% !TeX program = xelatex
+% Based on bigdata-article-template.tex supplied by the user.
+\documentclass[a4paper,UTF8,zihao=5,fontset=windows]{ctexart}
+\usepackage[top=25.4mm,bottom=25.4mm,left=31.75mm,right=31.75mm,
+  headheight=14pt,headsep=8pt,footskip=18pt]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{longtable,booktabs,array,calc,multirow}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+\setCJKsansfont{SimHei}
+
+\definecolor{TemplateRed}{RGB}{192,0,0}
+\definecolor{ReportBlue}{RGB}{35,82,124}
+\definecolor{ReportGreen}{RGB}{20,135,112}
+\definecolor{ReportOrange}{RGB}{198,119,20}
+\definecolor{LightBlue}{RGB}{232,240,248}
+\hypersetup{hidelinks,pdfcreator={XeLaTeX}}
+\urlstyle{same}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\zihao{-5}\thepage}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\setstretch{1.42}
+\setcounter{secnumdepth}{3}
+\ctexset{
+  section={format=\zihao{4}\bfseries\heiti,beforeskip=0.9\baselineskip,afterskip=0.35\baselineskip},
+  subsection={format=\zihao{-4}\bfseries\heiti,beforeskip=0.65\baselineskip,afterskip=0.2\baselineskip},
+  subsubsection={format=\zihao{5}\bfseries\heiti,beforeskip=0.45\baselineskip,afterskip=0.15\baselineskip}
+}
+\setlist[enumerate]{leftmargin=2em,itemsep=0pt,parsep=0pt,topsep=0.2\baselineskip}
+\setlist[itemize]{leftmargin=2em,itemsep=0pt,parsep=0pt,topsep=0.2\baselineskip}
+\setlength{\LTpre}{0.25\baselineskip}
+\setlength{\LTpost}{0.35\baselineskip}
+\renewcommand{\arraystretch}{1.22}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newenvironment{cnabstract}{\begin{quote}\zihao{-5}\setstretch{1.35}}{\end{quote}}
+\newcommand{\maintitle}[1]{\begin{center}\zihao{2}\bfseries\heiti #1\end{center}}
+\newcommand{\authorscn}[1]{\begin{center}\zihao{5}#1\end{center}}
+\newcommand{\affiliation}[1]{\begin{center}\zihao{-5}#1\end{center}}
+\newcommand{\sourceNote}[1]{\par\noindent{\zihao{-5}\color{gray}数据来源：#1}\par}
+\newcommand{\code}[1]{\texttt{#1}}
+\captionsetup{font=small,labelsep=quad}
+
+\begin{document}
+
+\maintitle{基于 Hadoop/Spark 的运维文本聚类研究}
+\authorscn{顾祎炜，张之麒，刘轩同，张万博，沈洪萱，陈虹玉}
+
+
+\vspace{0.6em}
+\hrule
+\begin{cnabstract}
+\noindent\textbf{摘要：}针对 StackOverflow Oracle 问题表述差异显著、错误码领域特征突出以及全局近似连接计算开销较高等问题，本文在三节点 Hadoop 3.3.6 与 Spark 3.5.1 集群上构建了一种融合主题划分、局部近似检索与领域知识补偿的运维文本聚类方法。该方法首先利用 BisectingKMeans 建立语义分区，并在各主题内部执行 MinHashLSH，以降低候选生成的计算复杂度；随后将 ORA 错误码表示为结构化领域特征，通过主题内相似度校正与跨主题候选补偿缓解语义分区造成的漏检。针对较大 K 值下的内存压力，本文采用仅作用于主题训练向量的 modulo folding，并以 Parquet 物化方式截断 Spark lineage。六组对照实验表明：K=50 时 Hybrid 图获得最高覆盖规模，共形成 46 对相似关系、42 个重复簇并覆盖 87 个问题；在相同压缩方案下，K=150 与 K=200 的 42 条 Hybrid 边完全一致；不同压缩倍率的聚合规模一致，但边集合 Jaccard 为 0.7872。结果说明，语义分区、领域知识补偿与分布式资源优化能够协同构成具有可解释性和可复现性的运维文本聚类框架。
+
+\noindent\textbf{关键词：}Hadoop；Spark；文本聚类；MinHashLSH；Oracle；ORA 错误码；领域救援
+\end{cnabstract}
+\hrule
+\vspace{0.8em}
+
+\section{引言}
+
+技术问答平台中存在大量语义相同但表达方式不同的问题。对 Oracle 运维文本而言，同一故障可能被描述为 SQL 语法异常、PL/SQL 编译失败、监听连接问题或数据库链接失败；标题、正文、标签和回答中的信息密度也不一致。若仅依赖关键词完全匹配，容易漏掉改写问题；若直接在全库执行全局近似相似连接，又会带来较大的候选规模和计算开销。
+
+本文以 StackOverflow Oracle 问答数据为研究对象，提出一条由语义分区、局部近似检索、图聚类和领域知识补偿构成的分析路径。首先利用主题聚类约束候选空间，随后在主题内部进行 MinHashLSH 相似检索，并以连通分量形成重复问题簇；针对主题切分引入的跨分区漏检，再利用结构化 ORA 错误码实施领域补偿。为保证分析的可核验性，实验同时保留参数配置、派生统计与代表性边样例。
+
+本文围绕方法设计、分布式实现、领域知识融合、参数稳定性与实验边界展开讨论。
+
+\section{研究任务与系统实现}
+
+\subsection{研究任务}
+
+研究面向大规模技术问答语料中的主题组织与重复问题发现，具体任务包括：
+
+\begin{enumerate}
+  \item 完成原始 StackOverflow 数据的格式转换、HDFS 入湖、Spark 清洗和 Parquet 中间层建设；
+  \item 使用 TF-IDF 与 BisectingKMeans 发现 Oracle 问题主题，并以主题作为相似候选的 blocking；
+  \item 使用 binary HashingTF、MinHashLSH 和连通分量发现高置信相似问题；
+  \item 使用结构化 ORA 错误码补回跨主题重复，并通过 K 扫描和向量压缩对照验证结果稳定性。
+\end{enumerate}
+
+\subsection{系统实现范围}
+
+系统覆盖数据接入、分布式预处理、特征表示、主题聚类、局部近似检索、图连通分析与领域知识补偿等环节。实验在 K=50、100、150 和 200 下进行主题划分，并针对 K=150/200 设置 4 倍与 2 倍主题训练向量压缩对照。实现同时提供结果导出、命令行与网页交互界面以及复现实验脚本。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=5mm and 6mm,>=Latex,
+  box/.style={draw=ReportBlue,rounded corners,fill=LightBlue,minimum height=9mm,
+    text width=24mm,align=center,font=\small},
+  arrow/.style={->,thick,draw=ReportBlue}]
+\node[box] (json) {JSON 数组\\转 JSONL};
+\node[box,right=of json] (hdfs) {HDFS 入湖\\Spark 清洗};
+\node[box,right=of hdfs] (feat) {TF-IDF\\binary HashingTF};
+\node[box,right=of feat] (topic) {BisectingKMeans\\主题 blocking};
+\node[box,below=of topic] (lsh) {主题内\\MinHashLSH};
+\node[box,left=of lsh] (cc) {相似边物化\\连通分量};
+\node[box,left=of cc] (ora) {ORA 跨主题\\领域救援};
+\node[box,left=of ora] (out) {Hybrid 图\\派生 CSV};
+\draw[arrow] (json)--(hdfs);
+\draw[arrow] (hdfs)--(feat);
+\draw[arrow] (feat)--(topic);
+\draw[arrow] (topic)--(lsh);
+\draw[arrow] (lsh)--(cc);
+\draw[arrow] (cc)--(ora);
+\draw[arrow] (ora)--(out);
+\end{tikzpicture}
+\caption{数据处理与聚类总体流程}
+\end{figure}
+
+\section{实验环境与数据处理}
+
+\subsection{集群环境}
+
+\begin{table}[H]
+\centering
+\caption{实验环境}
+\begin{tabular}{p{0.28\linewidth}p{0.58\linewidth}}
+\toprule
+项目 & 配置 \\
+\midrule
+集群节点 & master、worker1、worker2 \\
+Hadoop & 3.3.6，HDFS + YARN \\
+Spark & 3.5.1，运行于 YARN \\
+Java & OpenJDK 8u412 \\
+主要存储格式 & JSONL、Parquet、CSV \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+集群环境经 HDFS 读写、YARN 资源调度、Spark 作业执行和 Web UI 状态检查验证。
+
+\subsection{数据规模与入湖}
+
+原始文件约 589 MB，为嵌套 JSON 数组。本文首先采用流式方式将其转换为 JSONL，以避免整文件载入内存，随后写入 HDFS。清洗后形成可重复读取的 Parquet 中间层。最终处理对象包括 152,758 个问题、203,393 个回答、331,642 条问题评论和 220,296 条回答评论，共 908,089 个文本对象。评论噪声较高，主要用于 EDA，不进入最终聚类文本。
+
+\begin{table}[H]
+\centering
+\caption{数据对象规模}
+\begin{tabular}{lr}
+\toprule
+对象 & 数量 \\
+\midrule
+问题 & 152,758 \\
+回答 & 203,393 \\
+问题评论 & 331,642 \\
+回答评论 & 220,296 \\
+总文本对象 & 908,089 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{文本清洗与加权}
+
+清洗过程包括 HTML 标签与实体处理、链接和无意义噪声清理、大小写标准化、技术 token 保留、高分回答选择和 ORA 错误码抽取。最终聚类文本按以下方式构造：
+
+\begin{center}
+\code{doc\_text = title * 3 + body * 2 + tags + top\_3\_answers}
+\end{center}
+
+标题被重复三次以提高问题核心描述的权重，正文重复两次以保留故障上下文，标签提供技术领域先验，高质量回答补充解决方案语义。ORA 码从加权前的原始组合文本中抽取、去重，并以 \code{array<string>} 保存，避免错误码只作为普通 token 时被分词或停用处理削弱。
+
+\section{研究方法}
+
+\subsection{特征工程}
+
+系统构造两套用途分离的特征：
+
+\begin{itemize}
+  \item \textbf{主题特征：}RegexTokenizer、StopWordsRemover、HashingTF、IDF 和 L2 Normalizer，供 BisectingKMeans 使用；
+  \item \textbf{相似特征：}binary HashingTF，供 MinHashLSH 估计集合 Jaccard 相似度。
+\end{itemize}
+
+基础存储维度为 262,144。大 K 对照只对主题训练输入进行 modulo folding，MinHashLSH 始终读取未压缩的 \code{term\_features}，从而把聚类资源优化与相似特征质量隔离。
+
+\subsection{基于主题划分的语义 Blocking}
+
+本文首先使用 BisectingKMeans 生成主题分区，再按分区规模排序，并在各 topic 内独立执行 \code{approxSimilarityJoin}。该两阶段结构将全库检索转化为粗粒度语义分区与细粒度 Jaccard 筛选，从而缩小近似连接的候选空间，并使主题结构直接参与重复关系发现。
+
+语义分区可能将部分真实重复问题分配至不同 topic。本文保留 blocking 的计算优势，并通过后续 ORA 领域补偿对跨主题候选进行定向恢复。
+
+\subsection{主题内 MinHashLSH 与瘦 Join}
+
+MinHashLSH 内部只携带 \code{doc\_id} 和 \code{term\_features}，不把标题、正文、tokens、ORA 数组等重字段带入近似连接。候选形成后再回填元数据，并使用完整 token 集合重新计算 Jaccard。每个源问题保留 Top 10 候选，然后将无向边去重。
+
+这一实现减少了 cross-join 期间的序列化与内存压力。同时，导出边保留原始相似度、共享 ORA、是否跨主题和边来源等审计字段。
+
+\subsection{ORA 领域信号的三层迭代}
+
+ORA 领域信号经历了从文本 token 到图补边规则的三层演进：
+
+\begin{enumerate}
+  \item \textbf{结构化抽取：}将 \code{ora-\textbackslash d\{4,5\}} 抽取为独立数组列；
+  \item \textbf{主题内增强：}候选共享 ORA 时，使用 \(\min(1, s_{raw}+0.10)\) 进行 boost，并保留 rescue floor 机制；
+  \item \textbf{跨主题救援：}按有效 ORA 码连接不同 topic 的文档，使用完整 token Jaccard 下限 0.55，或“标签有交集且 Jaccard 不低于 0.50”的条件控制质量。
+\end{enumerate}
+
+有效 ORA 码的文档频次限制为 2 至 150，避免极稀有错误码无法成对，也避免高频泛化错误码造成候选爆炸。救援边与 Baseline 合并后按无向文档对去重，再重新计算连通分量，形成 Hybrid 重复图。
+
+\subsection{连通分量与 Lineage 截断}
+
+相似问题簇通过标签传播近似计算连通分量。若多个 topic 的 LSH DataFrame union 后直接进入迭代，Spark 的惰性求值会在每轮传播中重新触发上游 LSH。实现中先将相似边写为 Parquet，再重新读取，从而明确切断 lineage；迭代内部使用 \code{localCheckpoint} 控制 DAG 长度。
+
+该策略不改变相似边的判定逻辑，其作用是将高开销候选生成与轻量级图迭代解耦，从而提高较大 K 值下作业执行的稳定性。
+
+\subsection{向量 Folding 与六组实验}
+
+对照实验包含六组配置：
+
+\begin{table}[H]
+\centering
+\caption{六组实验配置}
+\begin{tabular}{lrrl}
+\toprule
+标签 & K & 主题训练维度 & 压缩说明 \\
+\midrule
+k50 & 50 & 262,144 & 不压缩 \\
+k100 & 100 & 262,144 & 不压缩 \\
+k150 & 150 & 65,536 & 4 倍 folding \\
+k150c2 & 150 & 131,072 & 2 倍 folding \\
+k200 & 200 & 65,536 & 4 倍 folding \\
+k200c2 & 200 & 131,072 & 2 倍 folding \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+本文六组对照均采用重新训练压缩向量的 folding 路径，以保证实验条件和统计口径一致。
+
+\section{方法创新与技术贡献}
+
+\subsection{语义分区驱动的局部候选生成}
+
+BisectingKMeans 主题结果直接约束 MinHashLSH 候选空间，使主题聚类由独立分析结果转化为相似检索的第一阶段索引。该设计既降低全局连接压力，也为后续分析提供主题语义上下文。
+
+\subsection{结构化 ORA 领域信号与跨主题混合图}
+
+本文将 ORA 码用于结构化索引、相似度校正和跨主题补边，而非仅将其保留为普通文本 token。该机制针对主题 blocking 的结构性漏检进行修复：只有共享错误码且文本或标签相似度达到下限的文档对才能成为救援边。每条救援边均可追溯共享 ORA 码与原始相似度。
+
+\subsection{面向任务隔离的向量 Folding}
+
+资源优化只作用于 BisectingKMeans 训练输入，LSH 相似特征保持 262,144 维。与同时压缩所有特征相比，这一设计把“主题训练能否运行”和“相似度表示是否损失”拆成两个独立问题，为大 K 运行提供更可控的折中。
+
+\subsection{K 值与压缩倍率的双层稳定性检验}
+
+除对数、簇数和覆盖问题数外，本文进一步重建各组 Hybrid 无向边集合，并计算集合交集与 Jaccard。该做法揭示了聚合指标无法反映的微观差异：2 倍与 4 倍压缩均得到 42 条边，但只有 37 条共同边。由此避免了“计数相同即结果完全相同”的错误结论。
+
+\subsection{Spark Lineage 的物化截断}
+
+把候选边写 Parquet 后重读，使迭代图算法不再反复执行上游主题内 LSH。此方法将 Spark DAG 管理、持久化策略和算法阶段边界结合起来，是可迁移到其他大规模图迭代任务的工程创新。
+
+\subsection{轻量候选生成与可核验结果链}
+
+候选生成只携带必要字段，元数据在候选确定后回填。Raw Parquet 与完整日志保留在集群，只跟踪 summary、相似对样例、救援样例、簇样例和 topic metrics。该设计兼顾版本库体积、数据边界、结果呈现与实验核验。
+
+本文的技术贡献集中于领域方法融合、对照实验设计与分布式计算优化，其适用性主要面向具有结构化故障标识的运维文本场景。
+
+\section{实验结果与分析}
+
+\subsection{统计口径}
+
+六组 Baseline/Hybrid 统计均由固定版本流水线在 HDFS 结果上统一导出。净新增边定义为 Hybrid 与 Baseline 的唯一无向边数之差；边集合重合数与 Jaccard 则通过重建各配置的无向边集合计算得到。Raw Parquet 用于集群侧复核，正文报告聚合统计与代表性样例。
+
+\subsection{六组汇总结果}
+
+\begin{table}[H]
+\centering
+\caption{六组对照实验结果}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+运行 & K & 训练维度 & Baseline 对/簇/问题 & 救援记录 & 净新增边 & Hybrid 对/簇/问题 & Hybrid 均值 \\
+\midrule
+k50 & 50 & 262,144 & 43/39/81 & 3 & 3 & 46/42/87 & 0.7313 \\
+k100 & 100 & 262,144 & 41/37/77 & 3 & 3 & 44/40/83 & 0.7328 \\
+k150 & 150 & 65,536 & 38/36/74 & 6 & 4 & 42/40/82 & 0.7557 \\
+k150c2 & 150 & 131,072 & 38/36/74 & 5 & 4 & 42/40/82 & 0.7574 \\
+k200 & 200 & 65,536 & 37/35/72 & 7 & 5 & 42/40/82 & 0.7557 \\
+k200c2 & 200 & 131,072 & 38/36/74 & 5 & 4 & 42/40/82 & 0.7574 \\
+\bottomrule
+\end{tabular}}
+\sourceNote{六组实验的统一汇总结果；净新增边由 Hybrid 与 Baseline 的唯一边数之差计算。}
+\end{table}
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.88\textwidth,height=6.8cm,
+  xlabel={K},ylabel={覆盖问题数},
+  xmin=40,xmax=210,ymin=68,ymax=90,
+  xtick={50,100,150,200},ytick={70,75,80,85,90},
+  grid=major,legend pos=south west,
+  every axis plot/.append style={thick,mark=*}]
+\addplot[color=ReportBlue] coordinates {(50,81) (100,77) (150,74) (200,72)};
+\addlegendentry{Baseline（4 倍主线）}
+\addplot[color=ReportGreen] coordinates {(50,87) (100,83) (150,82) (200,82)};
+\addlegendentry{Hybrid（4 倍主线）}
+\end{axis}
+\end{tikzpicture}
+\caption{K 扫描中的 Baseline 与 Hybrid 覆盖变化}
+\end{figure}
+
+随着 K 增大，主题划分更细，Baseline 覆盖从 81 降至 72，说明更多真实相似边被分到不同主题；与此同时 ORA 救援带来的净增问题从 6 增至 10，Hybrid 在 K=150 和 K=200 稳定为 82 个问题。这一交互规律直接说明 D3 ORA 救援与主题 blocking 互补，而不是独立附加功能。
+
+\subsection{救援记录与唯一边的区别}
+
+\code{rescued\_pair\_count} 统计按 ORA 码 join 后的记录行。同一文档对共享多个 ORA 码时会重复出现，因此 K=150 的 6 条救援记录只形成 4 条净新增无向边，K=200 的 7 条记录形成 5 条净新增边。本文同时给出两种口径，避免把 join 行数误称为唯一相似对数。
+
+代表性救援样例包括 ORA-29280 的文件路径问题、ORA-30926 的数据更新问题，以及 ORA-00906 的左括号缺失问题。其他样例包括 ORA-04063/ORA-06508 的 package 编译与调用、ORA-28545/ORA-02063 的外部数据源与 DB link。部分样例的原始 Jaccard 低于主阈值，但共享错误码和领域语义使其能够被审计地补回。
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{assets/ora-boost-examples.png}
+\caption{跨主题 ORA 候选的相似度校正示例}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.62\textheight]{assets/k150-cluster-similarity.png}
+\caption{K=150 下 36 个重复簇代表边的相似度分布}
+\end{figure}
+
+\subsection{K 收敛与压缩扰动}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth,trim=40 385 0 0,clip]{assets/compression-comparison.png}
+\caption{K=150/200 下不同主题训练向量压缩倍率的聚合结果}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Hybrid 边集合稳定性}
+\begin{tabular}{p{0.43\linewidth}rrp{0.27\linewidth}}
+\toprule
+比较 & 共同边 & Jaccard & 结论 \\
+\midrule
+k150 与 k200（4 倍） & 42/42 & 1.0000 & K=150 后完全收敛 \\
+k150c2 与 k200c2（2 倍） & 42/42 & 1.0000 & K=150 后完全收敛 \\
+k150 4 倍与 k150c2 2 倍 & 37/42 & 0.7872 & 聚合稳定，微观边有扰动 \\
+k200 4 倍与 k200c2 2 倍 & 37/42 & 0.7872 & 聚合稳定，微观边有扰动 \\
+\bottomrule
+\end{tabular}
+\sourceNote{依据各配置的完整无向边集合计算。}
+\end{table}
+
+同一压缩方案下，K=150 与 K=200 的边集合均完全一致，因此继续提高 K 没有带来新的 Hybrid 候选。不同压缩方案虽然对数、簇数、问题数相同，但每组各有 5 条边不同，37 条共同边占单组 88.1\%，并集为 47 条，Jaccard 为 \(37/47=0.7872\)。所以“4 倍压缩完全无损”或“六组结果完全一致”均不严谨；正确结论是宏观规模稳定、微观候选存在扰动。
+
+\subsection{参数选择讨论}
+
+K=50 的 Hybrid 结果具有最高覆盖规模，可用于观察较丰富的重复关系；K=150 的 4 倍压缩配置形成 42 对、40 个簇并覆盖 82 个问题，平均相似度为 0.7557，且其 Hybrid 边集合与 K=200 完全一致。因此，在覆盖规模、簇内相似性和计算成本之间权衡时，K=150 可作为较合理的工程配置。K=200 主要用于检验继续细化主题后的边际收益，而 2 倍压缩对照则用于分析特征压缩对微观候选集合的影响。
+
+
+
+\section{系统实现与可复现性}
+
+系统实现由数据预处理、特征工程、主题聚类、主题内 LSH、领域补偿和图连通分析等模块组成，并针对基础 K 值、大 K 值与压缩对照分别提供参数化作业脚本。中间数据与完整运行日志存储于 HDFS，汇总统计、相似边样例、救援边样例、簇样例和 topic metrics 以轻量结果表导出。
+
+复现实验可按基础配置、4 倍大 K 配置、2 倍压缩对照和独立 ORA 补偿四类任务执行。统一的结果结构使聚合指标能够进一步追溯至具体簇与具体边，从而支持参数比较和案例核验。
+
+\section{讨论}
+
+\subsection{方法与工程启示}
+
+实验表明，语义分区直接参与候选生成后，能够同时发挥主题组织与计算约束作用。主题聚类与近似检索的串联结构显著降低了全局连接开销；结构化 ORA 信号进一步补偿主题边界效应，在共享故障标识与文本相似性共同成立时恢复跨主题候选，从而形成语义特征与领域知识协同的检索机制。
+
+分布式实现进一步说明，作业稳定性不仅取决于数据规模，也受到 Spark DAG 结构的显著影响。候选边物化能够切断上游 LSH lineage，使后续连通分量迭代在较小边集上执行。与此同时，将向量 folding 限定于主题训练任务，可避免资源优化直接改变 LSH 特征空间。边集合对比显示，聚合计数相同仍可能对应不同候选，因此稳定性评价应同时考察宏观统计与微观对象集合。
+
+本文采用相似对数、重复簇数、覆盖问题数与平均相似度刻画候选图的结构和质量，并以净新增唯一边衡量 ORA 补偿的图增量。按 ORA 码连接形成的记录数用于描述领域规则触发规模，去重后的边集合用于计算 Hybrid 图；两类指标相互补充，使结果分析同时覆盖规则行为与图结构变化。
+
+
+\section{作者贡献说明}
+
+六位作者的具体分工如下。
+
+\begin{longtable}{p{0.12\linewidth}p{0.22\linewidth}p{0.56\linewidth}}
+\caption{作者分工}\\
+\toprule
+成员 & 负责模块 & 核心贡献 \\
+\midrule
+\endfirsthead
+\toprule
+成员 & 负责模块 & 核心贡献 \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+顾祎炜 & 集群环境与运维 & 三节点 Hadoop + YARN + Spark 部署，HDFS/YARN/Web UI 可用性验证 \\
+张之麒 & 数据工程与 EDA & JSON$\rightarrow$JSONL、HDFS 上传、Spark 清洗、Parquet 中间层、全部 EDA 统计与图表 \\
+刘轩同 & 主题聚类与 K 值实验 & TF-IDF 特征工程、BisectingKMeans、K=25/50/100/125/150 实验与大簇分析 \\
+张万博 & 簇内去重与领域特征 & MinHashLSH 簇内去重、连通分量、ORA 错误码 D2 \\
+沈洪萱 & 评测与 Demo & 三层诚实评测 D1、人工标注、precision/Wilson CI、网页+命令行 Demo、D3 视图 \\
+陈虹玉 & PPT 与汇报材料 & 汇报 PPT 制作与排版、素材整理、答辩演练协调 \\
+\end{longtable}
+
+六位作者分别负责集群基础设施、数据处理、主题建模、相似关系发现、实验评测和成果组织，各模块在方法设计与系统实现中相互衔接。经全体成员确认，\textbf{六位成员最终贡献相同，贡献比例均为六分之一；课程成绩与项目分数平均分配，六人分数相同，不设置成员间分差。}
+
+\section{结论}
+
+本文构建了从分布式数据处理、特征表示到主题聚类、局部近似检索、领域补偿和图连通分析的一体化方法。实验结果表明，主题 blocking 能够约束候选规模，但随着 K 增大，跨主题漏检更加明显；结构化 ORA 信号可对这类分区缺失进行定向补偿。在相同压缩方案下，Hybrid 边集合于 K=150 后保持稳定；不同压缩倍率虽然得到相同的聚合规模，但微观边集合仍存在差异。
+
+研究结果验证了语义 blocking、领域知识补偿、图聚类与 Spark 执行优化之间的协同关系。六组对照实验以及边集合层面的稳定性分析，使方法评价超越了单一聚合计数。该框架可为包含结构化错误码、告警码或故障码的运维文本组织与重复检测提供参考。
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

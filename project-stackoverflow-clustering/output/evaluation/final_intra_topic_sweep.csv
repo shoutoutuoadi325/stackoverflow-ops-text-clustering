@@ -1,0 +1,7 @@
+run_label,k,topic_training_dimensions,baseline_pairs,baseline_clusters,baseline_questions,baseline_max_cluster_size,baseline_avg_similarity,rescued_records,net_new_edges,hybrid_pairs,hybrid_clusters,hybrid_questions,hybrid_max_cluster_size,hybrid_avg_similarity
+k50,50,262144,43,39,81,4,0.726486,3,3,46,42,87,4,0.731252
+k100,100,262144,41,37,77,4,0.727956,3,3,44,40,83,4,0.732838
+k150,150,65536,38,36,74,3,0.759235,6,4,42,40,82,3,0.755733
+k150c2,150,131072,38,36,74,3,0.756547,5,4,42,40,82,3,0.757381
+k200,200,65536,37,35,72,3,0.753403,7,5,42,40,82,3,0.755733
+k200c2,200,131072,38,36,74,3,0.756547,5,4,42,40,82,3,0.757381
